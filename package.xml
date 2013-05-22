@@ -1,0 +1,24 @@
+<package>
+  <name>rosjava_tools</name>
+  <version>0.1.0</version>
+  <description>
+    Simple tools and catkin modules for rosjava development. 
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/rosjava_tools</url>
+  <url type="repository">https://github.com/ros-java/rosjava_tools</url>
+  <url type="bugtracker">https://github.com/ros-java/rosjava_tools/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>rospkg</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>java</build_depend>
+  <build_depend>ant</build_depend>
+  <run_depend>rospkg</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>java</run_depend>
+  <run_depend>ant</run_depend>
+</package>
