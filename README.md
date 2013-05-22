@@ -30,4 +30,7 @@ find_package(catkin REQUIRED rosjava_tools)
 catkin_rosjava_setup(install)
 ```
 
-which just sets up dummy targets in the cmake configuration which call out to gradle in the actual make step.
+This cmake makro sets up dummy targets in the cmake configuration which call out to gradle in the actual make step. 
+It also parses the `package.xml` to add target dependencies from each `build_depends` tag (subsequently letting you
+sequence builds across repositories).
+
