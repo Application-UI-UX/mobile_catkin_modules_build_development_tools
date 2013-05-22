@@ -1,13 +1,12 @@
-RosJava Tools
-=============
+# RosJava Tools
 
 Build tools for rosjava and android repositories. Currently only includes tools for the rosjava repositories which are
 quite trivial, just a cmake macro. The android repository support has been done, but waiting to see how the android
 gradle plugin goes before dropping them back in here.
 
 
-Simple Demo
-===========
+## RosJava Demo
+
 
 ```
 > mkdir -p ~/rosjava/src
