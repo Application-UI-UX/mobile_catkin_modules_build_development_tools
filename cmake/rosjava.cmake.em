@@ -48,6 +48,14 @@ macro(catkin_rosjava_setup task)
             add_dependencies(gradle-${PROJECT_NAME} gradle-${depends})
         endif()
     endforeach()
+    if(NOT TARGET gradle-clean)
+        add_custom_target(gradle-clean)
+    endif()
+    add_custom_target(gradle-clean-${PROJECT_NAME}
+        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} clean
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    )
+    add_dependencies(gradle-clean gradle-clean-${PROJECT_NAME})
 endmacro()
 
 # Calls the root level gradle wrapper to run the multi-project 
