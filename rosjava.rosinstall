@@ -1,0 +1,6 @@
+[
+{'git': {'local-name': 'rosjava_tools', 'version': 'hydro-devel', 'uri':'https://github.com/ros-java/rosjava_tools.git'}},
+{'git': {'local-name': 'rosjava_core', 'version': 'hydro-devel', 'uri':'https://github.com/ros-java/rosjava_core.git'}},
+{'git': {'local-name': 'rosjava_jmdns_suite', 'version': 'hydro-devel', 'uri':'https://github.com/ros-java/rosjava_jmdns_suite.git'}}
+]
+
