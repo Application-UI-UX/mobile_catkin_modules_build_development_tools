@@ -104,6 +104,7 @@ macro(catkin_android_setup)
     add_custom_target(gradle-${PROJECT_NAME}
         ALL
         COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_task}
+        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} install
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     )
     catkin_package_xml()
