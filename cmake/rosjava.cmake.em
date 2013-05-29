@@ -104,9 +104,14 @@ macro(catkin_android_setup)
     add_custom_target(gradle-${PROJECT_NAME}
         ALL
         COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_task}
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    )
+    add_custom_target(gradle-install-${PROJECT_NAME}
+        ALL
         COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} install
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     )
+    add_dependencies(gradle-install-${PROJECT_NAME} gradle-${PROJECT_NAME})
     catkin_package_xml()
     foreach(depends in ${${PROJECT_NAME}_BUILD_DEPENDS})
         if(TARGET gradle-${depends})
