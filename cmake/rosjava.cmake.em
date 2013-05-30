@@ -39,13 +39,12 @@ endmacro()
 # RosJava Package
 ##############################################################################
 # Calls the gradle wrapper to compile just the package
-# that it is called in. 
-# Experimental - probably better to leave gradle handle entire repos.
-macro(catkin_rosjava_setup task)
+# that it is called in with install and installApp targets.
+macro(catkin_rosjava_setup)
     find_gradle()
     add_custom_target(gradle-${PROJECT_NAME}
         ALL
-        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${task}
+        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} install installApp 
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     )
     catkin_package_xml()
@@ -71,12 +70,12 @@ endmacro()
 
 # Calls the root level gradle wrapper to run the multi-project 
 # configuration and compile the entire suite.
-macro(catkin_rosjava_repo_setup task)
+macro(catkin_rosjava_repo_setup)
     find_gradle()
     find_gradle_repo_root()
     add_custom_target(gradle-${PROJECT_NAME}
         ALL
-        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${task}
+        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} install installApp 
         WORKING_DIRECTORY ${${PROJECT_NAME}_gradle_ROOT}
     )
     catkin_package_xml()
@@ -103,15 +102,9 @@ macro(catkin_android_setup)
     endif()
     add_custom_target(gradle-${PROJECT_NAME}
         ALL
-        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_task}
+        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_task} install
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     )
-    add_custom_target(gradle-install-${PROJECT_NAME}
-        ALL
-        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} install
-        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    )
-    add_dependencies(gradle-install-${PROJECT_NAME} gradle-${PROJECT_NAME})
     catkin_package_xml()
     foreach(depends in ${${PROJECT_NAME}_BUILD_DEPENDS})
         if(TARGET gradle-${depends})
