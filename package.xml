@@ -13,11 +13,11 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <build_depend>rospkg</build_depend>
+  <build_depend>python-rospkg</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>java</build_depend>
   <build_depend>ant</build_depend>
-  <run_depend>rospkg</run_depend>
+  <run_depend>python-rospkg</run_depend>
   <run_depend>rospy</run_depend>
   <run_depend>java</run_depend>
   <run_depend>ant</run_depend>
