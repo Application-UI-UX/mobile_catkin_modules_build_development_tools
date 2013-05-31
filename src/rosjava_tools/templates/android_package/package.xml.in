@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package>
+  <name>@name</name>
+  <version@version_abi>@version</version>
+  <description>@description</description>
+
+  <!-- One maintainer tag required, multiple allowed, one person per tag -->
+  <!-- <maintainer email="jane.doe@@example.com">Jane Doe</maintainer> -->
+@maintainers
+
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+@licenses
+
+  <!-- Url tags are optional, but mutiple are allowed, one per tag -->
+  <url type="website">http://ros.org/wiki/@name</url>
+  <!-- <url type="repository">https://github.com/ros-java/android_honeycomb</url> -->
+  <!-- <url type="bugtracker">https://github.com/ros-java/android_honeycomb/issues</url> -->
+@urls
+
+  <!-- Author tags are optional, multiple are allowed, one per tag -->
+  <!-- Example: -->
+  <!-- <author email="jane.doe@@example.com">Jane Doe</author> -->
+@authors
+
+  <!-- The rosjava_tool depends is for cmake injection of catkin_android_setup -->
+  <!-- Other build_depend tags are used to specify android library dependencies -->
+  <!-- e.g. android_gingerbread, android_honeycomb -->
+  <!-- No run_depend tags are necessary since we download to the device -->
+@dependencies
+
+</package>
