@@ -1,3 +1,4 @@
+# The core rosjava packages
 [
 {'git': {'local-name': 'rosjava_tools', 'version': 'hydro-devel', 'uri':'https://github.com/ros-java/rosjava_tools.git'}},
 {'git': {'local-name': 'rosjava_core', 'version': 'hydro-devel', 'uri':'https://github.com/ros-java/rosjava_core.git'}},
