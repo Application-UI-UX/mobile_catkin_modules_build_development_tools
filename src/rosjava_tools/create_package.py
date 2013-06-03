@@ -37,17 +37,19 @@ def parse_arguments():
     parser.add_argument('dependencies',
                         nargs='*',
                         help='Android library dependencies')
-    parser.add_argument('-l', '--license',
-                        action='append',
-                        default=["Apache 2.0"],
-                        help='Name for License, (e.g. BSD, MIT, GPLv3...)[BSD]')
-    parser.add_argument('-a', '--author',
-                        action='append',
-                        default=[utils.author_name()],
-                        help='A single author, may be used multiple times')
-    parser.add_argument('-m', '--maintainer',
-                        action='append',
-                        help='A single maintainer, may be used multiple times')
+
+    # need to move all this catkin stuff to android_init_repo
+#    parser.add_argument('-l', '--license',
+#                        action='append',
+#                        default=["Apache 2.0"],
+#                        help='Name for License, (e.g. BSD, MIT, GPLv3...)[BSD]')
+#    parser.add_argument('-a', '--author',
+#                        action='append',
+#                        default=[utils.author_name()],
+#                        help='A single author, may be used multiple times')
+#    parser.add_argument('-m', '--maintainer',
+#                        action='append',
+#                        help='A single maintainer, may be used multiple times')
     parser.add_argument('-V', '--pkg_version',
                         action='store',
                         default="0.1.0",
@@ -125,38 +127,39 @@ def create_catkin_package_files(args, is_library, sdk_version):
     plugin_name = "android-library" if is_library else "android"
     try:
         package_name = args.name[0].lower()
-        parent_path = os.getcwd()
-        target_path = utils.validate_path(os.path.join(parent_path, package_name))
-        build_depends = []
-        if 'rosjava_tools' not in args.dependencies:
-            build_depends.append('rosjava_tools')
-        for depend_name in args.dependencies:
-            build_depends.append(catkin_pkg.package.Dependency(depend_name))
-        package_template = PackageTemplate._create_package_template(
-            package_name=package_name,
-            description=args.description,
-            licenses=args.license or [],
-            maintainer_names=args.maintainer,
-            author_names=args.author,
-            version=args.pkg_version,
-            catkin_deps=[],
-            system_deps=[],
-            boost_comps=None)
-        package_template.exports = []
-        package_template.build_depends = build_depends
-        package_xml = create_package_xml(package_template=package_template, rosdistro='groovy')
+        # Also should move to init repo instead of here.
+#        parent_path = os.getcwd()
+#        target_path = utils.validate_path(os.path.join(parent_path, package_name))
+#        build_depends = []
+#        if 'rosjava_tools' not in args.dependencies:
+#            build_depends.append('rosjava_tools')
+#        for depend_name in args.dependencies:
+#            build_depends.append(catkin_pkg.package.Dependency(depend_name))
+#        package_template = PackageTemplate._create_package_template(
+#            package_name=package_name,
+#            description=args.description,
+#            licenses=args.license or [],
+#            maintainer_names=args.maintainer,
+#            author_names=args.author,
+#            version=args.pkg_version,
+#            catkin_deps=[],
+#            system_deps=[],
+#            boost_comps=None)
+#        package_template.exports = []
+#        package_template.build_depends = build_depends
+#        package_xml = create_package_xml(package_template=package_template, rosdistro='groovy')
         package_path = os.path.abspath(os.path.join(os.getcwd(), package_name))
-        filename = os.path.join(package_path, 'package.xml')
-        console.pretty_println("\nCreating catkin/gradle files", console.bold)
-        try:
-            f = open(filename, 'w')
-            f.write(package_xml)
-            console.pretty_print('  File: ', console.cyan)
-            console.pretty_println('package.xml', console.yellow)
-        finally:
-            f.close()
+        console.pretty_println("\nCreating gradle files", console.bold)
+#        try:
+#            filename = os.path.join(package_path, 'package.xml')
+#            f = open(filename, 'w')
+#            f.write(package_xml)
+#            console.pretty_print('  File: ', console.cyan)
+#            console.pretty_println('package.xml', console.yellow)
+#        finally:
+#            f.close()
         # Other files
-        for template_name in ['build.gradle', 'CMakeLists.txt']:
+        for template_name in ['build.gradle']:  # 'CMakeLists.txt']:
             filename = os.path.join(package_path, template_name)
             template = read_template_file(template_name)
             contents = instantiate_template(template, package_name, args.author[0], plugin_name, sdk_version)
