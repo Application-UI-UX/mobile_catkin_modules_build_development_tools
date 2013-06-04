@@ -9,12 +9,26 @@
 ##############################################################################
 
 import os
+import sys
 import errno
 import pwd
+import console
 
 ##############################################################################
 # Methods
 ##############################################################################
+
+
+def distro_version():
+    '''
+      This code is pulled from rosversion, which unfortunately has it buried inside
+      the script, not in the python module.
+    '''
+    if 'ROS_DISTRO' in os.environ:
+        return os.environ['ROS_DISTRO']
+    else:
+        console.error("could not determine the rosdistro")
+        sys.exit(1)
 
 
 def which(program):
@@ -79,7 +93,8 @@ def mkdir_p(path):
     except OSError as e:
         if e.errno == errno.EEXIST and os.path.isdir(path):
             pass
-        else: raise    os.mkdir(os.path.join(path, 'src', 'main', 'java'))
+        else:
+            raise
 
 
 def validate_path(path):
