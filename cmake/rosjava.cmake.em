@@ -86,7 +86,6 @@ macro(catkin_android_setup)
     else()
       set(gradle_tasks ${ARGV})
     endif()
-    message(STATUS "Gradle Tasks................${gradle_tasks}")
     add_custom_target(gradle-${PROJECT_NAME}
         ALL
         COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_tasks}
