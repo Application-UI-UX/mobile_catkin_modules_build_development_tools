@@ -5,4 +5,5 @@
 {'git': {'local-name': 'android_core', 'version': 'hydro-devel', 'uri':'https://github.com/ros-java/android_core'}},
 {'git': {'local-name': 'android_extras', 'version': 'hydro-devel', 'uri':'https://github.com/ros-java/android_extras'}},
 {'git': {'local-name': 'android_apps', 'version': 'hydro-devel', 'uri':'https://github.com/ros-java/android_apps'}},
+{'git': {'local-name': 'turtlebot_android', 'version': 'hydro-devel', 'uri':'https://github.com/turtlebot/turtlebot_android'}},
 ]
