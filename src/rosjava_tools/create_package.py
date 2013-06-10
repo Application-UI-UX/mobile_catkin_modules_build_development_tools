@@ -110,7 +110,8 @@ def create_gradle_package_files(args, author, is_library, sdk_version):
             filename = os.path.join(package_path, template_name)
             template = read_template_file(template_name)
             contents = instantiate_template(template, package_name, author, plugin_name, sdk_version)
-            print("Template")
+            if is_library:
+                contents += extra_gradle_library_text()
             try:
                 f = open(filename, 'w')
                 f.write(contents)
@@ -138,6 +139,21 @@ def add_to_root_gradle_settings(name):
     with open(settings_gradle_path, 'a') as settings_gradle:
         console.pretty_println("\nIncluding '%s' in the root gradle project configuration (settings.gradle).\n" % name, console.bold)
         settings_gradle.write("include '%s'\n" % name)
+
+
+def extra_gradle_library_text():
+    text = "\n"
+    text += "/* http://www.flexlabs.org/2013/06/using-local-aar-android-library-packages-in-gradle-builds */\n"
+    text += "android.libraryVariants\n"
+    text += "publishing {\n"
+    text += "    publications {\n"
+    text += "        maven(MavenPublication) {\n"
+    text += "            /* artifact bundleDebug */\n"
+    text += "            artifact bundleRelease\n"
+    text += "        }\n"
+    text += "    }\n"
+    text += "}\n"
+    return text
 
 
 def create_android_package(is_library=False):

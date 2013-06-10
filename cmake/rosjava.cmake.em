@@ -42,9 +42,14 @@ endmacro()
 # that it is called in with install and installApp targets.
 macro(catkin_rosjava_setup)
     find_gradle()
+    if( ${ARGC} EQUAL 0 )
+      set(gradle_tasks "install installApp")
+    else()
+      string(REPLACE ";" " " gradle_tasks "${ARGV}")
+    endif()
     add_custom_target(gradle-${PROJECT_NAME}
         ALL
-        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} install installApp 
+        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_tasks} 
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     )
     catkin_package_xml()
@@ -65,29 +70,6 @@ macro(catkin_rosjava_setup)
 endmacro()
 
 ##############################################################################
-# RosJava Repo
-##############################################################################
-
-# Calls the root level gradle wrapper to run the multi-project 
-# configuration and compile the entire suite.
-macro(catkin_rosjava_repo_setup)
-    find_gradle()
-    find_gradle_repo_root()
-    add_custom_target(gradle-${PROJECT_NAME}
-        ALL
-        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} install installApp 
-        WORKING_DIRECTORY ${${PROJECT_NAME}_gradle_ROOT}
-    )
-    catkin_package_xml()
-    foreach(depends in ${${PROJECT_NAME}_BUILD_DEPENDS})
-        if(TARGET gradle-${depends})
-            #message(STATUS "Adding dependency gradle-${depends}")
-            add_dependencies(gradle-${PROJECT_NAME} gradle-${depends})
-        endif()
-    endforeach()
-endmacro()
-
-##############################################################################
 # Android Package
 ##############################################################################
 # Calls the gradle wrapper to compile the android package.
@@ -95,14 +77,19 @@ endmacro()
 # assembleDebug or assembleRelease
 macro(catkin_android_setup)
     find_gradle()
-    if(CMAKE_BUILD_TYPE STREQUAL "Release")
-      set(gradle_task "assembleRelase")
+    if( ${ARGC} EQUAL 0 )
+      if(CMAKE_BUILD_TYPE STREQUAL "Release")
+        set(gradle_tasks "assembleRelase")
+      else()
+        set(gradle_tasks "assembleDebug")
+      endif()
     else()
-      set(gradle_task "assembleDebug")
+      set(gradle_tasks ${ARGV})
     endif()
+    message(STATUS "Gradle Tasks................${gradle_tasks}")
     add_custom_target(gradle-${PROJECT_NAME}
         ALL
-        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_task} install
+        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_tasks}
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     )
     catkin_package_xml()
