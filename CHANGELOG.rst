@@ -2,6 +2,11 @@
 Changelog
 ^^^^^^^^^
 
+0.1.7 [2013-07-04]
+==================
+
+* Bugfix to add missing gradle wrapper jar.
+
 0.1.6 [2013-06-26]
 ==================
 
