@@ -2,6 +2,11 @@
 Changelog
 ^^^^^^^^^
 
+0.1.8 [2013-07-15]
+==================
+
+* Upgrade android gradle plugin to 0.5.0 (android studio 0.2.0).
+
 0.1.7 [2013-07-04]
 ==================
 
