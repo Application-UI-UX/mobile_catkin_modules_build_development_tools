@@ -2,6 +2,12 @@
 Changelog
 ^^^^^^^^^
 
+0.1.9 [2013-08-08]
+==================
+
+* Fix install permissions for gradlew script
+
+
 0.1.8 [2013-07-15]
 ==================
 
