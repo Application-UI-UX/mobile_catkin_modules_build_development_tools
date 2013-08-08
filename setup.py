@@ -11,8 +11,6 @@ d = generate_distutils_setup(
              'scripts/catkin_create_android_library_pkg'
             ],
     package_data = {'rosjava_tools': [
-           'gradle/gradlew',
-           'gradle/gradle/wrapper/*'
            'templates/android_package/*',
            'templates/init_repo/*',
         ]},

@@ -18,16 +18,15 @@ catkin_python_setup()
 # Project Settings
 ##############################################################################
 
-# Graveyarded for now
-#install(
-#    PROGRAMS 
-#        scripts/android_post_build_script
-#    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-#    )
+# Have to install gradle here so we can retain executable permissions
+# If we do via setup.py with the data subsection, it loses permissions
+install(
+    PROGRAMS src/rosjava_tools/gradle/gradlew
+    DESTINATION ${CATKIN_PACKAGE_PYTHON_DESTINATION}/gradle
+    )
 
-#install(DIRECTORY launch
-#  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
-#
-#install(DIRECTORY param
-#  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+install(
+    DIRECTORY src/rosjava_tools/gradle/gradle
+    DESTINATION ${CATKIN_PACKAGE_PYTHON_DESTINATION}/gradle
+  )
 
