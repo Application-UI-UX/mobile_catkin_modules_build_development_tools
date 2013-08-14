@@ -78,8 +78,8 @@ def author_name():
     except:
         #pwd failed
         pass
-    if type(name) == str:
-        name = name.decode('utf-8')
+    #if type(name) == str:
+    #    name = name.decode('utf-8')
     return name
 
 
