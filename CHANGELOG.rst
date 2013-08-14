@@ -2,6 +2,11 @@
 Changelog
 ^^^^^^^^^
 
+0.1.10 [2013-08-14]
+==================
+
+* Fix spanish encoding problems on android_create_repo.
+
 0.1.9 [2013-08-08]
 ==================
 
