@@ -1,11 +1,10 @@
 # RosJava Tools
 
-Build tools for rosjava and android repositories. Currently only includes tools for the rosjava repositories which are
-quite trivial, just a cmake macro. The android repository support has been done, but waiting to see how the android
-gradle plugin goes before dropping them back in here.
+Build tools for rosjava and android repositories. Currently includes some cmake macros and python creation
+scripts.
 
 
-## RosJava Demo
+## RosJava Build Demo
 
 
 ```
@@ -14,7 +13,7 @@ gradle plugin goes before dropping them back in here.
 > catkin_init_workspace .
 > wstool init .
 > wstool set rosjava_tools --git https://github.com/ros-java/rosjava_tools -v hydro-devel
-> wstool set rosjava_core --git https://github.com/stonier/rosjava_core -v catkin_tools
+> wstool set rosjava_core --git https://github.com/rosjava/rosjava_core -v hydro-devel
 > wstool update
 > cd ~/rosjava
 > catkin_make
@@ -27,7 +26,7 @@ changes to the `CMakeLists.txt` as follows:
 ...
 find_package(catkin REQUIRED rosjava_tools)
 
-catkin_rosjava_setup(install)
+catkin_rosjava_setup()
 ```
 
 This cmake makro sets up dummy targets in the cmake configuration which call out to gradle in the actual make step. 
@@ -45,3 +44,11 @@ It also adds a global and package `gradle-clean` target.
 > cd ~/rosjava/build
 > make gradle-clean
 ```
+
+## Android Build Demo
+
+Refer to http://ros.org/wiki/rosjava_tools.
+
+## Moving
+
+This documentation will eventually merge with the rosjava_core and android_core documentation.
