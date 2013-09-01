@@ -2,6 +2,6 @@
 # Prerequistes: https://raw.github.com/ros-java/rosjava_tools/hydro-devel/rosjava.rosinstall
 #
 [
-{'git': {'local-name': 'android_core', 'version': 'hydro-devel', 'uri':'https://github.com/ros-java/android_core'}},
-{'git': {'local-name': 'android_extras', 'version': 'hydro-devel', 'uri':'https://github.com/ros-java/android_extras'}},
+{'git': {'local-name': 'android_core', 'version': 'hydro-devel', 'uri':'https://github.com/rosjava/android_core'}},
+{'git': {'local-name': 'android_extras', 'version': 'hydro-devel', 'uri':'https://github.com/rosjava/android_extras'}},
 ]
