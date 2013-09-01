@@ -6,7 +6,7 @@
 # rocon_msgs is currently included since it is still changing reasonably often in source and less so in deb.
 [
 {'git': {'local-name': 'rosjava_tools', 'version': 'hydro-devel', 'uri':'https://github.com/rosjava/rosjava_tools.git'}},
-{'git': {'local-name': 'rosjava_core', 'version': 'tf2', 'uri':'https://github.com/rosjava/rosjava_core.git'}},
+{'git': {'local-name': 'rosjava_core', 'version': 'hydro-devel', 'uri':'https://github.com/rosjava/rosjava_core.git'}},
 {'git': {'local-name': 'zeroconf_jmdns_suite', 'version': 'hydro-devel', 'uri':'https://github.com/rosjava/zeroconf_jmdns_suite.git'}},
 {'git': {'local-name': 'rosjava_extras', 'version': 'hydro-devel', 'uri':'https://github.com/rosjava/rosjava_extras.git'}},
 {'git': {'local-name': 'rocon_msgs', 'version': 'hydro-devel', 'uri':'https://github.com/robotics-in-concert/rocon_msgs.git'}}
