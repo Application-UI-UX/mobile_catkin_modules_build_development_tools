@@ -2,6 +2,8 @@
 # Utilities
 ##############################################################################
 
+set(CATKIN_GLOBAL_MAVEN_DESTINATION ${CATKIN_GLOBAL_SHARE_DESTINATION}/maven CACHE PATH "path to which maven artifacts are deployed in your workspace")
+
 # Scans down directories till it finds the gradle wrapper.
 # It sets the following variables
 # - ${PROJECT_NAME}_gradle_BINARY
@@ -35,22 +37,35 @@ macro(find_gradle_repo_root)
      get_filename_component(${PROJECT_NAME}_gradle_ROOT ${${PROJECT_NAME}_gradle_SETTINGS} PATH)
 endmacro()
 
+# Sets environment variables that are used by gradle to customise a build.
+# This is better than modifying a gradle script - gradle should be able
+# to be called alone without cmake intervention.
+macro(_rosjava_env)
+    set(ROSJAVA_ENV $ENV{ROS_MAVEN_DEPLOYMENT_PATH})
+    if(NOT ROSJAVA_ENV)
+      set(ROSJAVA_ENV "ROS_MAVEN_DEPLOYMENT_PATH=${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_MAVEN_DESTINATION}")
+    endif()
+endmacro()
+
 ##############################################################################
 # RosJava Package
 ##############################################################################
 # Calls the gradle wrapper to compile just the package
 # that it is called in with install and installApp targets.
 macro(catkin_rosjava_setup)
+    _rosjava_env()
     find_gradle()
     if( ${ARGC} EQUAL 0 )
-      set(gradle_tasks "install;installApp")
+      # Note : COMMAND is a list of variables, so these need to be a list, not a single string
+      set(gradle_tasks "install;installApp;uploadArchives")
     else()
-      string(REPLACE ";" " " gradle_tasks "${ARGV}")
+      set(gradle_tasks ${ARGV})
     endif()
     add_custom_target(gradle-${PROJECT_NAME}
         ALL
-        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_tasks} 
+        COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_tasks} 
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        VERBATIM
     )
     catkin_package_xml()
     foreach(depends in ${${PROJECT_NAME}_BUILD_DEPENDS})
@@ -76,6 +91,7 @@ endmacro()
 # It checks the build type and determines whether it should run
 # assembleDebug or assembleRelease
 macro(catkin_android_setup)
+    _rosjava_env()
     find_gradle()
     if( ${ARGC} EQUAL 0 )
       if(CMAKE_BUILD_TYPE STREQUAL "Release")
@@ -88,8 +104,9 @@ macro(catkin_android_setup)
     endif()
     add_custom_target(gradle-${PROJECT_NAME}
         ALL
-        COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_tasks}
+        COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_tasks}
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        VERBATIM
     )
     catkin_package_xml()
     foreach(depends in ${${PROJECT_NAME}_BUILD_DEPENDS})
