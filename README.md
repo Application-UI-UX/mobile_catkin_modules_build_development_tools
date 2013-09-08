@@ -12,19 +12,19 @@ scripts.
 > cd ~/rosjava/src
 > catkin_init_workspace .
 > wstool init .
-> wstool set rosjava_tools --git https://github.com/ros-java/rosjava_tools -v hydro-devel
+> wstool set rosjava_build_tools --git https://github.com/rosjava/rosjava_build_tools -v hydro-devel
 > wstool set rosjava_core --git https://github.com/rosjava/rosjava_core -v hydro-devel
 > wstool update
 > cd ~/rosjava
 > catkin_make
 ```
 
-The only changes made to the `rosjava_core` repo was to add a `package.xml` with a depends on `rosjava_tools` and a
+The only changes made to the `rosjava_core` repo was to add a `package.xml` with a depends on `rosjava_build_tools` and a
 changes to the `CMakeLists.txt` as follows:
 
 ```
 ...
-find_package(catkin REQUIRED rosjava_tools)
+find_package(catkin REQUIRED rosjava_build_tools)
 
 catkin_rosjava_setup()
 ```
@@ -47,7 +47,7 @@ It also adds a global and package `gradle-clean` target.
 
 ## Android Build Demo
 
-Refer to http://ros.org/wiki/rosjava_tools.
+Refer to http://ros.org/wiki/rosjava_build_tools.
 
 ## Moving
 
