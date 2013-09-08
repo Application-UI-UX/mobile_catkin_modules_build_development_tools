@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 # License: Apache 2.0
-#   https://raw.github.com/rosjava/rosjava_tools/license/LICENSE
+#   https://raw.github.com/rosjava/rosjava_build_tools/license/LICENSE
 #
 
 ##############################################################################
@@ -120,8 +120,8 @@ def create_catkin_package_files(package_name, package_path, args):
     '''
     try:
         build_depends = []
-        if 'rosjava_tools' not in args.dependencies:
-            build_depends.append(catkin_pkg.package.Dependency('rosjava_tools'))
+        if 'rosjava_build_tools' not in args.dependencies:
+            build_depends.append(catkin_pkg.package.Dependency('rosjava_build_tools'))
         for depend_name in args.dependencies:
             build_depends.append(catkin_pkg.package.Dependency(depend_name))
         package_template = PackageTemplate._create_package_template(

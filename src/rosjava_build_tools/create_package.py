@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 # License: Apache 2.0
-#   https://raw.github.com/rosjava/rosjava_tools/license/LICENSE
+#   https://raw.github.com/rosjava/rosjava_build_tools/license/LICENSE
 #
 
 ##############################################################################

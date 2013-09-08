@@ -11,8 +11,8 @@ import argparse
 import os
 import sys
 
-from rosjava_tools import init_android_repo
-import rosjava_tools.console as console
+from rosjava_build_tools import init_android_repo
+import rosjava_build_tools.console as console
 
 ##############################################################################
 # Main
