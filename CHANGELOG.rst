@@ -3,17 +3,17 @@ Changelog
 ^^^^^^^^^
 
 0.1.12 [2013-09-01]
-==================
+===================
 
 * Add catkin dependency.
 
 0.1.11 [2013-09-01]
-==================
+===================
 
 * Redirect maven repos from robotbrain->rosjava for template scripts.
 
 0.1.10 [2013-08-14]
-==================
+===================
 
 * Fix spanish encoding problems on android_create_repo.
 
