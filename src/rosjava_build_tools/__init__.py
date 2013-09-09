@@ -12,3 +12,4 @@ import console
 from init_repo import init_android_repo
 from create_package import create_android_package
 from utils import which
+from release import scrape_for_release_message_packages
