@@ -77,7 +77,11 @@ def error(msg):
 
 
 def logdebug(message):
-    pretty_print("[debug] " + message + "\n", green)
+    pretty_print("[debug] " + message + "\n", blue)
+
+
+def loginfo(message):
+    pretty_print("[info] " + message + "\n", green)
 
 
 def logwarn(message):
