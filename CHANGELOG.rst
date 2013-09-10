@@ -2,6 +2,11 @@
 Changelog
 ^^^^^^^^^
 
+0.1.13 [2013-09-10]
+===================
+
+* Ros maven repo environment preparation (bash + cmake).
+
 0.1.12 [2013-09-01]
 ===================
 
