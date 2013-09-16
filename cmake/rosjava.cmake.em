@@ -3,6 +3,7 @@
 ##############################################################################
 
 set(CATKIN_GLOBAL_MAVEN_DESTINATION ${CATKIN_GLOBAL_SHARE_DESTINATION}/maven CACHE PATH "path to which maven artifacts are deployed in your workspace")
+set(CATKIN_GLOBAL_GRADLE_DESTINATION ${CATKIN_GLOBAL_SHARE_DESTINATION}/gradle CACHE PATH "path to which gradle configuration and artifacts are deployed in your workspace")
 
 # Scans down directories till it finds the gradle wrapper.
 # It sets the following variables
@@ -40,12 +41,28 @@ endmacro()
 # Sets environment variables that are used by gradle to customise a build.
 # This is better than modifying a gradle script - gradle should be able
 # to be called alone without cmake intervention.
+#
+# Actually, this will naturally be picked up by setup.bash->env-hooks after the
+# first build, but this does help it find variables if you're compiling the env-hooks
+# from rosjava_build_tools in the same 'make' build.
 macro(_rosjava_env)
-    set(ROSJAVA_ENV $ENV{ROS_MAVEN_DEPLOYMENT_PATH})
-    if(NOT ROSJAVA_ENV)
+    set(ROSJAVA_MAVEN_DEPLOYMENT_PATH $ENV{ROS_MAVEN_DEPLOYMENT_PATH})
+    if(NOT ROSJAVA_MAVEN_DEPLOYMENT_PATH)
       set(ROSJAVA_ENV "ROS_MAVEN_DEPLOYMENT_PATH=${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_MAVEN_DESTINATION}")
     else()
       set(ROSJAVA_ENV "ROS_MAVEN_DEPLOYMENT_PATH=${ROSJAVA_ENV}")
+    endif()
+    set(ROSJAVA_GRADLE_USER_HOME $ENV{GRADLE_USER_HOME})
+    if(NOT ROSJAVA_GRADLE_USER_HOME)
+      list(APPEND ROSJAVA_ENV "GRADLE_USER_HOME=${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_GRADLE_DESTINATION}")
+      if(NOT IS_DIRECTORY ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_GRADLE_DESTINATION})
+          file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_GRADLE_DESTINATION})
+      endif()
+    else()
+      list(APPEND ROSJAVA_ENV "${ROSJAVA_ENV};GRADLE_USER_HOME=${ROSJAVA_GRADLE_USER_HOME}")
+      if(NOT IS_DIRECTORY ${ROSJAVA_GRADLE_USER_HOME})
+          file(MAKE_DIRECTORY ${ROSJAVA_GRADLE_USER_HOME})
+      endif()
     endif()
 endmacro()
 
