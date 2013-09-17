@@ -14,6 +14,7 @@ catkin_package(CFG_EXTRAS rosjava.cmake)
 
 catkin_python_setup()
 catkin_add_env_hooks(15.rosjava SHELLS bash DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
+catkin_add_env_hooks(15.rosjava SHELLS sh DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
 
 ##############################################################################
 # Project Settings
