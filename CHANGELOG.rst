@@ -2,6 +2,12 @@
 Changelog
 ^^^^^^^^^
 
+0.1.16 [2013-09-17]
+===================
+
+* Fix rosjava environment hooks so they work in chained workspaces.
+* Bring the gradle user home into the development workspace as well (fix build farm problems).
+
 0.1.15 [2013-09-13]
 ===================
 
