@@ -2,6 +2,11 @@
 Changelog
 ^^^^^^^^^
 
+0.1.17 [2013-09-17]
+===================
+
+* Add install rule for environemnt generation script.
+
 0.1.16 [2013-09-17]
 ===================
 
