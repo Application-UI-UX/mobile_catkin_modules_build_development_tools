@@ -32,3 +32,8 @@ install(
     DESTINATION ${CATKIN_PACKAGE_PYTHON_DESTINATION}/gradle
   )
 
+install(
+    PROGRAMS generate_environment_variables.py
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+    )
+
