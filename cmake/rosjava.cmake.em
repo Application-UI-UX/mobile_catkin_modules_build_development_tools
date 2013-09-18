@@ -38,19 +38,17 @@ macro(find_gradle_repo_root)
      get_filename_component(${PROJECT_NAME}_gradle_ROOT ${${PROJECT_NAME}_gradle_SETTINGS} PATH)
 endmacro()
 
-# Sets environment variables that are used by gradle to customise a build.
-# This is better than modifying a gradle script - gradle should be able
-# to be called alone without cmake intervention.
-#
-# Actually, this will naturally be picked up by setup.bash->env-hooks after the
-# first build, but this does help it find variables if you're compiling the env-hooks
-# from rosjava_build_tools in the same 'make' build.
+# These are used to seed the environment variables if the workspace is
+# containing rosjava_build_tools to be built as well. In this situtation
+# CATKIN_ENV won't have any configuration, so we need some incoming here.
+# Note that we check for the variable existence as well so we don't
+# override a user setting.
 macro(_rosjava_env)
-    set(ROSJAVA_MAVEN_DEPLOYMENT_PATH $ENV{ROS_MAVEN_DEPLOYMENT_PATH})
-    if(NOT ROSJAVA_MAVEN_DEPLOYMENT_PATH)
-      set(ROSJAVA_ENV "ROS_MAVEN_DEPLOYMENT_PATH=${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_MAVEN_DESTINATION}")
+    set(ROS_MAVEN_DEPLOYMENT_REPOSITORY $ENV{ROS_MAVEN_DEPLOYMENT_REPOSITORY})
+    if(NOT ROS_MAVEN_DEPLOYMENT_REPOSITORY)
+        set(ROSJAVA_ENV "ROS_MAVEN_DEPLOYMENT_REPOSITORY=${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_MAVEN_DESTINATION}")
     else()
-      set(ROSJAVA_ENV "ROS_MAVEN_DEPLOYMENT_PATH=${ROSJAVA_ENV}")
+        set(ROSJAVA_ENV "${ROS_MAVEN_DEPLOYMENT_REPOSITORY}")
     endif()
     set(ROSJAVA_GRADLE_USER_HOME $ENV{GRADLE_USER_HOME})
     if(NOT ROSJAVA_GRADLE_USER_HOME)
@@ -82,6 +80,8 @@ macro(catkin_rosjava_setup)
     endif()
     add_custom_target(gradle-${PROJECT_NAME}
         ALL
+        COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} "env" "|" "grep" "GRADLE" 
+        COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} "env" "|" "grep" "ROS" 
         COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_tasks} 
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         VERBATIM
