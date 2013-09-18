@@ -2,6 +2,11 @@
 Changelog
 ^^^^^^^^^
 
+0.1.18 [2013-09-18]
+===================
+
+* Allow user environment variables to override automatic rosjava settings.
+
 0.1.17 [2013-09-17]
 ===================
 
