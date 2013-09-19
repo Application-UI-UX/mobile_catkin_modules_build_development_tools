@@ -2,6 +2,11 @@
 Changelog
 ^^^^^^^^^
 
+0.1.19 [2013-09-19]
+===================
+
+* Don't make gradle directories, gradle doesn't need it and causes permission problems.
+
 0.1.18 [2013-09-18]
 ===================
 
