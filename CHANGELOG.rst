@@ -2,19 +2,11 @@
 Changelog
 ^^^^^^^^^
 
-0.1.19 [2013-09-19]
+0.1.17-20 [2013-09-20]
 ===================
 
-* Don't make gradle directories, gradle doesn't need it and causes permission problems.
-
-0.1.18 [2013-09-18]
-===================
-
+* Catkin-gradle environment variable bugfixes.
 * Allow user environment variables to override automatic rosjava settings.
-
-0.1.17 [2013-09-17]
-===================
-
 * Add install rule for environemnt generation script.
 
 0.1.16 [2013-09-17]
