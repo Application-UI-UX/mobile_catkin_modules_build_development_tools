@@ -26,17 +26,46 @@ def get_workspaces(environ):
     workspaces = [path for path in paths if os.path.isfile(os.path.join(path, CATKIN_MARKER_FILE))]
     return workspaces
 
+def get_environment_variable(environ, key):
+    var = None
+    try:
+        var = environ[key]
+    except KeyError:
+        pass
+    if var == '':
+        var = None 
+    return var
+
 if __name__ == '__main__':
     args = parse_arguments()
-    workspaces = get_workspaces(dict(os.environ))
+    environment_variables = dict(os.environ)
+    workspaces = get_workspaces(environment_variables)
     if args.maven_deployment_repository:
-        # assuming one value exists here
-        print os.path.join(workspaces[0], 'share', 'maven')
+        repo = get_environment_variable(environment_variables, 'ROS_MAVEN_DEPLOYMENT_REPOSITORY')
+        if repo is None:
+            repo = os.path.join(workspaces[0], 'share', 'maven')
+        else:
+            if repo in [os.path.join(w, 'share', 'maven') for w in workspaces]:
+                repo = os.path.join(workspaces[0], 'share', 'maven')
+        print repo
     elif args.maven_path:
-        maven_repository_paths = [os.path.join(path, 'share', 'maven') for path in workspaces]
-        print os.pathsep.join(maven_repository_paths)
+        new_maven_paths = [os.path.join(path, 'share', 'maven') for path in workspaces]
+        maven_paths = get_environment_variable(environment_variables, 'ROS_MAVEN_PATH')
+        if maven_paths is None:
+            maven_paths = new_maven_paths
+        else:
+            maven_paths = maven_paths.split(os.pathsep)
+            common_paths = [p for p in maven_paths if p in new_maven_paths]
+            if common_paths:
+                maven_paths = new_maven_paths
+        print os.pathsep.join(maven_paths)
     elif args.gradle_user_home:
-        # assuming one value exists here
-        print os.path.join(workspaces[0], 'share', 'gradle')
+        home = get_environment_variable(environment_variables, 'GRADLE_USER_HOME')
+        if home is None:
+            home = os.path.join(workspaces[0], 'share', 'gradle')
+        else:
+            if home in [os.path.join(w, 'share', 'gradle') for w in workspaces]:
+                home = os.path.join(workspaces[0], 'share', 'gradle')
+        print home
     else:
         print "Nothing to see here - please provide one of the valid command switches."
