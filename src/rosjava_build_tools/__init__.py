@@ -9,7 +9,7 @@
 ##############################################################################
 
 import console
-from init_repo import init_android_repo
-from create_package import create_android_package
+from create_package import init_android_repo
+from create_project import create_android_project
 from utils import which
 from release import scrape_for_release_message_packages

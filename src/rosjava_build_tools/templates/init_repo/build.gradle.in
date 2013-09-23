@@ -15,52 +15,38 @@
  */
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '1.6'
+    gradleVersion = '1.7'
 }
 
-allprojects {
-  group 'ros.%(repo_name)s'
-  version = '0.1.0'
-}
-
-ext.androidBuildToolsVersion = "17"
-
-subprojects {
-    buildscript {
-        repositories {
-            mavenCentral()
-        }
-        dependencies {
-            classpath 'com.android.tools.build:gradle:0.5.0'
-        }
-    }
-    
-    apply plugin: 'maven'
-
+buildscript {
+    def rosMavenPath = "$System.env.ROS_MAVEN_PATH".split(':').collect { 'file://' + it }
     repositories {
+        rosMavenPath.each { p ->
+            maven {
+                url p
+            }
+        }
         mavenLocal()
         maven {
             url 'https://github.com/rosjava/rosjava_mvn_repo/raw/master'
         }
     }
-    configurations.add('compile') {
-        exclude group: 'junit'
-        exclude group: 'xml-apis'
+    dependencies {
+        classpath group: 'org.ros.rosjava_bootstrap', name: 'gradle_plugins', version: '0.1.+'
     }
+}
 
-    uploadArchives {
-        repositories {
-            mavenDeployer {
-                repository url: 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
-            }
-        }
-    }
-    task publishToMavenLocal() << {
-        description = 'installs .aar files to the local maven repository.'
-    }
-    afterEvaluate { Project project ->
-        if (plugins.findPlugin('android-library')) {
-            publishToMavenLocal.dependsOn('uploadArchives')
-        }
-    }
+apply plugin: 'catkin'
+
+
+allprojects {
+    /* A github url provides a good standard unique name for your project */
+    group 'com.github.rosjava.%(repo_name)s'
+    version = project.catkin.pkg.version
+}
+
+subprojects {
+    /* See https://github.com/rosjava/rosjava_bootstrap (look for gradle_plugins)
+       to see what is going on under the hood. */
+    apply plugin: 'ros-android'
 }

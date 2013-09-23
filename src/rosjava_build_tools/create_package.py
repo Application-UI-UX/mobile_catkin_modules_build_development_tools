@@ -8,13 +8,12 @@
 # Imports
 ##############################################################################
 
-from __future__ import print_function
-
 import os
 import sys
 import argparse
 import subprocess
-import shutil
+import catkin_pkg
+from catkin_pkg.package_templates import create_package_xml, PackageTemplate
 
 # local imports
 import utils
@@ -28,152 +27,140 @@ import console
 def parse_arguments():
     argv = sys.argv[1:]
     parser = argparse.ArgumentParser(
-        description='Creates a new android package based on catkin and gradle. \n')
-    parser.add_argument('name',
-                        nargs=1,
-                        help='The name for the package')
-    parser.add_argument('-s', '--sdk-version',
-                        action='store',
-                        default='17',
-                        help='Android sdk version [17]')
-    parser.add_argument('-p', '--android-package-name',
-                        action='store',
-                        default='com.github.rosjava.android.pkg_name',
-                        help='Android package name (e.g. com.github.rosjava.android.pkg_name)')
+        description='Creates a new android repository based on catkin and gradle. \n\nNote that the path you provide will become the maven group for your repo.\n')
+    parser.add_argument('path', nargs='?', default=os.getcwd(), help='path to the repository you wish to create (must not exist beforehand).')
+    parser.add_argument('dependencies',
+                        nargs='*',
+                        help='Dependency list')
+    parser.add_argument('-l', '--license',
+                        action='append',
+                        default=["Apache 2.0"],
+                        help='Name for License, (e.g. BSD, MIT, GPLv3...)[BSD]')
     parser.add_argument('-a', '--author',
-                        action='store',
-                        default=utils.author_name(),
+                        action='append',
                         help='A single author, may be used multiple times')
+    parser.add_argument('-m', '--maintainer',
+                        action='append',
+                        help='A single maintainer, may be used multiple times')
+    parser.add_argument('-V', '--pkg_version',
+                        action='store',
+                        default="0.1.0",
+                        help='Initial Package version [0.1.0]')
+    parser.add_argument('-D', '--description',
+                        action='store',
+                        help='Description')
     args = parser.parse_args(argv)
-    if args.android_package_name == "com.github.rosjava.android.pkg_name":
-        args.android_package_name = "com.github.rosjava.android.%s" % args.name[0].lower()
+#    if not args.author:
+#        args.author = []
+#        args.author.append(utils.author_name)
+#    if not args.maintainer:
+#        args.maintainer = []
+#        args.maintainer.append(catkin_pkg.package.Person(utils.author_name))
+#    else:
+#        args.maintainer = []
+#        args.maintainer.append(catkin_pkg.package.Person(utils.author_name))
     return args
 
 
-def create_android_project(package_name, sdk_version, java_package_name, is_library):
-    path = os.path.join(os.getcwd(), package_name.lower())
-    console.pretty_println("\nCreating android project ", console.bold)
-    console.pretty_print("  Name      : ", console.cyan)
-    console.pretty_println("%s" % package_name, console.yellow)
-    console.pretty_print("  Sdk Ver   : ", console.cyan)
-    console.pretty_println("%s" % sdk_version, console.yellow)
-    console.pretty_print("  Java Name : ", console.cyan)
-    console.pretty_println("%s" % java_package_name, console.yellow)
-    if is_library:
-        console.pretty_print("  Library   : ", console.cyan)
-        console.pretty_println("yes\n", console.yellow)
-        cmd = ['android', 'create', 'lib-project', '-n', package_name, '-p', path, '-k', java_package_name, '-t', 'android-' + sdk_version, ]
-    else:
-        activity_name = utils.camel_case(package_name)
-        console.pretty_print("  Activity  : ", console.cyan)
-        console.pretty_println("%s\n" % activity_name, console.yellow)
-        cmd = ['android', 'create', 'project', '-n', package_name, '-p', path, '-k', java_package_name, '-t', 'android-' + sdk_version, '-a', activity_name]
+# Finds and reads one of the templates.
+def read_template(tmplf):
+    f = open(tmplf, 'r')
+    try:
+        t = f.read()
+    finally:
+        f.close()
+    return t
+
+
+# This inserts the labelled variables into the template wherever the corresponding
+# %package, %brief, %description and %depends is found.
+def instantiate_template(template, repo_name, author):
+    return template % locals()
+
+
+def get_templates():
+    template_dir = os.path.join(os.path.dirname(__file__), 'templates', 'init_repo')
+    templates = {}
+    templates['CMakeLists.txt'] = read_template(os.path.join(template_dir, 'CMakeLists.txt.in'))
+    templates['build.gradle'] = read_template(os.path.join(template_dir, 'build.gradle.in'))
+    templates['settings.gradle'] = read_template(os.path.join(template_dir, 'settings.gradle'))
+    return templates
+
+
+def populate_repo(repo_path):
+    author = utils.author_name()
+    repo_name = os.path.basename(repo_path)
+    templates = get_templates()
+    for filename, template in templates.iteritems():
+        contents = instantiate_template(template, repo_name, author)
+        try:
+            p = os.path.abspath(os.path.join(repo_path, filename))
+            f = open(p, 'w')
+            f.write(contents)
+            console.pretty_print("Created repo file: ", console.cyan)
+            console.pretty_println("%s" % p, console.yellow)
+        finally:
+            f.close()
+
+
+def create_gradle_wrapper(repo_path):
+    gradle_binary = os.path.join(os.path.dirname(__file__), 'gradle', 'gradlew')
+    cmd = [gradle_binary, '-p', repo_path, 'wrapper']
+    console.pretty_print("Creating gradle wrapper: ", console.cyan)
+    console.pretty_println("%s" % ' '.join(cmd), console.yellow)
     try:
         subprocess.check_call(cmd)
     except subprocess.CalledProcessError:
-        raise subprocess.CalledProcessError("failed to create android project.")
-    # This is in the old form, let's shovel the shit around to the new form
-    utils.mkdir_p(os.path.join(path, 'src', 'main', 'java'))
-    os.remove(os.path.join(path, 'local.properties'))
-    os.remove(os.path.join(path, 'project.properties'))
-    os.remove(os.path.join(path, 'ant.properties'))
-    os.remove(os.path.join(path, 'proguard-project.txt'))
-    os.remove(os.path.join(path, 'build.xml'))
-    os.rmdir(os.path.join(path, 'bin'))
-    os.rmdir(os.path.join(path, 'libs'))
-    shutil.move(os.path.join(path, 'AndroidManifest.xml'), os.path.join(path, 'src', 'main'))
-    shutil.move(os.path.join(path, 'res'), os.path.join(path, 'src', 'main'))
-    if not is_library:
-        shutil.move(os.path.join(path, 'src', java_package_name.split('.')[0]), os.path.join(path, 'src', 'main', 'java'))
+        raise subprocess.CalledProcessError("failed to create the gradle wrapper.")
+
+
+def create_catkin_package_files(package_name, package_path, args):
+    '''
+      This is almost a direct copy from catkin_create_pkg.
+    '''
+    try:
+        build_depends = []
+        if 'rosjava_build_tools' not in args.dependencies:
+            build_depends.append(catkin_pkg.package.Dependency('rosjava_build_tools'))
+        for depend_name in args.dependencies:
+            build_depends.append(catkin_pkg.package.Dependency(depend_name))
+        package_template = PackageTemplate._create_package_template(
+            package_name=package_name,
+            description=args.description,
+            licenses=args.license or [],
+            maintainer_names=args.maintainer,
+            author_names=args.author,
+            version=args.pkg_version,
+            catkin_deps=[],
+            system_deps=[],
+            boost_comps=None)
+        package_template.exports = []
+        package_template.build_depends = build_depends
+        distro_version = utils.distro_version()
+        package_xml = create_package_xml(package_template=package_template, rosdistro=distro_version)
+        try:
+            filename = os.path.join(package_path, 'package.xml')
+            f = open(filename, 'w')
+            f.write(package_xml)
+            console.pretty_print('Created repo file: ', console.cyan)
+            console.pretty_println('%s' % filename, console.yellow)
+        finally:
+            f.close()
+    except Exception:
+        raise
 
 ##############################################################################
 # Methods acting on classes
 ##############################################################################
 
 
-# This inserts the labelled variables into the template wherever the corresponding
-# %package, %brief, %description and %depends is found.
-def instantiate_template(template, package_name, author, plugin_name, sdk_version):
-    return template % locals()
-
-
-def create_gradle_package_files(args, author, is_library, sdk_version):
-    '''
-      This is almost a direct copy from catkin_create_pkg.
-    '''
-    plugin_name = "android-library" if is_library else "android"
+def init_android_repo():
+    args = parse_arguments()
     try:
-        package_name = args.name[0].lower()
-        package_path = os.path.abspath(os.path.join(os.getcwd(), package_name))
-        console.pretty_println("\nCreating gradle files", console.bold)
-        for template_name in ['build.gradle']:  # 'CMakeLists.txt']:
-            filename = os.path.join(package_path, template_name)
-            template = read_template_file(template_name)
-            contents = instantiate_template(template, package_name, author, plugin_name, sdk_version)
-            if is_library:
-                contents += extra_gradle_library_text()
-            try:
-                f = open(filename, 'w')
-                f.write(contents)
-                console.pretty_print('  File: ', console.cyan)
-                console.pretty_println(template_name, console.yellow)
-            finally:
-                f.close()
+        repo_path = utils.validate_path(args.path)
+        repo_name = os.path.basename(os.path.normpath(repo_path)).lower()
+        populate_repo(repo_path)
+        create_catkin_package_files(repo_name, repo_path, args)
+        create_gradle_wrapper(repo_path)
     except Exception:
         raise
-
-
-def add_to_root_gradle_settings(name):
-    '''
-      Adds project name to the root level settings.gradle file.
-    '''
-    for rel_path in ['.', '..']:
-        settings_gradle_path = os.path.join(os.getcwd(), rel_path, 'settings.gradle')
-        if os.path.isfile(settings_gradle_path):
-            break
-        else:
-            settings_gradle_path = None
-    if settings_gradle_path is None:
-        console.pretty_println("\nCouldn't find the root level settings.gradle file - not adding to the superproject.")
-        return
-    with open(settings_gradle_path, 'a') as settings_gradle:
-        console.pretty_println("\nIncluding '%s' in the root gradle project configuration (settings.gradle).\n" % name, console.bold)
-        settings_gradle.write("include '%s'\n" % name)
-
-
-def extra_gradle_library_text():
-    text = "\n"
-    text += "/* http://www.flexlabs.org/2013/06/using-local-aar-android-library-packages-in-gradle-builds */\n"
-    text += "android.libraryVariants\n"
-    text += "publishing {\n"
-    text += "    publications {\n"
-    text += "        maven(MavenPublication) {\n"
-    text += "            /* artifact bundleDebug */\n"
-    text += "            artifact bundleRelease\n"
-    text += "        }\n"
-    text += "    }\n"
-    text += "}\n"
-    return text
-
-
-def create_android_package(is_library=False):
-    args = parse_arguments()
-    create_android_project(args.name[0], args.sdk_version, args.android_package_name, is_library)
-    create_gradle_package_files(args, args.author, is_library, args.sdk_version)
-    add_to_root_gradle_settings(args.name[0])
-
-##############################################################################
-# Borrowed from catkin_pkg.package_templates
-##############################################################################
-
-
-def read_template_file(filename):
-    template_dir = os.path.join(os.path.dirname(__file__), 'templates', 'android_package')
-    template = os.path.join(template_dir, '%s.in' % filename)
-    if not os.path.isfile(template):
-        raise IOError(
-            "Could not read template [%s]" % template
-        )
-    with open(template, 'r') as fhand:
-        template_contents = fhand.read()
-    return template_contents
