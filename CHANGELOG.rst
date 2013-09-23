@@ -2,9 +2,11 @@
 Changelog
 ^^^^^^^^^
 
-0.1.17-21 [2013-09-21]
+0.1.17-22 [2013-09-23]
 ===================
 
+* Use GRADLE_USER_HOME only when creating binaries.
+* Use maven-publish for publishing rosjava packages
 * Catkin-gradle environment variable bugfixes.
 * Allow user environment variables to override automatic rosjava settings.
 * Add install rule for environemnt generation script.
