@@ -50,11 +50,9 @@ macro(_rosjava_env)
     else()
         set(ROSJAVA_ENV "ROS_MAVEN_DEPLOYMENT_REPOSITORY=${ROS_MAVEN_DEPLOYMENT_REPOSITORY}")
     endif()
-    set(ROSJAVA_GRADLE_USER_HOME $ENV{GRADLE_USER_HOME})
-    if(NOT ROSJAVA_GRADLE_USER_HOME)
+    # The build farm won't let you access /root/.gradle, so redirect it somewhere practical here.
+    if(DEFINED CATKIN_BUILD_BINARY_PACKAGE)
       list(APPEND ROSJAVA_ENV "GRADLE_USER_HOME=${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_GRADLE_DESTINATION}")
-    else()
-      list(APPEND ROSJAVA_ENV "GRADLE_USER_HOME=${ROSJAVA_GRADLE_USER_HOME}")
     endif()
 endmacro()
 
@@ -67,14 +65,13 @@ macro(catkin_rosjava_setup)
     _rosjava_env()
     find_gradle()
     if( ${ARGC} EQUAL 0 )
-      # Note : COMMAND is a list of variables, so these need to be a list, not a single string
-      set(gradle_tasks "install;installApp;uploadArchives")
+      # Note : COMMAND is a list of variables (semi-colon separated)
+      set(gradle_tasks "publishMavenJavaPublicationToMavenRepository") # old targets "install;installApp;uploadArchives"
     else()
       set(gradle_tasks ${ARGV})
     endif()
     add_custom_target(gradle-${PROJECT_NAME}
         ALL
-        COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} "env" "|" "grep" "GRADLE" 
         COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} "env" "|" "grep" "ROS" 
         COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_tasks} 
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}

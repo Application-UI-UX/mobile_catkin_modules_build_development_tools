@@ -8,4 +8,3 @@ SCRIPT=@(CMAKE_INSTALL_PREFIX)/share/rosjava_build_tools/generate_environment_va
 
 export ROS_MAVEN_PATH=`python ${SCRIPT} --maven-path`
 export ROS_MAVEN_DEPLOYMENT_REPOSITORY=`python ${SCRIPT} --maven-deployment-repository`
-export GRADLE_USER_HOME=`python ${SCRIPT} --gradle-user-home`
