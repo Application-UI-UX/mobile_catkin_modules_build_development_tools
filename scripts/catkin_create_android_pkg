@@ -20,7 +20,7 @@ import rosjava_build_tools.console as console
 
 if __name__ == "__main__":
     try:
-        sys.exit(init_android_repo())
+        sys.exit(init_android_package())
     except Exception as e:
         console.logerror("%s : %s" % (str(e), type(e)))
         sys.exit(1)
