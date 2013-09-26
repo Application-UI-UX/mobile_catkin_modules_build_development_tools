@@ -50,7 +50,7 @@ def parse_arguments():
     return args
 
 
-def create_android_project(package_name, sdk_version, java_package_name, is_library):
+def actually_create_android_project(package_name, sdk_version, java_package_name, is_library):
     path = os.path.join(os.getcwd(), package_name.lower())
     console.pretty_println("\nCreating android project ", console.bold)
     console.pretty_print("  Name      : ", console.cyan)
@@ -110,8 +110,8 @@ def create_gradle_package_files(args, author, is_library, sdk_version):
             filename = os.path.join(package_path, template_name)
             template = read_template_file(template_name)
             contents = instantiate_template(template, package_name, author, plugin_name, sdk_version)
-            if is_library:
-                contents += extra_gradle_library_text()
+            #if is_library:
+            #    contents += extra_gradle_library_text()
             try:
                 f = open(filename, 'w')
                 f.write(contents)
@@ -142,6 +142,9 @@ def add_to_root_gradle_settings(name):
 
 
 def extra_gradle_library_text():
+    '''
+      Not actually necessary until we start using maven-publish plugin. It doesn't handle dependencies right now.
+    '''
     text = "\n"
     text += "/* http://www.flexlabs.org/2013/06/using-local-aar-android-library-packages-in-gradle-builds */\n"
     text += "android.libraryVariants\n"
@@ -158,7 +161,7 @@ def extra_gradle_library_text():
 
 def create_android_project(is_library=False):
     args = parse_arguments()
-    create_android_project(args.name[0], args.sdk_version, args.android_package_name, is_library)
+    actually_create_android_project(args.name[0], args.sdk_version, args.android_package_name, is_library)
     create_gradle_package_files(args, args.author, is_library, args.sdk_version)
     add_to_root_gradle_settings(args.name[0])
 
