@@ -27,7 +27,7 @@ import console
 def parse_arguments():
     argv = sys.argv[1:]
     parser = argparse.ArgumentParser(
-        description='Creates a new android repository based on catkin and gradle. \n\nNote that the path you provide will become the maven group for your repo.\n')
+        description='Creates a new rosjava/android repository based on catkin and gradle. \n\nNote that the path you provide will become the maven group for your repo.\n')
     parser.add_argument('path', nargs='?', default=os.getcwd(), help='path to the repository you wish to create (must not exist beforehand).')
     parser.add_argument('dependencies',
                         nargs='*',
@@ -78,8 +78,8 @@ def instantiate_template(template, repo_name, author):
     return template % locals()
 
 
-def get_templates():
-    template_dir = os.path.join(os.path.dirname(__file__), 'templates', 'init_repo')
+def get_templates(template_directory):
+    template_dir = os.path.join(os.path.dirname(__file__), 'templates', template_directory)
     templates = {}
     templates['CMakeLists.txt'] = read_template(os.path.join(template_dir, 'CMakeLists.txt.in'))
     templates['build.gradle'] = read_template(os.path.join(template_dir, 'build.gradle.in'))
@@ -87,10 +87,10 @@ def get_templates():
     return templates
 
 
-def populate_repo(repo_path):
+def populate_repo(repo_path, package_type):
     author = utils.author_name()
     repo_name = os.path.basename(repo_path)
-    templates = get_templates()
+    templates = get_templates(package_type)
     for filename, template in templates.iteritems():
         contents = instantiate_template(template, repo_name, author)
         try:
@@ -154,13 +154,21 @@ def create_catkin_package_files(package_name, package_path, args):
 ##############################################################################
 
 
-def init_android_repo():
+def init_package(package_type):
     args = parse_arguments()
     try:
         repo_path = utils.validate_path(args.path)
         repo_name = os.path.basename(os.path.normpath(repo_path)).lower()
-        populate_repo(repo_path)
+        populate_repo(repo_path, package_type)
         create_catkin_package_files(repo_name, repo_path, args)
         create_gradle_wrapper(repo_path)
     except Exception:
         raise
+
+
+def init_rosjava_package():
+    init_package('rosjava_package')
+
+
+def init_android_package():
+    init_package('android_package')

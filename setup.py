@@ -9,6 +9,9 @@ d = generate_distutils_setup(
     scripts=['scripts/catkin_create_android_pkg',
              'scripts/catkin_create_android_project',
              'scripts/catkin_create_android_library_project',
+             'scripts/catkin_create_rosjava_pkg',
+             'scripts/catkin_create_rosjava_project',
+             'scripts/catkin_create_rosjava_msg_project',
             ],
     package_data = {'rosjava_build_tools': [
            'templates/android_package/*',

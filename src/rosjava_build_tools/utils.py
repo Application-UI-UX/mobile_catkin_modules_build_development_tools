@@ -117,3 +117,19 @@ def validate_path(path):
         if os.path.isfile(os.path.join(path, 'build.gradle')):
             raise ValueError("Error: a gradle project already resides in this location [%s]" % absolute_path)
     return absolute_path
+
+##############################################################################
+# Borrowed from catkin_pkg.package_templates
+##############################################################################
+
+
+def read_template_file(template_directory, filename):
+    template_dir = os.path.join(os.path.dirname(__file__), 'templates', template_directory)
+    template = os.path.join(template_dir, '%s.in' % filename)
+    if not os.path.isfile(template):
+        raise IOError(
+            "Could not read template [%s]" % template
+        )
+    with open(template, 'r') as fhand:
+        template_contents = fhand.read()
+    return template_contents
