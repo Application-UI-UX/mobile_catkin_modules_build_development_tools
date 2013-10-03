@@ -15,6 +15,10 @@ d = generate_distutils_setup(
             ],
     package_data = {'rosjava_build_tools': [
            'templates/android_package/*',
+           'templates/android_project/*',
+           'templates/rosjava_msg_project/*',
+           'templates/rosjava_package/*',
+           'templates/rosjava_project/*',
            'templates/init_repo/*',
         ]},
     requires=['rospy' 'rospkg']
