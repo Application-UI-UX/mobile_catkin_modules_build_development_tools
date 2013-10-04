@@ -2,6 +2,11 @@
 Changelog
 ^^^^^^^^^
 
+0.1.24 [2013-10-04]
+======================
+
+* bugfix for missing catkin_create_rosjava_xxx templates.
+
 0.1.17-23 [2013-09-26]
 ======================
 
