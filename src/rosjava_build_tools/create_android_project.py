@@ -30,8 +30,8 @@ def parse_arguments():
                         help='The name for the package')
     parser.add_argument('-s', '--sdk-version',
                         action='store',
-                        default='17',
-                        help='Android sdk version [17]')
+                        default='18.1.1',
+                        help='Android sdk version [18.1.1]')
     parser.add_argument('-p', '--android-package-name',
                         action='store',
                         default='com.github.rosjava.android.pkg_name',

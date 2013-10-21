@@ -15,7 +15,7 @@
  */
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.7'
+    gradleVersion = '1.8'
 }
 
 buildscript {
@@ -40,7 +40,7 @@ apply plugin: 'catkin'
 
 
 allprojects {
-    /* 
+    /*
       A github url provides a good standard unique name for your project
       Example below, but you may wish to switch to your own unique url.
     */
@@ -49,9 +49,9 @@ allprojects {
 }
 
 subprojects {
-    /* 
+    /*
       See https://github.com/rosjava/rosjava_bootstrap (look for gradle_plugins)
-      to see what is going on under the hood. 
+      to see what is going on under the hood.
     */
     apply plugin: 'ros-java'
 }
