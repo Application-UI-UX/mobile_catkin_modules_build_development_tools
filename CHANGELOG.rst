@@ -2,6 +2,11 @@
 Changelog
 ^^^^^^^^^
 
+0.1.26 [2013-10-26]
+===================
+* embedded gradle 1.7->1.8
+* templates updated for official maven style open ranged dependencies
+
 0.1.25 [2013-10-26]
 ===================
 
