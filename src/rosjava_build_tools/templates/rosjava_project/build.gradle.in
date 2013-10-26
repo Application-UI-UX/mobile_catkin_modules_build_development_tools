@@ -26,8 +26,8 @@
 /* 
 dependencies {
   compile project(':local_android_library_dependency')
-  compile 'org.ros.android_core:android_gingerbread_mr1:0.1.+'
-  compile 'com.github.ros_java.android_extras:gingerbread:0.1.+'
+  compile 'org.ros.android_core:android_gingerbread_mr1:[0.1,)'
+  compile 'com.github.ros_java.android_extras:gingerbread:[0.1,)'
 }
 */
 
