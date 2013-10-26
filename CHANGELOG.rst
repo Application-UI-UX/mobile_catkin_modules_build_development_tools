@@ -2,8 +2,14 @@
 Changelog
 ^^^^^^^^^
 
+0.1.25 [2013-10-26]
+===================
+
+* gradle 1.7->1.8
+* android tools 17->18.1.1
+
 0.1.24 [2013-10-04]
-======================
+===================
 
 * bugfix for missing catkin_create_rosjava_xxx templates.
 
