@@ -17,17 +17,17 @@
 /* 
  Examples of 
    1) dependencies from another project in this gradle stack.
-   2,3) dependency from a maven repository.
+   2,3) open ranged dependencies from a maven repository.
    
-   It's a good idea to use + on the patch version dependency to
-   save continually updating these references, but avoid applying
-   the same principle to api breaking minor changes in the version.
+   It's a good idea to restrict the open ranged dependency to
+   the patch version to avoid breakages due to api changes
+   which usually occur on minor and major version numbers.
 */
 /* 
 dependencies {
   compile project(':local_android_library_dependency')
   compile 'org.ros.android_core:android_gingerbread_mr1:[0.1,)'
-  compile 'com.github.ros_java.android_extras:gingerbread:[0.1,)'
+  compile 'com.github.rosjava.android_extras:gingerbread:[0.1,0.2)'
 }
 */
 
