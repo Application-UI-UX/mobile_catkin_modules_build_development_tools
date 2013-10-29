@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.1.27 [2013-10-30]
+===================
+* use ROS_MAVEN_REPOSITORY to configure the external repository.
+
 0.1.26 [2013-10-26]
 ===================
 * embedded gradle 1.7->1.8
