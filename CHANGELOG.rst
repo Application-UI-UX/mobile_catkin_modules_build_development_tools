@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.1.28 [2013-10-30]
+===================
+* seed ROS_MAVEN_REPOSITORY when necessary.
+
 0.1.27 [2013-10-30]
 ===================
 * use ROS_MAVEN_REPOSITORY to configure the external repository.
