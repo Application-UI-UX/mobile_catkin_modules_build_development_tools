@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.1.29 [2013-11-08]
+===================
+* fix single artifact message generation when there is dependencies.
+
 0.1.28 [2013-10-30]
 ===================
 * seed ROS_MAVEN_REPOSITORY when necessary.
