@@ -2,8 +2,14 @@
 Changelog
 ^^^^^^^^^
 
+0.2.0 [2013-10-25]
+==================
+* official maven style open range dependencies in templates
+* gradle 1.7->1.8
+* android build tools 18.1.1
+
 0.1.24 [2013-10-04]
-======================
+===================
 
 * bugfix for missing catkin_create_rosjava_xxx templates.
 
