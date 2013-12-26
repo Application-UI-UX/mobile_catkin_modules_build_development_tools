@@ -15,8 +15,7 @@
  */
 
 try {
-    project.catkin.tree.pkgs['%(project_name)s'].generateUnofficialMessageArtifact(project)
+    project.catkin.tree.generateMessageArtifact(project, '%(project_name)s')
 } catch (NullPointerException e) {
     println("Couldn't find %(project_name)s on the ROS_PACKAGE_PATH")
 }
-
