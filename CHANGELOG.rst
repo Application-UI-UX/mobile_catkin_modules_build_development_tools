@@ -2,6 +2,11 @@
 Changelog
 ^^^^^^^^^
 
+0.1.30 [2013-12-26]
+===================
+* rosdistro scraping more intelligent : now checks for message_generation dependant packages
+* gradle 1.8->1.9 upgrade in templates
+
 0.1.29 [2013-11-08]
 ===================
 * fix single artifact message generation when there is dependencies.
