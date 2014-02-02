@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""This script creates the skeleton of an android library package"""
+"""This script creates the skeleton of a rosjava application project"""
 
 ##############################################################################
 # Imports

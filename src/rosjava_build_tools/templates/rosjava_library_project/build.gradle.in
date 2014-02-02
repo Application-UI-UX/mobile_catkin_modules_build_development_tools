@@ -14,10 +14,6 @@
  * the License.
  */
 
-/* This plugin is necessary for creating installApp tasks (i.e. executables) */
-apply plugin: 'application'
-mainClassName = 'org.ros.RosRun'
-
 /* 
  Dependencies can be on external maven artifacts (such as rosjava_core
  here) or on sibling subprojects. Fpr external maven artifact dependencies
@@ -27,8 +23,8 @@ mainClassName = 'org.ros.RosRun'
 */
 
 dependencies {
-  /* An external maven artifact dependency */
-  compile 'org.ros.rosjava_core:rosjava:[0.1,)'
+  /* Example of an external maven artifact dependency */
+  /* compile 'org.ros.rosjava_core:rosjava:[0.1,)' */
   /* Example of a local subproject dependency */ 
   /* compile project(':sibling_gradle_project') */
 }

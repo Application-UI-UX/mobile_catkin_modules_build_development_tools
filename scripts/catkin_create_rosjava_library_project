@@ -1,17 +1,15 @@
 #!/usr/bin/env python
 
-"""This script creates the skeleton of a rosjava message project"""
+"""This script creates the skeleton of a rosjava library project"""
 
 ##############################################################################
 # Imports
 ##############################################################################
 
 from __future__ import print_function
-import argparse
-import os
 import sys
 
-from rosjava_build_tools import create_rosjava_msg_project
+from rosjava_build_tools import create_rosjava_library_project
 import rosjava_build_tools.console as console
 
 ##############################################################################
@@ -20,7 +18,7 @@ import rosjava_build_tools.console as console
 
 if __name__ == "__main__":
     try:
-        sys.exit(create_rosjava_msg_project())
+        sys.exit(create_rosjava_library_project())
     except Exception as e:
         console.logerror("%s : %s" % (str(e), type(e)))
         sys.exit(1)

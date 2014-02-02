@@ -46,6 +46,10 @@ def instantiate_template(template, project_name, author):
     return template % locals()
 
 
+def instantiate_code_template(template, package_name, project_name, author):
+    return template % locals()
+
+
 def create_gradle_package_files(args, template_directory):
     '''
       This is almost a direct copy from catkin_create_pkg.
@@ -57,6 +61,27 @@ def create_gradle_package_files(args, template_directory):
             filename = os.path.join(package_path, template_name)
             template = utils.read_template_file(template_directory, template_name)
             contents = instantiate_template(template, project_name, args.author)
+            try:
+                f = open(filename, 'w')
+                f.write(contents)
+                console.pretty_print('  File      : ', console.cyan)
+                console.pretty_println(template_name, console.yellow)
+            finally:
+                f.close()
+    except Exception:
+        raise
+
+
+def create_talker_listener_classes(project_name, template_directory, author):
+    path = os.path.join(os.getcwd(), project_name.lower())
+    package_name = os.path.basename(os.getcwd())
+    java_package_path = os.path.join(path, 'src', 'main', 'java', 'com', 'github', package_name, project_name)
+    utils.mkdir_p(java_package_path)
+    try:
+        for template_name in ['Talker.java', 'Listener.java']:
+            filename = os.path.join(java_package_path, template_name)
+            template = utils.read_template_file(template_directory, template_name)
+            contents = instantiate_code_template(template, package_name, project_name, author)
             try:
                 f = open(filename, 'w')
                 f.write(contents)
@@ -126,9 +151,33 @@ def add_to_package_xml(name):
         package_xml.write(new_contents)
 
 
+def add_install_app_to_cmake_targets():
+    '''
+      Adds project name to build_depends in package.xml (should be same name as the ros msg package name).
+    '''
+    for rel_path in ['.', '..']:
+        cmakelists_txt_path = os.path.join(os.getcwd(), rel_path, 'CMakeLists.txt')
+        if os.path.isfile(cmakelists_txt_path):
+            break
+        else:
+            cmakelists_txt_path = None
+    if cmakelists_txt_path is None:
+        console.pretty_println("\nCouldn't find the root level CMakeLists.txt - not adding to the superproject.")
+        return
+    with open(cmakelists_txt_path, 'r') as cmakelists_txt:
+        console.pretty_print('  File      : ', console.cyan)
+        console.pretty_println('CMakeLists.txt (gradle task update)', console.yellow)
+        old_text = 'catkin_rosjava_setup(publishMavenJavaPublicationToMavenRepository)'
+        new_text = 'catkin_rosjava_setup(publishMavenJavaPublicationToMavenRepository installApp)'
+        new_contents = cmakelists_txt.read().replace(old_text, new_text)
+    with open(cmakelists_txt_path, 'w') as cmakelists_txt:
+        cmakelists_txt.write(new_contents)
+
+
 def create_dummy_java_class(project_name):
     path = os.path.join(os.getcwd(), project_name.lower())
-    java_package_path = os.path.join(path, 'src', 'main', 'java', 'com', 'github', 'rosjava', project_name)
+    package_name = os.path.basename(os.getcwd())
+    java_package_path = os.path.join(path, 'src', 'main', 'java', 'com', 'github', package_name, project_name)
     utils.mkdir_p(java_package_path)
     filename = os.path.join(java_package_path, 'Dude.java')
     java_class = "package com.github.rosjava.%s.Dude;\n" % project_name
@@ -170,12 +219,23 @@ def create_rosjava_project_common(args, template_directory):
 
 def create_rosjava_project():
     args = parse_arguments()
+    project_name = args.name[0]
+    author = args.author
     create_rosjava_project_common(args, 'rosjava_project')
-    create_dummy_java_class(args.name[0])
+    create_talker_listener_classes(project_name, 'rosjava_project', author)
+    add_install_app_to_cmake_targets()
+
+
+def create_rosjava_library_project():
+    args = parse_arguments()
+    project_name = args.name[0]
+    create_rosjava_project_common(args, 'rosjava_library_project')
+    create_dummy_java_class(project_name)
 
 
 def create_rosjava_msg_project():
     args = parse_arguments()
+    project_name = args.name[0]
     create_rosjava_project_common(args, 'rosjava_msg_project')
     add_catkin_generate_tree_command()
-    add_to_package_xml(args.name[0])
+    add_to_package_xml(project_name)
