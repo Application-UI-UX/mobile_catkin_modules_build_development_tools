@@ -2,6 +2,11 @@
 Changelog
 ^^^^^^^^^
 
+0.1.31 [2014-02-03]
+===================
+* separate app and library catkin_create_rosjava_xxx_project scripts.
+* app rosjava project integration with catkin_make (i.e. cmake-gradle targets).
+
 0.1.30 [2013-12-26]
 ===================
 * rosdistro scraping more intelligent : now checks for message_generation dependant packages
