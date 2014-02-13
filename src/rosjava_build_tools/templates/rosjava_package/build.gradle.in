@@ -54,7 +54,7 @@ subprojects {
       See https://github.com/rosjava/rosjava_bootstrap (look for gradle_plugins)
       to see what is going on under the hood.
     */
-    apply plugin: 'ros-java'
+    apply plugin: 'ros'
 }
 
 /*
