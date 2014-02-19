@@ -60,7 +60,7 @@ subprojects {
 /*
   Some useful tasks:
     install: deploys jar's to MavenLocal() (i.e. ~/.m2/repository)
-    publishMavenJavaPublicationToMavenRepository : deploys jar's to devel/share/maven
+    uploadArchives : deploys jar's to devel/share/maven
     installApp : assembles java apps in the _subproject_/build directories.
 */
 defaultTasks 'install'
