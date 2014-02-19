@@ -72,7 +72,7 @@ macro(catkin_rosjava_setup)
     find_gradle()
     if( ${ARGC} EQUAL 0 )
       # Note : COMMAND is a list of variables (semi-colon separated)
-      set(gradle_tasks "publishMavenJavaPublicationToMavenRepository") # old targets "install;installApp;uploadArchives"
+      set(gradle_tasks "uploadArchives") # old targets "install;installApp;uploadArchives"
     else()
       set(gradle_tasks ${ARGV})
     endif()
