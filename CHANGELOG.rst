@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.1.32 [2014-02-20]
+===================
+* bugfix catkin_make on empty catkin_created gradle projects.
+
 0.1.31 [2014-02-03]
 ===================
 * separate app and library catkin_create_rosjava_xxx_project scripts.
