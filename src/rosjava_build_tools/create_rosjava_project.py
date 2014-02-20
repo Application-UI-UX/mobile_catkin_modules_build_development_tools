@@ -7,6 +7,7 @@
 from __future__ import print_function
 
 import os
+import re
 import sys
 import argparse
 import xml.etree.ElementTree as ElementTree
@@ -151,7 +152,7 @@ def add_to_package_xml(name):
         package_xml.write(new_contents)
 
 
-def add_install_app_to_cmake_targets():
+def add_tasks_to_cmake_setup(tasks):
     '''
       Adds project name to build_depends in package.xml (should be same name as the ros msg package name).
     '''
@@ -165,11 +166,23 @@ def add_install_app_to_cmake_targets():
         console.pretty_println("\nCouldn't find the root level CMakeLists.txt - not adding to the superproject.")
         return
     with open(cmakelists_txt_path, 'r') as cmakelists_txt:
+        old_contents = cmakelists_txt.read()
+        result = re.search('^catkin_rosjava_setup\(.*\)', old_contents, re.MULTILINE)
+        if result is None:
+            console.pretty_println("\nCouldn't find a catkin_rosjava_setup entry in the CMakeLists.txt - not adding tasks.")
+            return
+        rosjava_setup_string = result.group(0)
+        gradle_tasks = set([])
+        if rosjava_setup_string.find("publishMavenJavaPublicationToMavenRepository") != -1:
+            gradle_tasks.add("publishMavenJavaPublicationToMavenRepository")
+        if rosjava_setup_string.find("installApp") != -1:
+            gradle_tasks.add("installApp")
+        gradle_tasks |= set(tasks)
         console.pretty_print('  File      : ', console.cyan)
         console.pretty_println('CMakeLists.txt (gradle task update)', console.yellow)
-        old_text = 'catkin_rosjava_setup(publishMavenJavaPublicationToMavenRepository)'
-        new_text = 'catkin_rosjava_setup(publishMavenJavaPublicationToMavenRepository installApp)'
-        new_contents = cmakelists_txt.read().replace(old_text, new_text)
+        old_text = rosjava_setup_string
+        new_text = 'catkin_rosjava_setup(' + ' '.join(gradle_tasks) + ')'
+        new_contents = old_contents.replace(old_text, new_text)
     with open(cmakelists_txt_path, 'w') as cmakelists_txt:
         cmakelists_txt.write(new_contents)
 
@@ -223,7 +236,7 @@ def create_rosjava_project():
     author = args.author
     create_rosjava_project_common(args, 'rosjava_project')
     create_talker_listener_classes(project_name, 'rosjava_project', author)
-    add_install_app_to_cmake_targets()
+    add_tasks_to_cmake_setup(['installApp', 'publishMavenJavaPublicationToMavenRepository'])
 
 
 def create_rosjava_library_project():
@@ -231,6 +244,7 @@ def create_rosjava_library_project():
     project_name = args.name[0]
     create_rosjava_project_common(args, 'rosjava_library_project')
     create_dummy_java_class(project_name)
+    add_tasks_to_cmake_setup(['publishMavenJavaPublicationToMavenRepository'])
 
 
 def create_rosjava_msg_project():
@@ -239,3 +253,4 @@ def create_rosjava_msg_project():
     create_rosjava_project_common(args, 'rosjava_msg_project')
     add_catkin_generate_tree_command()
     add_to_package_xml(project_name)
+    add_tasks_to_cmake_setup(['publishMavenJavaPublicationToMavenRepository'])
