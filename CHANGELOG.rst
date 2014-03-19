@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.1.33 [2014-03-19]
+===================
+* gradle 1.9->1.11
+
 0.1.32 [2014-02-20]
 ===================
 * bugfix catkin_make on empty catkin_created gradle projects.
