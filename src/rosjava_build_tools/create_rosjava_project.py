@@ -193,7 +193,7 @@ def create_dummy_java_class(project_name):
     java_package_path = os.path.join(path, 'src', 'main', 'java', 'com', 'github', package_name, project_name)
     utils.mkdir_p(java_package_path)
     filename = os.path.join(java_package_path, 'Dude.java')
-    java_class = "package com.github.rosjava.%s.Dude;\n" % project_name
+    java_class = "package com.github.%s.%s;\n" % (package_name, project_name)
     java_class += "\n"
     java_class += "public class Dude {\n"
     java_class += "}\n"
