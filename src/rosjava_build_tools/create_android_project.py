@@ -28,10 +28,10 @@ def parse_arguments():
     parser.add_argument('name',
                         nargs=1,
                         help='The name for the package')
-    parser.add_argument('-s', '--sdk-version',
+    parser.add_argument('-t', '--target-version',
                         action='store',
-                        default='18.1.1',
-                        help='Android sdk version [18.1.1]')
+                        default='15',
+                        help='Target android version [15]')
     parser.add_argument('-p', '--android-package-name',
                         action='store',
                         default='com.github.rosjava.android.pkg_name',
@@ -46,27 +46,30 @@ def parse_arguments():
     return args
 
 
-def actually_create_android_project(package_name, sdk_version, java_package_name, is_library):
+def actually_create_android_project(package_name, target_version, java_package_name, is_library):
     path = os.path.join(os.getcwd(), package_name.lower())
     console.pretty_println("\nCreating android project ", console.bold)
     console.pretty_print("  Name      : ", console.cyan)
     console.pretty_println("%s" % package_name, console.yellow)
-    console.pretty_print("  Sdk Ver   : ", console.cyan)
-    console.pretty_println("%s" % sdk_version, console.yellow)
+    console.pretty_print("  Target Ver: ", console.cyan)
+    console.pretty_println("%s" % target_version, console.yellow)
     console.pretty_print("  Java Name : ", console.cyan)
     console.pretty_println("%s" % java_package_name, console.yellow)
     if is_library:
         console.pretty_print("  Library   : ", console.cyan)
         console.pretty_println("yes\n", console.yellow)
-        cmd = ['android', 'create', 'lib-project', '-n', package_name, '-p', path, '-k', java_package_name, '-t', 'android-' + sdk_version, ]
+        cmd = ['android', 'create', 'lib-project', '-n', package_name, '-p', path, '-k', java_package_name, '-t', 'android-' + target_version, ]
     else:
         activity_name = utils.camel_case(package_name)
         console.pretty_print("  Activity  : ", console.cyan)
         console.pretty_println("%s\n" % activity_name, console.yellow)
-        cmd = ['android', 'create', 'project', '-n', package_name, '-p', path, '-k', java_package_name, '-t', 'android-' + sdk_version, '-a', activity_name]
+        cmd = ['android', 'create', 'project', '-n', package_name, '-p', path, '-k', java_package_name, '-t', 'android-' + target_version, '-a', activity_name]
+        print("Command: %s" % cmd)
     try:
         subprocess.check_call(cmd)
+        print("Command: %s" % cmd)
     except subprocess.CalledProcessError:
+        print("Error")
         raise subprocess.CalledProcessError("failed to create android project.")
     # This is in the old form, let's shovel the shit around to the new form
     utils.mkdir_p(os.path.join(path, 'src', 'main', 'java'))
@@ -157,8 +160,8 @@ def extra_gradle_library_text():
 
 def create_android_project(is_library=False):
     args = parse_arguments()
-    actually_create_android_project(args.name[0], args.sdk_version, args.android_package_name, is_library)
-    create_gradle_package_files(args, args.author, is_library, args.sdk_version)
+    actually_create_android_project(args.name[0], args.target_version, args.android_package_name, is_library)
+    create_gradle_package_files(args, args.author, is_library, args.target_version)
     add_to_root_gradle_settings(args.name[0])
 
 ##############################################################################

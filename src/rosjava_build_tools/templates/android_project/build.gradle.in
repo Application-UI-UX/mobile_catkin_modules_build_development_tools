@@ -34,6 +34,11 @@ dependencies {
 apply plugin: '%(plugin_name)s'
 
 android {
-    compileSdkVersion %(sdk_version)s
+  packagingOptions {
+    /* https://github.com/rosjava/android_core/issues/194 */
+    exclude 'META-INF/LICENSE.txt'
+    exclude 'META-INF/NOTICE.txt'
+  }
+  compileSdkVersion %(sdk_version)s
 }
  
