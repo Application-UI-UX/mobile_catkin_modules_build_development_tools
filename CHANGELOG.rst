@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.1.34 (2014-06-12)
+===================
+* assist rospack to speedup by ignoring the installed maven directories.
+
 0.1.33 [2014-03-19]
 ===================
 * gradle 1.9->1.11
