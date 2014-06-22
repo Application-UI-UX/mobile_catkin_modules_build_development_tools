@@ -1,6 +1,6 @@
 <package>
   <name>rosjava_build_tools</name>
-  <version>0.1.34</version>
+  <version>0.2.0</version>
   <description>
     Simple tools and catkin modules for rosjava development. 
   </description>
@@ -9,7 +9,7 @@
   <url type="website">http://ros.org/wiki/rosjava_build_tools</url>
   <url type="repository">https://github.com/ros-java/rosjava_build_tools</url>
   <url type="bugtracker">https://github.com/ros-java/rosjava_build_tools/issues</url>
-  <author email="d.stonier@gmail.com">Daniel Stonier</author>
+  <author>Daniel Stonier</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
