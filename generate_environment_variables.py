@@ -34,7 +34,7 @@ def get_environment_variable(environ, key):
     except KeyError:
         pass
     if var == '':
-        var = None 
+        var = None
     return var
 
 if __name__ == '__main__':
@@ -48,12 +48,12 @@ if __name__ == '__main__':
         else:
             if repo in [os.path.join(w, 'share', 'maven') for w in workspaces]:
                 repo = os.path.join(workspaces[0], 'share', 'maven')
-        print repo
+        print(repo)
     elif args.maven_repository:
         repo = get_environment_variable(environment_variables, 'ROS_MAVEN_REPOSITORY')
         if repo is None:
             repo = 'https://github.com/rosjava/rosjava_mvn_repo/raw/master'
-        print repo
+        print(repo)
     elif args.maven_path:
         new_maven_paths = [os.path.join(path, 'share', 'maven') for path in workspaces]
         maven_paths = get_environment_variable(environment_variables, 'ROS_MAVEN_PATH')
@@ -64,7 +64,7 @@ if __name__ == '__main__':
             common_paths = [p for p in maven_paths if p in new_maven_paths]
             if common_paths:
                 maven_paths = new_maven_paths
-        print os.pathsep.join(maven_paths)
+        print(os.pathsep.join(maven_paths))
     elif args.gradle_user_home:
         home = get_environment_variable(environment_variables, 'GRADLE_USER_HOME')
         if home is None:
@@ -72,6 +72,6 @@ if __name__ == '__main__':
         else:
             if home in [os.path.join(w, 'share', 'gradle') for w in workspaces]:
                 home = os.path.join(workspaces[0], 'share', 'gradle')
-        print home
+        print(home)
     else:
-        print "Nothing to see here - please provide one of the valid command switches."
+        print("Nothing to see here - please provide one of the valid command switches.")
