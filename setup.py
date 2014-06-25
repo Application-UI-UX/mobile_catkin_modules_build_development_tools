@@ -23,7 +23,6 @@ d = generate_distutils_setup(
            'templates/rosjava_project/*',
            'templates/init_repo/*',
         ]},
-    requires=['rospy' 'rospkg']
 )
 
 setup(**d)
