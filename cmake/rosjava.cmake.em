@@ -44,6 +44,7 @@ endmacro()
 # Note that we check for the variable existence as well so we don't
 # override a user setting.
 macro(_rosjava_env)
+    set(ROS_GRADLE_VERBOSE $ENV{ROS_GRADLE_VERBOSE})
     set(ROS_MAVEN_DEPLOYMENT_REPOSITORY $ENV{ROS_MAVEN_DEPLOYMENT_REPOSITORY})
     set(ROS_MAVEN_REPOSITORY $ENV{ROS_MAVEN_REPOSITORY})
     if(NOT ROS_MAVEN_DEPLOYMENT_REPOSITORY)
@@ -75,13 +76,37 @@ macro(catkin_rosjava_setup)
     else()
       set(gradle_tasks ${ARGV})
     endif()
+    if(ROS_GRADLE_VERBOSE)
+       set(gradle_options "")
+    else()
+       set(gradle_options "-q")
+    endif()
+    ###################################
+    # Execution
+    ###################################
+    # This is an interesting option, it uses cmake to check for changes in files and
+    # avoids gradle's own slow check. It could get annoying though.
+    file(GLOB_RECURSE BUILD_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS *.java *.gradle *.properties CMakeLists.txt *.cmake *.xml)
+    # Can't actually key off the subproject build dirs since we don't know them from here so we
+    # use touch a file to link the command to the target. Actual triggers come from the file dependency changes.
+    add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/built
+        DEPENDS ${BUILD_FILES}
+        # COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} "env" "|" "grep" "ROS" 
+        COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_options} ${gradle_tasks}
+        COMMAND touch ${CMAKE_CURRENT_BINARY_DIR}/built
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        COMMENT "Running gradle tasks for ${PROJECT_NAME}"
+    )
+    
     add_custom_target(gradle-${PROJECT_NAME}
         ALL
-        COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} "env" "|" "grep" "ROS" 
-        COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_tasks} 
+        DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/built
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         VERBATIM
     )
+    ###################################
+    # Target Management
+    ###################################
     catkin_package_xml()
     foreach(depends in ${${PROJECT_NAME}_BUILD_DEPENDS})
         if(TARGET gradle-${depends})
@@ -95,6 +120,7 @@ macro(catkin_rosjava_setup)
     add_custom_target(gradle-clean-${PROJECT_NAME}
         COMMAND ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} clean
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        COMMENT "Cleaning gradle project for ${PROJECT_NAME}"
     )
     add_dependencies(gradle-clean gradle-clean-${PROJECT_NAME})
 endmacro()
