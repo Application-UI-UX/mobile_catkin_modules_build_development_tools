@@ -84,34 +84,25 @@ macro(catkin_rosjava_setup)
     ###################################
     # Execution
     ###################################
-    # This is an interesting option, it uses cmake to check for changes in files and
-    # avoids gradle's own slow check. It could get annoying though.
-    file(GLOB_RECURSE BUILD_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS *.java *.gradle *.properties CMakeLists.txt *.cmake *.xml)
-    # Can't actually key off the subproject build dirs since we don't know them from here so we
-    # use touch a file to link the command to the target. Actual triggers come from the file dependency changes.
-    add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/built
-        DEPENDS ${BUILD_FILES}
-        # COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} "env" "|" "grep" "ROS" 
+    add_custom_target(gradle-${PROJECT_NAME} ALL
+        #COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} "env" "|" "grep" "ROS" 
         COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_options} ${gradle_tasks}
-        COMMAND touch ${CMAKE_CURRENT_BINARY_DIR}/built
-        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-        COMMENT "Running gradle tasks for ${PROJECT_NAME}"
-    )
-    
-    add_custom_target(gradle-${PROJECT_NAME}
-        ALL
-        DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/built
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         VERBATIM
+        COMMENT "Gradling tasks for ${PROJECT_NAME}"
     )
     ###################################
     # Target Management
     ###################################
     catkin_package_xml()
-    foreach(depends in ${${PROJECT_NAME}_BUILD_DEPENDS})
+    foreach(depends ${${PROJECT_NAME}_BUILD_DEPENDS})
         if(TARGET gradle-${depends})
-            #message(STATUS "Adding dependency gradle-${depends}")
+            #message(STATUS "Adding dependency.....gradle-${PROJECT_NAME} <- gradle-${depends}")
             add_dependencies(gradle-${PROJECT_NAME} gradle-${depends})
+        endif()
+        if(TARGET ${depends}_generate_messages)
+            #message(STATUS "Adding dependency.....gradle-${PROJECT_NAME} <- ${depends}_generate_messages")
+            add_dependencies(gradle-${PROJECT_NAME} ${depends}_generate_messages)
         endif()
     endforeach()
     if(NOT TARGET gradle-clean)
