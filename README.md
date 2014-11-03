@@ -1,3 +1,7 @@
+# NEEDS AN INDIGO UPDATE!!!
+
+Coming soon....ish.
+
 # RosJava Tools
 
 Build tools for rosjava and android repositories. Currently includes some cmake macros and python creation
