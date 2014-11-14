@@ -29,7 +29,7 @@ def has_build_depend_on_message_generation(package):
 def scrape_for_release_message_packages(track):
     url = rosdistro.get_index_url()
     index = rosdistro.get_index(url)
-    cache = rosdistro.get_release_cache(index, 'hydro')
+    cache = rosdistro.get_release_cache(index, 'indigo')
     packages = []
     for package_name, package_string in cache.package_xmls.iteritems():
         package = catkin_pkg.package.parse_package_string(package_string)
