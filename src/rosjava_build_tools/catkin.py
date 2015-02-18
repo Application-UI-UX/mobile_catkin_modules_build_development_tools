@@ -27,12 +27,12 @@ def has_build_depend_on_message_generation(package):
     return 'message_generation' in [d.name for d in package.build_depends]
 
 
-def index_message_package_dependencies_from_local_environment(package_name=None, package_paths=None):
+def index_message_package_dependencies_from_local_environment(package_name_list=[], package_paths=None):
     '''
       Returns a topologically sorted list of message packages that can
       be used for sequencing builds of packages.
 
-      @param package_name : sort dependencies for this package only (defaults to all packages if None is given)
+      @param package_name_list : sort dependencies for these packages only (defaults to all if empty)
       @param package_paths : a python list of ros workspaces (defaults to ROS_PACKAGE_PATH if None is given)
       @return dict mapping relative path to a catkin_pkg.Package
     '''
@@ -47,8 +47,8 @@ def index_message_package_dependencies_from_local_environment(package_name=None,
         for package_path, package in catkin_pkg.packages.find_packages(path).items():
             all_packages[package.name] = (package_path, package)
             if has_build_depend_on_message_generation(package):
-                if package_name is not None:
-                    if package_name == package.name:
+                if package_name_list:
+                    if package.name in package_name_list:
                         message_packages[package.name] = (package_path, package)
                 else:
                     message_packages[package.name] = (package_path, package)
