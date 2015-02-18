@@ -15,26 +15,11 @@
  */
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.11'
+    gradleVersion = '2.2.1'
 }
 
 buildscript {
-    def rosMavenPath = "$System.env.ROS_MAVEN_PATH".split(':').collect { 'file://' + it }
-    def rosMavenRepository = "$System.env.ROS_MAVEN_REPOSITORY"
-    repositories {
-        rosMavenPath.each { p ->
-            maven {
-                url p
-            }
-        }
-        mavenLocal()
-        maven {
-            url rosMavenRepository
-        }
-    }
-    dependencies {
-        classpath group: 'org.ros.rosjava_bootstrap', name: 'gradle_plugins', version: '[0.1,0.2)'
-    }
+  apply from: "https://github.com/rosjava/rosjava_bootstrap/raw/indigo/buildscript.gradle"
 }
 
 apply plugin: 'catkin'
@@ -50,11 +35,23 @@ allprojects {
 }
 
 subprojects {
+    /* 
+     * The ros plugin configures a few things:
+     * 
+     *  - local deployment repository : where it dumps the jars and packaged artifacts)
+     *  - local maven repositories    : where it finds your locally installed/built artifacts) 
+     *  - external maven repositories : where it goes looking if it can't find dependencies locally
+     * 
+     * To modify, or add repos to the default external maven repositories list, pull request against this code:
+     * 
+     *   https://github.com/rosjava/rosjava_bootstrap/blob/indigo/gradle_plugins/src/main/groovy/org/ros/gradle_plugins/RosPlugin.groovy#L31
+     */
+    apply plugin: "ros-java"
     /*
-      See https://github.com/rosjava/rosjava_bootstrap (look for gradle_plugins)
-      to see what is going on under the hood.
-    */
-    apply plugin: 'ros-java'
+     * Some IDE support if you use it.
+     */
+    /* apply plugin: "eclipse" */
+    /* apply plugin: "idea"    */
 }
 
 /*
