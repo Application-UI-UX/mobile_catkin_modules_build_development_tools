@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.github.%(package_name)s.%(project_name)s;
+package com.github.rosjava.%(package_name)s.%(project_name)s;
 
 import org.apache.commons.logging.Log;
 import org.ros.message.MessageListener;
