@@ -173,9 +173,9 @@ def add_tasks_to_cmake_setup(tasks):
             return
         rosjava_setup_string = result.group(0)
         gradle_tasks = set([])
-        if rosjava_setup_string.find("publishMavenJavaPublicationToMavenRepository") != -1:
+        if rosjava_setup_string.find("publishMavenJavaPublicationToMavenRepository") == -1:
             gradle_tasks.add("publishMavenJavaPublicationToMavenRepository")
-        if rosjava_setup_string.find("installApp") != -1:
+        if rosjava_setup_string.find("installApp") == -1:
             gradle_tasks.add("installApp")
         gradle_tasks |= set(tasks)
         console.pretty_print('  File      : ', console.cyan)
