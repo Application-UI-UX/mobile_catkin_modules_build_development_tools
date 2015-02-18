@@ -24,7 +24,7 @@
 
 dependencies {
   /* Example of an external maven artifact dependency */
-  /* compile 'org.ros.rosjava_core:rosjava:[0.1,)' */
+  /* compile 'org.ros.rosjava_core:rosjava:[0.2,)' */
   /* Example of a local subproject dependency */ 
   /* compile project(':sibling_gradle_project') */
 }
