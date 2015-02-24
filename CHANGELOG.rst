@@ -2,6 +2,14 @@
 Changelog
 ^^^^^^^^^
 
+0.2.1 (2015-02-25)
+------------------
+* upgrade catkin create scripts for indigo
+* support modules for genjava
+* deprecated create msg package scripts
+* minor bugfixes and improvements.
+* Contributors: Benjamin Chrétien, Daniel Stonier, Martin Pecka
+
 0.1.34 (2014-06-12)
 ===================
 * assist rospack to speedup by ignoring the installed maven directories.
