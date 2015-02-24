@@ -100,7 +100,7 @@ def create_gradle_package_files(args, author, is_library, sdk_version):
     '''
       This is almost a direct copy from catkin_create_pkg.
     '''
-    plugin_name = "android-library" if is_library else "android"
+    plugin_name = "com.android.library" if is_library else "com.android.application"
     try:
         package_name = args.name[0].lower()
         package_path = os.path.abspath(os.path.join(os.getcwd(), package_name))
