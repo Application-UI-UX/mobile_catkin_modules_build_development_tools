@@ -9,6 +9,13 @@ import catkin_pkg.packages
 import catkin_pkg.topological_order
 
 ##############################################################################
+# Constants
+##############################################################################
+
+# packages that don't properly identify themselves as message packages (fix upstream).
+message_package_whitelist = ['map_store']
+
+##############################################################################
 # Methods
 ##############################################################################
 
@@ -46,7 +53,7 @@ def index_message_package_dependencies_from_local_environment(package_name_list=
     for path in reversed(package_paths):
         for package_path, package in catkin_pkg.packages.find_packages(path).items():
             all_packages[package.name] = (package_path, package)
-            if has_build_depend_on_message_generation(package):
+            if has_build_depend_on_message_generation(package) or package.name in message_package_whitelist:
                 if package_name_list:
                     if package.name in package_name_list:
                         message_packages[package.name] = (package_path, package)
