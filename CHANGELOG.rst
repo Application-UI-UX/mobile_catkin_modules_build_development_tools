@@ -2,6 +2,11 @@
 Changelog
 ^^^^^^^^^
 
+0.2.2 (2015-02-25)
+------------------
+* support for finding broken message packages.
+* Contributors: Daniel Stonier
+
 0.2.1 (2015-02-25)
 ------------------
 * upgrade catkin create scripts for indigo
