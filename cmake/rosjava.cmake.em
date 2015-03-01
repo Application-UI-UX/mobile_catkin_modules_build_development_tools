@@ -43,7 +43,7 @@ endmacro()
 # CATKIN_ENV won't have any configuration, so we need some incoming here.
 # Note that we check for the variable existence as well so we don't
 # override a user setting.
-macro(_rosjava_env)
+macro(catkin_rosjava_env_setup)
     set(ROS_GRADLE_VERBOSE $ENV{ROS_GRADLE_VERBOSE})
     set(ROS_MAVEN_DEPLOYMENT_REPOSITORY $ENV{ROS_MAVEN_DEPLOYMENT_REPOSITORY})
     set(ROS_MAVEN_REPOSITORY $ENV{ROS_MAVEN_REPOSITORY})
@@ -69,7 +69,7 @@ endmacro()
 # Calls the gradle wrapper to compile just the package
 # that it is called in with install and installApp targets.
 macro(catkin_rosjava_setup)
-    _rosjava_env()
+    catkin_rosjava_env_setup()
     find_gradle()
     if( ${ARGC} EQUAL 0 )
       return() # Nothing to do (typically no subprojects created yet)
@@ -123,7 +123,7 @@ endmacro()
 # It checks the build type and determines whether it should run
 # assembleDebug or assembleRelease
 macro(catkin_android_setup)
-    _rosjava_env()
+    catkin_rosjava_env_setup()
     find_gradle()
     if( ${ARGC} EQUAL 0 )
       return() # Nothing to do (typically no subprojects created yet)
