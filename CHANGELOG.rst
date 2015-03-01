@@ -2,6 +2,11 @@
 Changelog
 ^^^^^^^^^
 
+0.2.3 (2015-03-01)
+------------------
+* publically expose the rosjava environment setup (for genjava).
+* Contributors: Daniel Stonier
+
 0.2.2 (2015-02-25)
 ------------------
 * support for finding broken message packages.
