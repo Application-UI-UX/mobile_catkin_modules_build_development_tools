@@ -24,7 +24,7 @@ def get_workspaces(environ):
     value = environ[env_name] if env_name in environ else ''
     paths = [path for path in value.split(os.pathsep) if path]
     # remove non-workspace paths
-    workspaces = [path for path in paths if os.path.isfile(os.path.join(path, CATKIN_MARKER_FILE))]
+    workspaces = [path.replace(' ', '\ ') for path in paths if os.path.isfile(os.path.join(path, CATKIN_MARKER_FILE))]
     return workspaces
 
 def get_environment_variable(environ, key):
