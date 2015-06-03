@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.2.4 (2015-06-03)
+------------------
+* bugfix environment hooks for workspaces with spaces.
+
 0.2.3 (2015-03-01)
 ------------------
 * publically expose the rosjava environment setup (for genjava).
