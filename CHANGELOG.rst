@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.3.0 (2016-12-14)
+------------------
+* Updates for Kinetic release.
+
 0.2.4 (2015-06-03)
 ------------------
 * bugfix environment hooks for workspaces with spaces.
