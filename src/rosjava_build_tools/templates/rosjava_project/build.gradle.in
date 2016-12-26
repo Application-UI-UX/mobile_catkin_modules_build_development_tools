@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 %(author)s.
+ * Copyright (C) 2014 %(author)s.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -14,23 +14,29 @@
  * the License.
  */
 
-/* 
- Examples of 
+/* This plugin is necessary for creating installApp tasks (i.e. executables) */
+apply plugin: 'application'
+mainClassName = 'org.ros.RosRun'
+
+/*
+ Examples of
    1) dependencies from another project in this gradle stack.
    2,3) open ranged dependencies from a maven repository.
-   
-   It's a good idea to use open ranges on to
+
+   Dependencies can be on external maven artifacts (such as rosjava_core
+   here) or on sibling subprojects. For rosjava maven artifact dependencies
+   it is a good idea to use open ranges on to
    save continually updating these references, but it is recommended
-   to restrict this to the patch version number (e.g. [0.2,0.3) will
-   get the latest 0.2.x version) to avoid unknowingly
+   to restrict this to the patch version number (e.g. [0.3,0.4) will
+   get the latest 0.3.x version) to avoid unknowingly
    having api breaking changes usually associated with minor and major
    version number changes.
 */
-/* 
+
 dependencies {
-  compile project(':local_android_library_dependency')
-  compile 'org.ros.rosjava_core:rosjava:[0.2,0.3)'
-  compile 'com.github.rosjava.rosjava_extras:hokuyo:[0.2,0.3)'
+  /* An external maven artifact dependency */
+  compile 'org.ros.rosjava_core:rosjava:[0.3,0.4)'
+  /* Example of a local subproject dependency */
+  /* compile project(':sibling_gradle_project') */
 }
-*/
 

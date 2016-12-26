@@ -14,8 +14,18 @@
  * the License.
  */
 
-try {
-    project.catkin.tree.generateMessageArtifact(project, '%(project_name)s')
-} catch (NullPointerException e) {
-    println("Couldn't find %(project_name)s on the ROS_PACKAGE_PATH")
+/* 
+ Dependencies can be on external maven artifacts (such as rosjava_core
+ here) or on sibling subprojects. Fpr external maven artifact dependencies
+ it's convenient to use an open ranged dependency, but restrict it to
+ cover the patch version only to avoid breakages due to api changes
+ which usually occur on minor and major version numbers.
+*/
+
+dependencies {
+  /* Example of an external maven artifact dependency */
+  /* compile 'org.ros.rosjava_core:rosjava:[0.2,)' */
+  /* Example of a local subproject dependency */ 
+  /* compile project(':sibling_gradle_project') */
 }
+

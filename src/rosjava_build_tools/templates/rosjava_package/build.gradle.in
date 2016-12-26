@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 %(author)s
+ * Copyright (C) 2014 %(author)s
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -15,26 +15,11 @@
  */
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.8'
+    gradleVersion = '2.2.1'
 }
 
 buildscript {
-    def rosMavenPath = "$System.env.ROS_MAVEN_PATH".split(':').collect { 'file://' + it }
-    def rosMavenRepository = "$System.env.ROS_MAVEN_REPOSITORY"
-    repositories {
-        rosMavenPath.each { p ->
-            maven {
-                url p
-            }
-        }
-        mavenLocal()
-        maven {
-            url rosMavenRepository
-        }
-    }
-    dependencies {
-        classpath group: 'org.ros.rosjava_bootstrap', name: 'gradle_plugins', version: '[0.2,0.3)'
-    }
+  apply from: "https://github.com/rosjava/rosjava_bootstrap/raw/kinetic/buildscript.gradle"
 }
 
 apply plugin: 'catkin'
@@ -51,16 +36,34 @@ allprojects {
 
 subprojects {
     /*
-      See https://github.com/rosjava/rosjava_bootstrap (look for gradle_plugins)
-      to see what is going on under the hood.
-    */
-    apply plugin: 'ros'
+     * The ros-java plugin configures a few things:
+     *
+     *  - local deployment repository : where it dumps the jars and packaged artifacts)
+     *  - local maven repositories    : where it finds your locally installed/built artifacts)
+     *  - external maven repositories : where it goes looking if it can't find dependencies locally
+     *
+     * To modify, or add repos to the default external maven repositories list, pull request against this code:
+     *
+     *   https://github.com/rosjava/rosjava_bootstrap/blob/kinetic/gradle_plugins/src/main/groovy/org/ros/gradle_plugins/RosPlugin.groovy#L31
+     */
+    apply plugin: "ros-java"
+    /*
+     * Some IDE support if you use it.
+     */
+    /* apply plugin: "eclipse" */
+    /* apply plugin: "idea"    */
 }
 
 /*
   Some useful tasks:
+
     install: deploys jar's to MavenLocal() (i.e. ~/.m2/repository)
     uploadArchives : deploys jar's to devel/share/maven
     installApp : assembles java apps in the _subproject_/build directories.
+
+  Note that these are dependent on the type of project (e.g. installApp is only valid for
+  java binary subprojects, while publishMavenJav... is only added once a subproject is included.
+  If you're using catkin_make, this is not important, since it will use the task list specified
+  in CMakeLists.txt
 */
-defaultTasks 'install'
+defaultTasks 'tasks'

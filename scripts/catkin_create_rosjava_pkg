@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""This script creates the skeleton of an rosjava repo"""
+"""This script creates the skeleton of a rosjava catkin package (typically an entire repo)"""
 
 ##############################################################################
 # Imports
