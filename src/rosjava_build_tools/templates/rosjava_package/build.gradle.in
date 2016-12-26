@@ -58,7 +58,7 @@ subprojects {
   Some useful tasks:
 
     install: deploys jar's to MavenLocal() (i.e. ~/.m2/repository)
-    uploadArchives : deploys jar's to devel/share/maven
+    publishMavenJavaPublicationToMavenRepository : deploys jar's to devel/share/maven
     installApp : assembles java apps in the _subproject_/build directories.
 
   Note that these are dependent on the type of project (e.g. installApp is only valid for
