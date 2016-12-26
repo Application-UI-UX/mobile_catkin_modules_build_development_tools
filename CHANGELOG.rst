@@ -2,11 +2,82 @@
 Changelog
 ^^^^^^^^^
 
+0.3.0 (2016-12-14)
+------------------
+* Updates for Kinetic release.
+
+0.2.4 (2015-06-03)
+------------------
+* bugfix environment hooks for workspaces with spaces.
+
+0.2.3 (2015-03-01)
+------------------
+* publically expose the rosjava environment setup (for genjava).
+* Contributors: Daniel Stonier
+
+0.2.2 (2015-02-25)
+------------------
+* support for finding broken message packages.
+* Contributors: Daniel Stonier
+
+0.2.1 (2015-02-25)
+------------------
+* upgrade catkin create scripts for indigo
+* support modules for genjava
+* deprecated create msg package scripts
+* minor bugfixes and improvements.
+* Contributors: Benjamin Chrétien, Daniel Stonier, Martin Pecka
+
 0.2.0 [2013-10-25]
 ==================
 * official maven style open range dependencies in templates
 * gradle 1.7->1.8
 * android build tools 18.1.1
+
+0.1.34 (2014-06-12)
+===================
+* assist rospack to speedup by ignoring the installed maven directories.
+
+0.1.33 [2014-03-19]
+===================
+* gradle 1.9->1.11
+
+0.1.32 [2014-02-20]
+===================
+* bugfix catkin_make on empty catkin_created gradle projects.
+
+0.1.31 [2014-02-03]
+===================
+* separate app and library catkin_create_rosjava_xxx_project scripts.
+* app rosjava project integration with catkin_make (i.e. cmake-gradle targets).
+
+0.1.30 [2013-12-26]
+===================
+* rosdistro scraping more intelligent : now checks for message_generation dependant packages
+* gradle 1.8->1.9 upgrade in templates
+
+0.1.29 [2013-11-08]
+===================
+* fix single artifact message generation when there is dependencies.
+
+0.1.28 [2013-10-30]
+===================
+* seed ROS_MAVEN_REPOSITORY when necessary.
+
+0.1.27 [2013-10-30]
+===================
+* use ROS_MAVEN_REPOSITORY to configure the external repository.
+
+0.1.26 [2013-10-26]
+===================
+* embedded gradle 1.7->1.8
+* templates updated for official maven style open ranged dependencies
+
+0.1.25 [2013-10-26]
+===================
+
+* gradle 1.7->1.8
+* android tools 17->18.1.1
 
 0.1.24 [2013-10-04]
 ===================
