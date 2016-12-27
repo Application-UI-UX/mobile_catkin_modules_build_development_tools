@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+Forthcoming
+-----------
+* Gradle 2.2.1 -> 2.14.1
+
 0.3.0 (2016-12-14)
 ------------------
 * Updates for Kinetic release.
