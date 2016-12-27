@@ -36,10 +36,10 @@ allprojects {
 
 subprojects {
     /*
-     * The ros plugin configures a few things:
+     * The ros-java plugin configures a few things:
      *
      *  - local deployment repository : where it dumps the jars and packaged artifacts)
-     *  - local maven repositories    : where it finds your locally installed/built artifacts) 
+     *  - local maven repositories    : where it finds your locally installed/built artifacts)
      *  - external maven repositories : where it goes looking if it can't find dependencies locally
      *
      * To modify, or add repos to the default external maven repositories list, pull request against this code:

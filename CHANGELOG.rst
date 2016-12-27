@@ -28,6 +28,12 @@ Changelog
 * minor bugfixes and improvements.
 * Contributors: Benjamin Chrétien, Daniel Stonier, Martin Pecka
 
+0.2.0 [2013-10-25]
+==================
+* official maven style open range dependencies in templates
+* gradle 1.7->1.8
+* android build tools 18.1.1
+
 0.1.34 (2014-06-12)
 ===================
 * assist rospack to speedup by ignoring the installed maven directories.

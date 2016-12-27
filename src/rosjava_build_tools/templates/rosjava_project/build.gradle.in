@@ -18,18 +18,25 @@
 apply plugin: 'application'
 mainClassName = 'org.ros.RosRun'
 
-/* 
- Dependencies can be on external maven artifacts (such as rosjava_core
- here) or on sibling subprojects. Fpr external maven artifact dependencies
- it's convenient to use an open ranged dependency, but restrict it to
- cover the patch version only to avoid breakages due to api changes
- which usually occur on minor and major version numbers.
+/*
+ Examples of
+   1) dependencies from another project in this gradle stack.
+   2,3) open ranged dependencies from a maven repository.
+
+   Dependencies can be on external maven artifacts (such as rosjava_core
+   here) or on sibling subprojects. For rosjava maven artifact dependencies
+   it is a good idea to use open ranges on to
+   save continually updating these references, but it is recommended
+   to restrict this to the patch version number (e.g. [0.3,0.4) will
+   get the latest 0.3.x version) to avoid unknowingly
+   having api breaking changes usually associated with minor and major
+   version number changes.
 */
 
 dependencies {
   /* An external maven artifact dependency */
-  compile 'org.ros.rosjava_core:rosjava:[0.2,0.3)'
-  /* Example of a local subproject dependency */ 
+  compile 'org.ros.rosjava_core:rosjava:[0.3,0.4)'
+  /* Example of a local subproject dependency */
   /* compile project(':sibling_gradle_project') */
 }
 
