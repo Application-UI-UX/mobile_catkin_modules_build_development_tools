@@ -173,8 +173,8 @@ def add_tasks_to_cmake_setup(tasks):
             return
         rosjava_setup_string = result.group(0)
         gradle_tasks = set([])
-        if rosjava_setup_string.find("publishMavenJavaPublicationToMavenRepository") == -1:
-            gradle_tasks.add("publishMavenJavaPublicationToMavenRepository")
+        if rosjava_setup_string.find("publish") == -1:
+            gradle_tasks.add("publish")
         if rosjava_setup_string.find("installApp") == -1:
             gradle_tasks.add("installApp")
         gradle_tasks |= set(tasks)
@@ -236,7 +236,7 @@ def create_rosjava_project():
     author = args.author
     create_rosjava_project_common(args, 'rosjava_project')
     create_talker_listener_classes(project_name, 'rosjava_project', author)
-    add_tasks_to_cmake_setup(['installApp', 'publishMavenJavaPublicationToMavenRepository'])
+    add_tasks_to_cmake_setup(['installApp', 'publish'])
 
 
 def create_rosjava_library_project():
@@ -244,7 +244,7 @@ def create_rosjava_library_project():
     project_name = args.name[0]
     create_rosjava_project_common(args, 'rosjava_library_project')
     create_dummy_java_class(project_name)
-    add_tasks_to_cmake_setup(['publishMavenJavaPublicationToMavenRepository'])
+    add_tasks_to_cmake_setup(['publish'])
 
 
 def create_rosjava_msg_project():
@@ -253,4 +253,4 @@ def create_rosjava_msg_project():
     create_rosjava_project_common(args, 'rosjava_msg_project')
     add_catkin_generate_tree_command()
     add_to_package_xml(project_name)
-    add_tasks_to_cmake_setup(['publishMavenJavaPublicationToMavenRepository'])
+    add_tasks_to_cmake_setup(['publish'])
