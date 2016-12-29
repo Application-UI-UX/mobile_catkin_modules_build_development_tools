@@ -1,6 +1,6 @@
 <package>
   <name>rosjava_build_tools</name>
-  <version>0.3.1</version>
+  <version>0.3.2</version>
   <description>
     Simple tools and catkin modules for rosjava development.
   </description>

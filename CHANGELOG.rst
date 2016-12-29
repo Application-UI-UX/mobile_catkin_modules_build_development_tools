@@ -2,8 +2,8 @@
 Changelog
 ^^^^^^^^^
 
-Forthcoming
------------
+0.3.2 (2016-12-29)
+------------------
 * Changed default Gradle target publishMavenJavaPublicationToMavenRepository -> publish
 * Contributors: Julian Cerruti
 
