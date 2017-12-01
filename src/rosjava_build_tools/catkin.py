@@ -52,6 +52,8 @@ def index_message_package_dependencies_from_local_environment(package_name_list=
     # i.e. no duplicates!
     for path in reversed(package_paths):
         for package_path, package in catkin_pkg.packages.find_packages(path).items():
+            # resolve and normalize absolute path because it is used as a key below
+            package_path = os.path.normpath(os.path.join(path, package_path))
             all_packages[package.name] = (package_path, package)
             if has_build_depend_on_message_generation(package) or package.name in message_package_whitelist:
                 if package_name_list:
