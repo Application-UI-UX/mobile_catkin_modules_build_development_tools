@@ -11,6 +11,7 @@ import sys
 import argparse
 import subprocess
 import shutil
+import exceptions
 
 # local imports
 import utils
@@ -71,6 +72,10 @@ def actually_create_android_project(package_name, target_version, java_package_n
     except subprocess.CalledProcessError:
         print("Error")
         raise subprocess.CalledProcessError("failed to create android project.")
+    except exceptions.OSError as e:
+        print("OS error" + str(e))
+        raise exceptions.OSError()
+
     # This is in the old form, let's shovel the shit around to the new form
     utils.mkdir_p(os.path.join(path, 'src', 'main', 'java'))
     os.remove(os.path.join(path, 'local.properties'))
