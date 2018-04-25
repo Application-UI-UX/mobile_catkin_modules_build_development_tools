@@ -175,8 +175,8 @@ def add_tasks_to_cmake_setup(tasks):
         gradle_tasks = set([])
         if rosjava_setup_string.find("publish") == -1:
             gradle_tasks.add("publish")
-        if rosjava_setup_string.find("installApp") == -1:
-            gradle_tasks.add("installApp")
+        if rosjava_setup_string.find("installDist") == -1:
+            gradle_tasks.add("installDist")
         gradle_tasks |= set(tasks)
         console.pretty_print('  File      : ', console.cyan)
         console.pretty_println('CMakeLists.txt (gradle task update)', console.yellow)
@@ -236,7 +236,7 @@ def create_rosjava_project():
     author = args.author
     create_rosjava_project_common(args, 'rosjava_project')
     create_talker_listener_classes(project_name, 'rosjava_project', author)
-    add_tasks_to_cmake_setup(['installApp', 'publish'])
+    add_tasks_to_cmake_setup(['installDist', 'publish'])
 
 
 def create_rosjava_library_project():

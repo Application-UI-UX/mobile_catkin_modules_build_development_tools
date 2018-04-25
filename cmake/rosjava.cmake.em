@@ -67,7 +67,7 @@ endmacro()
 # RosJava Package
 ##############################################################################
 # Calls the gradle wrapper to compile just the package
-# that it is called in with install and installApp targets.
+# that it is called in with install and installDist targets.
 macro(catkin_rosjava_setup)
     catkin_rosjava_env_setup()
     find_gradle()
