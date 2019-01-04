@@ -15,6 +15,7 @@ macro(find_gradle)
           ${CMAKE_CURRENT_SOURCE_DIR}/..
           ${CMAKE_CURRENT_SOURCE_DIR}/../..
           NO_DEFAULT_PATH
+          NO_CMAKE_FIND_ROOT_PATH
           )
      if(NOT ${PROJECT_NAME}_gradle_BINARY)
          message(FATAL_ERROR "Could not find the gradle wrapper in this directory or below.")
