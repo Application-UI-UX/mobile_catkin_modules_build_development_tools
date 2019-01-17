@@ -2,8 +2,8 @@
 Changelog
 ^^^^^^^^^
 
-Forthcoming
------------
+0.3.3 (2019-01-17)
+------------------
 * Fixed problem to find gradlew when cross-compiling.
 * Gradle 2.14.1 --> 4.10.2.
 * Fix for genjava ignoring most packages in standalone mode.
