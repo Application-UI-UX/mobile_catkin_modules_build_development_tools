@@ -2,6 +2,13 @@
 Changelog
 ^^^^^^^^^
 
+Forthcoming
+-----------
+* Fixed problem to find gradlew when cross-compiling.
+* Gradle 2.14.1 --> 4.10.2.
+* Fix for genjava ignoring most packages in standalone mode.
+* Contributors: Johannes Meyer, Juan Ignacio Ubeira, Julian Cerruti, ivanpauno
+
 0.3.2 (2016-12-29)
 ------------------
 * Changed default Gradle target publishMavenJavaPublicationToMavenRepository -> publish
