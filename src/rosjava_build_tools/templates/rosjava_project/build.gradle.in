@@ -40,3 +40,10 @@ dependencies {
   /* compile project(':sibling_gradle_project') */
 }
 
+task cleanScripts(dependsOn: 'installDist') {
+  doLast {
+    file('build/scripts').deleteDir()
+  }
+}
+
+installDist.finalizedBy(cleanScripts)
