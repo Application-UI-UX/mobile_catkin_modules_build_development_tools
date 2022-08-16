@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: rosjava_build_tools
+Description: Description of rosjava_build_tools
+Version: 0.4.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
