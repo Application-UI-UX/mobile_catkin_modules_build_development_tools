@@ -1,15 +1,17 @@
 <package>
   <name>rosjava_build_tools</name>
-  <version>0.3.3</version>
+  <version>0.4.0</version>
   <description>
     Simple tools and catkin modules for rosjava development.
   </description>
-  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <author>Daniel Stonier</author>
+
+  <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
+
   <license>BSD</license>
   <url type="website">http://ros.org/wiki/rosjava_build_tools</url>
   <url type="repository">https://github.com/ros-java/rosjava_build_tools</url>
   <url type="bugtracker">https://github.com/ros-java/rosjava_build_tools/issues</url>
-  <author>Daniel Stonier</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
