@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+
+"""This script creates the skeleton of a rosjava application project"""
+
+##############################################################################
+# Imports
+##############################################################################
+
+from __future__ import print_function
+import argparse
+import os
+import sys
+
+from rosjava_build_tools import create_rosjava_project
+import rosjava_build_tools.console as console
+
+##############################################################################
+# Main
+##############################################################################
+
+if __name__ == "__main__":
+    try:
+        sys.exit(create_rosjava_project())
+    except Exception as e:
+        console.logerror("%s : %s" % (str(e), type(e)))
+        sys.exit(1)
