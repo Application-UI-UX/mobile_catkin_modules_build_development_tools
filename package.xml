@@ -5,7 +5,7 @@
     Simple tools and catkin modules for rosjava development.
   </description>
   <author>Daniel Stonier</author>
-
+  <author>Ronaldson Bellande</author>
   <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
 
   <license>BSD</license>
