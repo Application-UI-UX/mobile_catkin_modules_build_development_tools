@@ -1,11 +1,9 @@
 <package>
   <name>rosjava_build_tools</name>
   <version>0.4.0</version>
-  <description>
-    Simple tools and catkin modules for rosjava development.
-  </description>
+  <description>Simple tools and catkin modules for rosjava development.</description>
   <author>Daniel Stonier</author>
-
+  <author>Ronaldson Bellande</author>
   <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
 
   <license>BSD</license>
