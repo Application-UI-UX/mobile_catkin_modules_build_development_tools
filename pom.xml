@@ -8,13 +8,11 @@
   <version>0.4.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
-
 
   <distributionManagement>
     <repository>
@@ -44,14 +42,12 @@
     </developer>
   </developers>
 
-
   <scm>
     <connection>scm:git:https://github.com/Application-UI-UX/rosjava_build_tools.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/Application-UI-UX/rosjava_build_tools.git</developerConnection>
     <url>https://github.com/Application-UI-UX/rosjava_build_tools</url>
     <tag>rosjava_build_tools-0.4.0</tag>
   </scm>
-
 
   <build>
     <pluginManagement>
@@ -146,6 +142,5 @@
       </plugins>
     </pluginManagement>
   </build>
-
 
 </project>
