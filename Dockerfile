@@ -80,5 +80,4 @@ RUN ln -s /studio-data/profile/java .java
 RUN ln -s /studio-data/profile/gradle .gradle
 ENV ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 
-ENTRYPOINT ["/usr/local/bin/catkin_setup.sh"]
 CMD ["bash"]
