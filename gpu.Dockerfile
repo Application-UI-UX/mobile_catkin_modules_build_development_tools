@@ -73,11 +73,6 @@ RUN cd $CATKIN_WS \
   && rosdep fix-permissions \
   && rosdep install -y --from-paths . --ignore-src --rosdistro noetic
 
-# Always source catkin_setup.sh when launching bash 
-RUN echo "source /usr/local/bin/catkin_setup.sh" >> /root/.bashrc
-COPY catkin_setup.sh /usr/local/bin/catkin_setup.sh
-RUN chmod +x /usr/local/bin/catkin_setup.sh
-
 RUN ln -s /studio-data/profile/AndroidStudio$ANDROID_STUDIO_VERSION .AndroidStudio$ANDROID_STUDIO_VERSION
 RUN ln -s /studio-data/Android Android
 RUN ln -s /studio-data/profile/android .android
