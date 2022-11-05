@@ -417,10 +417,10 @@ gtest_hide_internal_symbols:BOOL=OFF
 gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 
 //Value Computed by CMake
-rosmobile_build_tools_BINARY_DIR:STATIC=/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosjava_build_tools
+rosmobile_build_tools_BINARY_DIR:STATIC=/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools
 
 //Value Computed by CMake
-rosmobile_build_tools_SOURCE_DIR:STATIC=/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosjava_build_tools
+rosmobile_build_tools_SOURCE_DIR:STATIC=/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools
 
 
 ########################
