@@ -7,9 +7,9 @@
   <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
 
   <license>BSD</license>
-  <url type="website">http://ros.org/wiki/rosjava_build_tools</url>
-  <url type="repository">https://github.com/ros-java/rosjava_build_tools</url>
-  <url type="bugtracker">https://github.com/ros-java/rosjava_build_tools/issues</url>
+  <url type="website">http://ros.org/wiki/rosmobile_build_tools</url>
+  <url type="repository">https://github.com/ros-java/rosmobile_build_tools</url>
+  <url type="bugtracker">https://github.com/ros-java/rosmobile_build_tools/issues</url>
 
   <buildtool_depend>catkin</buildtool_depend>
 
