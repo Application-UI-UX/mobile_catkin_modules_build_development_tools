@@ -42,7 +42,7 @@ macro(find_gradle_repo_root)
 endmacro()
 
 # These are used to seed the environment variables if the workspace is
-# containing rosjava_build_tools to be built as well. In this situtation
+# containing rosmobile_build_tools to be built as well. In this situtation
 # CATKIN_ENV won't have any configuration, so we need some incoming here.
 # Note that we check for the variable existence as well so we don't
 # override a user setting.
