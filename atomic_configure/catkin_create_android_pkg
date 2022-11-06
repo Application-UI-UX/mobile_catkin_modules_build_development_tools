@@ -3,7 +3,7 @@
 # generated from catkin/cmake/template/script.py.in
 # creates a relay to a python script source file, acting as that file.
 # The purpose is that of a symlink
-python_script = '/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosjava_build_tools/scripts/catkin_create_android_pkg'
+python_script = '/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/scripts/catkin_create_android_pkg'
 with open(python_script, 'r') as fh:
     context = {
         '__builtins__': __builtins__,
