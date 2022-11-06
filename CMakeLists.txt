@@ -10,7 +10,7 @@ project(rosmobile_build_tools)
 ##############################################################################
 
 find_package(catkin REQUIRED)
-catkin_package(CFG_EXTRAS rosmobile.cmake)
+catkin_package(rosmobile.cmake)
 
 catkin_python_setup()
 catkin_add_env_hooks(15.rosmobile SHELLS bash DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)

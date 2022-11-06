@@ -137,7 +137,7 @@ Changelog
 0.1.14 [2013-09-13]
 ===================
 
-* Swtich to rosjava_build_tools.
+* Swtich to rosmobile_build_tools.
 
 0.1.13 [2013-09-10]
 ===================

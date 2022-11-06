@@ -48,3 +48,5 @@ libglu1
 libqt5widgets5 
 openjdk-8-jdk 
 xvfb
+python3-dev
+python-dev

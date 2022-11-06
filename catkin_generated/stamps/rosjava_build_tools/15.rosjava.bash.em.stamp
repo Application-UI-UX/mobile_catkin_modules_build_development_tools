@@ -3,7 +3,7 @@
 @[if DEVELSPACE]@
 SCRIPT=@(CMAKE_CURRENT_SOURCE_DIR)/generate_environment_variables.py
 @[else]@
-SCRIPT=@(CMAKE_INSTALL_PREFIX)/share/rosjava_build_tools/generate_environment_variables.py
+SCRIPT=@(CMAKE_INSTALL_PREFIX)/share/rosmobile_build_tools/generate_environment_variables.py
 @[end if]@
 
 export ROS_MAVEN_PATH="`python ${SCRIPT} --maven-path`"

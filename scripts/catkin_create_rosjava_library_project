@@ -9,8 +9,8 @@
 from __future__ import print_function
 import sys
 
-from rosjava_build_tools import create_rosjava_library_project
-import rosjava_build_tools.console as console
+from rosmobile_build_tools import create_rosjava_library_project
+import rosmobile_build_tools.console as console
 
 ##############################################################################
 # Main
