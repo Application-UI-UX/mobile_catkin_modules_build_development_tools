@@ -129,58 +129,71 @@ file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES "/home/ronaldsonbellande-h
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/catkin_generated/installspace/rosmobile_build_tools.pc")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosmobile_build_tools/cmake" TYPE FILE FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/catkin_generated/installspace/rosjava.cmake")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosmobile_build_tools/cmake" TYPE FILE FILES
-    "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/catkin_generated/installspace/rosmobile_build_toolsConfig.cmake"
-    "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/catkin_generated/installspace/rosmobile_build_toolsConfig-version.cmake"
-    )
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosmobile_build_tools" TYPE FILE FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/package.xml")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   include("/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/catkin_generated/safe_execute_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/etc/catkin/profile.d" TYPE FILE FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/catkin_generated/installspace/15.rosjava.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/etc/catkin/profile.d" TYPE FILE FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/catkin_generated/installspace/15.rosmobile.bash")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosmobile_build_tools/catkin_env_hook" TYPE FILE FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/catkin_generated/installspace/15.rosjava.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosmobile_build_tools/catkin_env_hook" TYPE FILE FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/catkin_generated/installspace/15.rosmobile.bash")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/etc/catkin/profile.d" TYPE FILE FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/catkin_generated/installspace/15.rosjava.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/etc/catkin/profile.d" TYPE FILE FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/catkin_generated/installspace/15.rosmobile.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosmobile_build_tools/catkin_env_hook" TYPE FILE FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/catkin_generated/installspace/15.rosjava.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosmobile_build_tools/catkin_env_hook" TYPE FILE FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/catkin_generated/installspace/15.rosmobile.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/rosmobile_build_tools/gradle" TYPE PROGRAM FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/src/rosmobile_build_tools/gradle/gradlew")
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/gradle/gradlew")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+file(INSTALL DESTINATION "/gradle" TYPE PROGRAM FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/src/rosmobile_build_tools/gradle/gradlew")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/rosmobile_build_tools/gradle" TYPE DIRECTORY FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/src/rosmobile_build_tools/gradle/gradle")
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/gradle/gradle")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+file(INSTALL DESTINATION "/gradle" TYPE DIRECTORY FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/src/rosmobile_build_tools/gradle/gradle")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosmobile_build_tools" TYPE PROGRAM FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/generate_environment_variables.py")
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/python/generate_environment_variables.py")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+file(INSTALL DESTINATION "/python" TYPE PROGRAM FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/generate_environment_variables.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rosmobile_build_tools" TYPE FILE FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/LICENSE")
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/python/LICENSE")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+file(INSTALL DESTINATION "/python" TYPE FILE FILES "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/LICENSE")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
