@@ -1,4 +1,4 @@
-## RosJava BuildTools
+## RosMobile BuildTools
 
 Updated Version [rosmobile_build_tools](https://github.com/Application-UI-UX/rosmobile_build_tools) readme.
 
@@ -47,7 +47,6 @@ require a rebuild of this package:
 
 ### Maintainer
 * Ronaldson Bellande
-
 
 ## License
 This SDK is distributed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0), see [LICENSE](https://github.com/Application-UI-UX/rosmobile_build_tools/blob/master/LICENSE) and [NOTICE](https://github.com/Application-UI-UX/rosmobile_build_tools/blob/master/LICENSE) for more information.
