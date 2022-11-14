@@ -10,7 +10,7 @@ project(rosmobile_build_tools)
 ##############################################################################
 
 find_package(catkin REQUIRED)
-catkin_package(rosmobile.cmake)
+# catkin_package(CFG_EXTRAS rosmobile.cmake)
 
 catkin_python_setup()
 catkin_add_env_hooks(15.rosmobile SHELLS bash DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
@@ -34,12 +34,12 @@ install(
 
 install(
   PROGRAMS generate_environment_variables.py
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/python
 )
 
 install(
   FILES LICENSE
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/python
 )
 
 set(ROS_MAVEN_DEPLOYMENT_REPOSITORY $ENV{ROS_MAVEN_DEPLOYMENT_REPOSITORY})
