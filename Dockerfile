@@ -75,4 +75,4 @@ RUN ln -s /studio-data/profile/java .java
 RUN ln -s /studio-data/profile/gradle .gradle
 ENV ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 
-CMD ["bash"]
+CMD ["gradle"]
