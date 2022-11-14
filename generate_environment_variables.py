@@ -49,11 +49,6 @@ if __name__ == '__main__':
             if repo in [os.path.join(w, 'share', 'maven') for w in workspaces]:
                 repo = os.path.join(workspaces[0], 'share', 'maven')
         print(repo)
-    elif args.maven_repository:
-        repo = get_environment_variable(environment_variables, 'ROS_MAVEN_REPOSITORY')
-        if repo is None:
-            repo = 'https://github.com/rosjava/rosjava_mvn_repo/raw/master'
-        print(repo)
     elif args.maven_path:
         new_maven_paths = [os.path.join(path, 'share', 'maven') for path in workspaces]
         maven_paths = get_environment_variable(environment_variables, 'ROS_MAVEN_PATH')
