@@ -6,7 +6,7 @@ import argparse
 CATKIN_MARKER_FILE = '.catkin'
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description='Generate environment variables for the rosjava maven environment.')
+    parser = argparse.ArgumentParser(description='Generate environment variables for the rosmobile maven environment.')
     cmd_group = parser.add_mutually_exclusive_group()
     cmd_group.add_argument('-d', '--maven-deployment-repository', action='store_true', help='Return the current devel workspace maven directory.')
     cmd_group.add_argument('-r', '--maven-repository', action='store_true', help='The url to the external ros maven repository.')

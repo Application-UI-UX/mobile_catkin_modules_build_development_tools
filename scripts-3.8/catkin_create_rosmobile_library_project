@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+
+"""This script creates the skeleton of a rosmobile library project"""
+
+##############################################################################
+# Imports
+##############################################################################
+
+from __future__ import print_function
+import sys
+
+from rosmobile_build_tools import create_rosmobile_library_project
+import rosmobile_build_tools.console as console
+
+##############################################################################
+# Main
+##############################################################################
+
+if __name__ == "__main__":
+    try:
+        sys.exit(create_rosmobile_library_project())
+    except Exception as e:
+        console.logerror("%s : %s" % (str(e), type(e)))
+        sys.exit(1)

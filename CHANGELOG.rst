@@ -36,7 +36,7 @@ Changelog
 
 0.2.3 (2015-03-01)
 ------------------
-* publically expose the rosjava environment setup (for genjava).
+* publically expose the rosmobile environment setup (for genjava).
 * Contributors: Daniel Stonier
 
 0.2.2 (2015-02-25)
@@ -72,8 +72,8 @@ Changelog
 
 0.1.31 [2014-02-03]
 ===================
-* separate app and library catkin_create_rosjava_xxx_project scripts.
-* app rosjava project integration with catkin_make (i.e. cmake-gradle targets).
+* separate app and library catkin_create_rosmobile_xxx_project scripts.
+* app rosmobile project integration with catkin_make (i.e. cmake-gradle targets).
 
 0.1.30 [2013-12-26]
 ===================
@@ -106,27 +106,27 @@ Changelog
 0.1.24 [2013-10-04]
 ===================
 
-* bugfix for missing catkin_create_rosjava_xxx templates.
+* bugfix for missing catkin_create_rosmobile_xxx templates.
 
 0.1.17-23 [2013-09-26]
 ======================
 
-* catkin_create_rosjava_xxx scripts added.
+* catkin_create_rosmobile_xxx scripts added.
 
 
 0.1.17-22 [2013-09-23]
 ======================
 
 * Use GRADLE_USER_HOME only when creating binaries.
-* Use maven-publish for publishing rosjava packages
+* Use maven-publish for publishing rosmobile packages
 * Catkin-gradle environment variable bugfixes.
-* Allow user environment variables to override automatic rosjava settings.
+* Allow user environment variables to override automatic rosmobile settings.
 * Add install rule for environemnt generation script.
 
 0.1.16 [2013-09-17]
 ===================
 
-* Fix rosjava environment hooks so they work in chained workspaces.
+* Fix rosmobile environment hooks so they work in chained workspaces.
 * Bring the gradle user home into the development workspace as well (fix build farm problems).
 
 0.1.15 [2013-09-13]
@@ -152,7 +152,7 @@ Changelog
 0.1.11 [2013-09-01]
 ===================
 
-* Redirect maven repos from robotbrain->rosjava for template scripts.
+* Redirect maven repos from robotbrain->rosmobile for template scripts.
 
 0.1.10 [2013-08-14]
 ===================
@@ -183,7 +183,7 @@ Changelog
 0.1.5 [2013-06-10]
 ==================
 
-* Bugfix rosjava install targets
+* Bugfix rosmobile install targets
 
 0.1.4 [2013-06-10]
 ==================
