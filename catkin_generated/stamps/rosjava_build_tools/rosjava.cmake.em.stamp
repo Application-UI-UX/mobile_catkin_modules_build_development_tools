@@ -46,7 +46,7 @@ endmacro()
 # CATKIN_ENV won't have any configuration, so we need some incoming here.
 # Note that we check for the variable existence as well so we don't
 # override a user setting.
-macro(catkin_rosjava_env_setup)
+macro(catkin_rosmobile_env_setup)
   set(ROS_GRADLE_VERBOSE $ENV{ROS_GRADLE_VERBOSE})
   set(ROS_MAVEN_DEPLOYMENT_REPOSITORY $ENV{ROS_MAVEN_DEPLOYMENT_REPOSITORY})
   set(ROS_MAVEN_REPOSITORY $ENV{ROS_MAVEN_REPOSITORY})
@@ -56,7 +56,7 @@ macro(catkin_rosjava_env_setup)
     set(ROSJAVA_ENV "ROS_MAVEN_DEPLOYMENT_REPOSITORY=${ROS_MAVEN_DEPLOYMENT_REPOSITORY}")
   endif()
   if(NOT ROS_MAVEN_REPOSITORY)
-    list(APPEND ROSJAVA_ENV "ROS_MAVEN_REPOSITORY=https://github.com/rosjava/rosjava_mvn_repo/raw/master")
+    list(APPEND ROSJAVA_ENV "ROS_MAVEN_REPOSITORY=https://github.com/rosmobile/rosmobile_mvn_repo/raw/master")
   else()
     set(ROSJAVA_ENV "ROS_MAVEN_REPOSITORY=${ROS_MAVEN_REPOSITORY}")
   endif()
@@ -71,8 +71,8 @@ endmacro()
 ##############################################################################
 # Calls the gradle wrapper to compile just the package
 # that it is called in with install and installDist targets.
-macro(catkin_rosjava_setup)
-  catkin_rosjava_env_setup()
+macro(catkin_rosmobile_setup)
+  catkin_rosmobile_env_setup()
   find_gradle()
   if(${ARGC} EQUAL 0)
     return() # Nothing to do (typically no subprojects created yet)
@@ -128,7 +128,7 @@ endmacro()
 # It checks the build type and determines whether it should run
 # assembleDebug or assembleRelease
 macro(catkin_android_setup)
-  catkin_rosjava_env_setup()
+  catkin_rosmobile_env_setup()
   find_gradle()
   if(${ARGC} EQUAL 0)
     return() # Nothing to do (typically no subprojects created yet)

@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(rosmobile_build_tools_EXPORTED_TARGETS ${${rosmobile_build_tools_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "rosjava.cmake")
+set(pkg_cfg_extras "rosmobile.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${rosmobile_build_tools_DIR}/${extra})
