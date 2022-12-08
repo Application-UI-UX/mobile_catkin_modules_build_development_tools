@@ -23,8 +23,8 @@ mainClassName = 'org.ros.RosRun'
    1) dependencies from another project in this gradle stack.
    2,3) open ranged dependencies from a maven repository.
 
-   Dependencies can be on external maven artifacts (such as rosjava_core
-   here) or on sibling subprojects. For rosjava maven artifact dependencies
+   Dependencies can be on external maven artifacts (such as rosmobile_core
+   here) or on sibling subprojects. For rosmobile maven artifact dependencies
    it is a good idea to use open ranges on to
    save continually updating these references, but it is recommended
    to restrict this to the patch version number (e.g. [0.3,0.4) will
@@ -35,7 +35,7 @@ mainClassName = 'org.ros.RosRun'
 
 dependencies {
   /* An external maven artifact dependency */
-  compile 'org.ros.rosjava_core:rosjava:[0.3,0.4)'
+  compile 'org.ros.rosmobile_core:rosmobile:[0.3,0.4)'
   /* Example of a local subproject dependency */
   /* compile project(':sibling_gradle_project') */
 }

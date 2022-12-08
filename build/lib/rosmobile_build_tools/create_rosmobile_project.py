@@ -24,7 +24,7 @@ import console
 def parse_arguments():
     argv = sys.argv[1:]
     parser = argparse.ArgumentParser(
-        description='Creates a new rosjava package based on catkin and gradle. \n')
+        description='Creates a new rosmobile package based on catkin and gradle. \n')
     parser.add_argument('name',
                         nargs=1,
                         help='The name for the package')
@@ -167,21 +167,21 @@ def add_tasks_to_cmake_setup(tasks):
         return
     with open(cmakelists_txt_path, 'r') as cmakelists_txt:
         old_contents = cmakelists_txt.read()
-        result = re.search('^catkin_rosjava_setup\(.*\)', old_contents, re.MULTILINE)
+        result = re.search('^catkin_rosmobile_setup\(.*\)', old_contents, re.MULTILINE)
         if result is None:
-            console.pretty_println("\nCouldn't find a catkin_rosjava_setup entry in the CMakeLists.txt - not adding tasks.")
+            console.pretty_println("\nCouldn't find a catkin_rosmobile_setup entry in the CMakeLists.txt - not adding tasks.")
             return
-        rosjava_setup_string = result.group(0)
+        rosmobile_setup_string = result.group(0)
         gradle_tasks = set([])
-        if rosjava_setup_string.find("publish") == -1:
+        if rosmobile_setup_string.find("publish") == -1:
             gradle_tasks.add("publish")
-        if rosjava_setup_string.find("installDist") == -1:
+        if rosmobile_setup_string.find("installDist") == -1:
             gradle_tasks.add("installDist")
         gradle_tasks |= set(tasks)
         console.pretty_print('  File      : ', console.cyan)
         console.pretty_println('CMakeLists.txt (gradle task update)', console.yellow)
-        old_text = rosjava_setup_string
-        new_text = 'catkin_rosjava_setup(' + ' '.join(gradle_tasks) + ')'
+        old_text = rosmobile_setup_string
+        new_text = 'catkin_rosmobile_setup(' + ' '.join(gradle_tasks) + ')'
         new_contents = old_contents.replace(old_text, new_text)
     with open(cmakelists_txt_path, 'w') as cmakelists_txt:
         cmakelists_txt.write(new_contents)
@@ -219,9 +219,9 @@ def ros_package_name():
     return name
 
 
-def create_rosjava_project_common(args, template_directory):
+def create_rosmobile_project_common(args, template_directory):
     project_name = args.name[0]
-    console.pretty_println("\nCreating rosjava project ", console.bold)
+    console.pretty_println("\nCreating rosmobile project ", console.bold)
     console.pretty_print("  Name      : ", console.cyan)
     console.pretty_println("%s" % project_name, console.yellow)
     utils.mkdir_p(os.path.join(os.getcwd(), project_name.lower()))
@@ -230,27 +230,27 @@ def create_rosjava_project_common(args, template_directory):
     add_to_root_gradle_settings(args.name[0])
 
 
-def create_rosjava_project():
+def create_rosmobile_project():
     args = parse_arguments()
     project_name = args.name[0]
     author = args.author
-    create_rosjava_project_common(args, 'rosjava_project')
-    create_talker_listener_classes(project_name, 'rosjava_project', author)
+    create_rosmobile_project_common(args, 'rosmobile_project')
+    create_talker_listener_classes(project_name, 'rosmobile_project', author)
     add_tasks_to_cmake_setup(['installDist', 'publish'])
 
 
-def create_rosjava_library_project():
+def create_rosmobile_library_project():
     args = parse_arguments()
     project_name = args.name[0]
-    create_rosjava_project_common(args, 'rosjava_library_project')
+    create_rosmobile_project_common(args, 'rosmobile_library_project')
     create_dummy_java_class(project_name)
     add_tasks_to_cmake_setup(['publish'])
 
 
-def create_rosjava_msg_project():
+def create_rosmobile_msg_project():
     args = parse_arguments()
     project_name = args.name[0]
-    create_rosjava_project_common(args, 'rosjava_msg_project')
+    create_rosmobile_project_common(args, 'rosmobile_msg_project')
     add_catkin_generate_tree_command()
     add_to_package_xml(project_name)
     add_tasks_to_cmake_setup(['publish'])
