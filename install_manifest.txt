@@ -15,4 +15,3 @@
 /gradle/gradle/wrapper/gradle-wrapper.properties
 /python/generate_environment_variables.py
 /python/LICENSE
-/usr/local/share/maven/rospack_nosubdirs
