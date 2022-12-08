@@ -15,7 +15,7 @@
  */
 
 /* 
- Dependencies can be on external maven artifacts (such as rosjava_core
+ Dependencies can be on external maven artifacts (such as rosmobile_core
  here) or on sibling subprojects. Fpr external maven artifact dependencies
  it's convenient to use an open ranged dependency, but restrict it to
  cover the patch version only to avoid breakages due to api changes
@@ -24,7 +24,7 @@
 
 dependencies {
   /* Example of an external maven artifact dependency */
-  /* compile 'org.ros.rosjava_core:rosjava:[0.2,)' */
+  /* compile 'org.ros.rosmobile_core:rosmobile:[0.2,)' */
   /* Example of a local subproject dependency */ 
   /* compile project(':sibling_gradle_project') */
 }
