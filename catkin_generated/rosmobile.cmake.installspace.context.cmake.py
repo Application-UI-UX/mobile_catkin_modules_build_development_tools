@@ -1,6 +1,6 @@
-# generated from catkin/cmake/template/env-hook.context.py.in
-DEVELSPACE = True
-INSTALLSPACE = False
+# generated from catkin/cmake/template/cfg-extras.context.py.in
+DEVELSPACE = 'FALSE' == 'TRUE'
+INSTALLSPACE = 'TRUE' == 'TRUE'
 
 CATKIN_DEVEL_PREFIX = '/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/devel'
 
@@ -26,8 +26,8 @@ CMAKE_CURRENT_SOURCE_DIR = '/home/ronaldsonbellande-hplaptop/Desktop/User_Interf
 CMAKE_INSTALL_PREFIX = '/usr/local'
 CMAKE_SOURCE_DIR = '/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools'
 
+PKG_CMAKE_DIR = '${rosmobile_build_tools_DIR}'
+
 PROJECT_NAME = 'rosmobile_build_tools'
 PROJECT_BINARY_DIR = '/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools'
 PROJECT_SOURCE_DIR = '/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools'
-
-PYTHON_EXECUTABLE = '/usr/bin/python3'
