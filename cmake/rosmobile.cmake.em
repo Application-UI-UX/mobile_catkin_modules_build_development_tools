@@ -51,18 +51,18 @@ macro(catkin_rosmobile_env_setup)
   set(ROS_MAVEN_DEPLOYMENT_REPOSITORY $ENV{ROS_MAVEN_DEPLOYMENT_REPOSITORY})
   set(ROS_MAVEN_REPOSITORY $ENV{ROS_MAVEN_REPOSITORY})
   if(NOT ROS_MAVEN_DEPLOYMENT_REPOSITORY)
-    set(ROSJAVA_ENV "ROS_MAVEN_DEPLOYMENT_REPOSITORY=${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_MAVEN_DESTINATION}")
+    set(ROSMOBILE_ENV "ROS_MAVEN_DEPLOYMENT_REPOSITORY=${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_MAVEN_DESTINATION}")
   else()
-    set(ROSJAVA_ENV "ROS_MAVEN_DEPLOYMENT_REPOSITORY=${ROS_MAVEN_DEPLOYMENT_REPOSITORY}")
+    set(ROSMOBILE_ENV "ROS_MAVEN_DEPLOYMENT_REPOSITORY=${ROS_MAVEN_DEPLOYMENT_REPOSITORY}")
   endif()
   if(NOT ROS_MAVEN_REPOSITORY)
-    list(APPEND ROSJAVA_ENV "ROS_MAVEN_REPOSITORY=https://github.com/rosmobile/rosmobile_mvn_repo/raw/master")
+    list(APPEND ROSMOBILE_ENV "ROS_MAVEN_REPOSITORY=https://github.com/rosmobile/rosmobile_mvn_repo/raw/master")
   else()
-    set(ROSJAVA_ENV "ROS_MAVEN_REPOSITORY=${ROS_MAVEN_REPOSITORY}")
+    set(ROSMOBILE_ENV "ROS_MAVEN_REPOSITORY=${ROS_MAVEN_REPOSITORY}")
   endif()
   # The build farm won't let you access /root/.gradle, so redirect it somewhere practical here.
   if(DEFINED CATKIN_BUILD_BINARY_PACKAGE)
-    list(APPEND ROSJAVA_ENV "GRADLE_USER_HOME=${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_GRADLE_DESTINATION}")
+    list(APPEND ROSMOBILE_ENV "GRADLE_USER_HOME=${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_GRADLE_DESTINATION}")
   endif()
 endmacro()
 
@@ -89,8 +89,8 @@ macro(catkin_rosmobile_setup)
   ###################################
   add_custom_target(
     gradle-${PROJECT_NAME} ALL
-    #COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} "env" "|" "grep" "ROS"
-    COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_options} ${gradle_tasks}
+    #COMMAND ${ROSMOBILE_ENV} ${CATKIN_ENV} "env" "|" "grep" "ROS"
+    COMMAND ${ROSMOBILE_ENV} ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_options} ${gradle_tasks}
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     VERBATIM
     COMMENT "Gradling tasks for ${PROJECT_NAME}"
@@ -138,7 +138,7 @@ macro(catkin_android_setup)
   add_custom_target(
     gradle-${PROJECT_NAME}
     ALL
-    COMMAND ${ROSJAVA_ENV} ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_tasks}
+    COMMAND ${ROSMOBILE_ENV} ${CATKIN_ENV} ${${PROJECT_NAME}_gradle_BINARY} ${gradle_tasks}
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     VERBATIM
   )
