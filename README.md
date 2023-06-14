@@ -29,11 +29,11 @@ are not trying  to replace existing more so displaying useful information to the
 
 * It is a direct dependency for rosmobile/android
 * It is a popular and stable dependency that will require little maintenance
-* Latest versions are on Application-UI-UX and it is noetic
+* Latest versions are on Application-UI-UX and it is main
 
 Then to actually add the dependency:
 
-* new release versions are noetic
+* new release versions are main
 * add the message dependency to package.xml
 * add the message dependency to CMakeLists.txt
 * create a pull request
