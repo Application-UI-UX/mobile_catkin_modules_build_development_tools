@@ -383,7 +383,7 @@ _gtest_INCLUDES:FILEPATH=/usr/include/gtest/gtest.h
 _gtest_SOURCES:FILEPATH=/usr/src/gtest/src/gtest.cc
 
 //The directory containing a CMake configuration file for catkin.
-catkin_DIR:PATH=/opt/ros/noetic/share/catkin/cmake
+catkin_DIR:PATH=/opt/ros/main/share/catkin/cmake
 
 //Value Computed by CMake
 gmock_BINARY_DIR:STATIC=/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/gtest/googlemock
