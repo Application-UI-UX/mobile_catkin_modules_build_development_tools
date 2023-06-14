@@ -14,4 +14,4 @@ export PKG_CONFIG_PATH="/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_
 export PYTHONPATH="/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/build/devel/lib/python3/dist-packages:$PYTHONPATH"
 export ROS_MAVEN_DEPLOYMENT_REPOSITORY='/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/build/devel/share/maven'
 export ROS_MAVEN_PATH="/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/build/devel/share/maven:$ROS_MAVEN_PATH"
-export ROS_PACKAGE_PATH='/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools:/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools:/opt/ros/noetic/share'
+export ROS_PACKAGE_PATH='/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools:/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools:/opt/ros/main/share'
