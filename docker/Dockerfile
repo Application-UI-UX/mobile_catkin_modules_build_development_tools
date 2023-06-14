@@ -58,15 +58,15 @@ RUN mkdir -p $CATKIN_WS/src
 WORKDIR $CATKIN_WS/src
 
 # Initialize local catkin workspace, install dependencies and build workpsace
-RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+RUN echo "source /opt/ros/main/setup.bash" >> ~/.bashrc
 RUN source ~/.bashrc
 
 RUN cd $CATKIN_WS \
   && rosdep init \
   && rosdep update \
-  && rosdep update --rosdistro noetic \
+  && rosdep update --rosdistro main \
   && rosdep fix-permissions \
-  && rosdep install -y --from-paths . --ignore-src --rosdistro noetic
+  && rosdep install -y --from-paths . --ignore-src --rosdistro main
 
 RUN ln -s /studio-data/profile/AndroidStudio$ANDROID_STUDIO_VERSION .AndroidStudio$ANDROID_STUDIO_VERSION
 RUN ln -s /studio-data/Android Android
