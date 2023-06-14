@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Exper
 include CMakeFiles/clean_test_results.dir/progress.make
 
 CMakeFiles/clean_test_results:
-	/usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/build/test_results
+	/usr/bin/python3 /opt/ros/main/share/catkin/cmake/test/remove_test_results.py /home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/build/test_results
 
 clean_test_results: CMakeFiles/clean_test_results
 clean_test_results: CMakeFiles/clean_test_results.dir/build.make
