@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: rosmobile-build-tools
+Version: 0.4.0
+Summary: Simple tools and catkin modules for rosmobile development.
+Home-page: http://ros.org/wiki/rosmobile_build_tools
+Author: Daniel Stonier, Ronaldson Bellande
+Maintainer: Ronaldson Bellande
+Maintainer-email: ronaldsonbellande@gmail.com
+License: BSD
+License-File: LICENSE
