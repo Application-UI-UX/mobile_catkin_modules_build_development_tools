@@ -1,15 +1,15 @@
 # Recomandation for dependencies for ros system
 
-ros-main-desktop-full
+ros-noetic-desktop-full
 build-essential
-ros-main-catkin
+ros-noetic-catkin
 python-rosdep
 python-rosinstall
 python-rosinstall-generator
 python-wstool
 python-catkin-tools
-ros-main-pcl-ros
-ros-main-flexbe-behavior-engine
-ros-main-moveit
-ros-main-gazebo-ros-pkgs 
-ros-main-gazebo-ros-control
+ros-noetic-pcl-ros
+ros-noetic-flexbe-behavior-engine
+ros-noetic-moveit
+ros-noetic-gazebo-ros-pkgs 
+ros-noetic-gazebo-ros-control
