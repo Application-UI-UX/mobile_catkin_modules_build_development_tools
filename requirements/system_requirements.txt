@@ -24,7 +24,7 @@ software-properties-common
 swig
 unzip
 wget
-zip
+ziear
 zlib1g-dev
 python3-distutils
 neovim
