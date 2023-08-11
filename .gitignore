@@ -6,4 +6,5 @@
 *.war
 *.ear
 init_setup.sh
+repository_recal.sh
 push.sh
