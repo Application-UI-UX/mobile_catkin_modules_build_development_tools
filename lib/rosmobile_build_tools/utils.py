@@ -17,13 +17,13 @@ import console
 
 def distro_version():
     '''
-      This code is pulled from rosversion, which unfortunately has it buried inside
+      This code is pulled from ros version, which unfortunately has it buried inside
       the script, not in the python module.
     '''
     if 'ROS_DISTRO' in os.environ:
         return os.environ['ROS_DISTRO']
     else:
-        console.error("could not determine the rosdistro")
+        console.error("could not determine the ros distro")
         sys.exit(1)
 
 
