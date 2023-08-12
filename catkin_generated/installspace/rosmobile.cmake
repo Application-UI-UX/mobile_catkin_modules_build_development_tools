@@ -67,7 +67,7 @@ macro(catkin_rosmobile_env_setup)
 endmacro()
 
 ##############################################################################
-# RosJava Package
+# RosMobile Package
 ##############################################################################
 # Calls the gradle wrapper to compile just the package
 # that it is called in with install and installDist targets.
