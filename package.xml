@@ -2,15 +2,10 @@
   <name>rosmobile_build_tools</name>
   <version>0.4.0</version>
   <description>Simple tools and catkin modules for rosmobile development.</description>
-  <author>Daniel Stonier</author>
   <author>Ronaldson Bellande</author>
   <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
 
   <license>BSD</license>
-  <url type="website">http://ros.org/wiki/rosmobile_build_tools</url>
-  <url type="repository">https://github.com/ros-java/rosmobile_build_tools</url>
-  <url type="bugtracker">https://github.com/ros-java/rosmobile_build_tools/issues</url>
-
   <buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>java</build_depend>
