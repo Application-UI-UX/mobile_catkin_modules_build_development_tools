@@ -8,3 +8,4 @@
 init_setup.sh
 repository_recal.sh
 push.sh
+publish.sh
