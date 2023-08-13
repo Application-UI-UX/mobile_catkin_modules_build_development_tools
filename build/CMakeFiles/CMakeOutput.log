@@ -74,7 +74,7 @@ GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (x86_64-linux-gnu)
 	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-Compiler executable checksum: c0c95c0b4209efec1c1892d5ff24030b
+Compiler executable checksum: c0c95c0.4.19efec1c1892d5ff24030b
 COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ea530.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
  as -v --64 -o CMakeFiles/cmTC_ea530.dir/CMakeCCompilerABI.c.o /tmp/ccO2kme5.s
 GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
@@ -153,7 +153,7 @@ Parsed C implicit link information from above output:
   ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
   ignore line: []
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
-  ignore line: [Compiler executable checksum: c0c95c0b4209efec1c1892d5ff24030b]
+  ignore line: [Compiler executable checksum: c0c95c0.4.19efec1c1892d5ff24030b]
   ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ea530.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
   ignore line: [ as -v --64 -o CMakeFiles/cmTC_ea530.dir/CMakeCCompilerABI.c.o /tmp/ccO2kme5.s]
   ignore line: [GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
