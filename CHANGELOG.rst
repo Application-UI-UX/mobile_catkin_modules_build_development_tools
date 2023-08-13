@@ -2,7 +2,7 @@
 Changelog
 ^^^^^^^^^
 
-0.4.0 (2022-05-19)
+0.4.1 (2022-05-19)
 ------------------
 * Update package.xml, CMakeList.txt for main branch
 * Update gradle and wapper to be up-to-date
@@ -58,19 +58,19 @@ Changelog
 * gradle 1.7->1.8
 * android build tools 18.1.1
 
-0.1.34 (2014-06-12)
+0.1.34 (20.4.16-12)
 ===================
 * assist rospack to speedup by ignoring the installed maven directories.
 
-0.1.33 [2014-03-19]
+0.1.33 [20.4.13-19]
 ===================
 * gradle 1.9->1.11
 
-0.1.32 [2014-02-20]
+0.1.32 [20.4.12-20]
 ===================
 * bugfix catkin_make on empty catkin_created gradle projects.
 
-0.1.31 [2014-02-03]
+0.1.31 [20.4.12-03]
 ===================
 * separate app and library catkin_create_rosmobile_xxx_project scripts.
 * app rosmobile project integration with catkin_make (i.e. cmake-gradle targets).
