@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "rosmobile_build_tools")
-set(rosmobile_build_tools_VERSION "0.4.0")
+set(rosmobile_build_tools_VERSION "0.4.1")
 set(rosmobile_build_tools_MAINTAINER "Ronaldson Bellande <ronaldsonbellande@gmail.com>")
 set(rosmobile_build_tools_PACKAGE_FORMAT "1")
 set(rosmobile_build_tools_BUILD_DEPENDS "java" "ant")

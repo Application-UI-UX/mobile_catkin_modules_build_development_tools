@@ -2,7 +2,7 @@ prefix=/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmob
 
 Name: rosmobile_build_tools
 Description: Description of rosmobile_build_tools
-Version: 0.4.0
+Version: 0.4.1
 Cflags: 
 Libs: -L${prefix}/lib 
 Requires: 
