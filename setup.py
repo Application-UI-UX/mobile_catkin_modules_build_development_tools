@@ -31,7 +31,7 @@ setup(
         # List your dependencies here
     ],
     classifiers=[
-        "License :: OSI Approved :: Apache License 2.0",
+        "License :: OSI Approved :: Apache Software License",  # Update the classifier here
         "Programming Language :: Python",
     ],
     keywords=["package", "setuptools"],
