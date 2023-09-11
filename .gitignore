@@ -9,4 +9,5 @@ init_setup.sh
 repository_recal.sh
 push.sh
 publish.sh
+ros_publish.sh
 prerelease_test.sh
