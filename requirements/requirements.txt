@@ -29,6 +29,8 @@ nvidia-ml-py3
 imgaug
 tqdm
 rosdep
+pyyaml
+ros-buildfarm
 
 protobuf==3.15.2
 numpy==1.19.2 
