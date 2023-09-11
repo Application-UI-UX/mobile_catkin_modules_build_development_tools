@@ -1,0 +1,6 @@
+rosmobile_build_tools:
+    source:
+         type: git
+         url: https://github.com/Application-UI-UX/rosmobile_build_tools
+         version: main
+    status: maintained
