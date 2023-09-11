@@ -1,5 +1,5 @@
 devel_space: /home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/devel
-install: false
+install: true
 install_space: /home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/install
 profile: default
 source_space: /home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/src
