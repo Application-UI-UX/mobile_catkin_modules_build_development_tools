@@ -2,6 +2,12 @@
 Changelog
 ^^^^^^^^^
 
+0.4.2 (2023-09-11)
+------------------
+* Fix countless bugs in the repository and recalibrate
+* Release dedicated code for maven, ros, and python 
+* Maintainer & Contributors: Ronaldson Bellande
+
 0.4.1 (2022-05-19)
 ------------------
 * Update package.xml, CMakeList.txt for main branch
@@ -53,31 +59,31 @@ Changelog
 * Contributors: Benjamin Chrétien, Daniel Stonier, Martin Pecka
 
 0.2.0 [2013-10-25]
-==================
+------------------
 * official maven style open range dependencies in templates
 * gradle 1.7->1.8
 * android build tools 18.1.1
 
-0.1.34 (20.4.16-12)
-===================
+0.1.34 (2014-26-12)
+------------------
 * assist rospack to speedup by ignoring the installed maven directories.
 
-0.1.33 [20.4.13-19]
-===================
+0.1.33 [2014-23-19]
+------------------
 * gradle 1.9->1.11
 
-0.1.32 [20.4.12-20]
-===================
+0.1.32 [2014.12-20]
+------------------
 * bugfix catkin_make on empty catkin_created gradle projects.
 
-0.1.31 [20.4.12-03]
-===================
+0.1.31 [2014.12-03]
+------------------
 * separate app and library catkin_create_rosmobile_xxx_project scripts.
 * app rosmobile project integration with catkin_make (i.e. cmake-gradle targets).
 
 0.1.30 [2013-12-26]
-===================
-* rosdistro scraping more intelligent : now checks for message_generation dependant packages
+------------------
+* rosdistro scraping more intelligent now checks for message_generation dependant packages
 * gradle 1.8->1.9 upgrade in templates
 
 0.1.29 [2013-11-08]
@@ -99,24 +105,19 @@ Changelog
 
 0.1.25 [2013-10-26]
 ===================
-
 * gradle 1.7->1.8
 * android tools 17->18.1.1
 
 0.1.24 [2013-10-04]
 ===================
-
 * bugfix for missing catkin_create_rosmobile_xxx templates.
 
 0.1.17-23 [2013-09-26]
 ======================
-
 * catkin_create_rosmobile_xxx scripts added.
-
 
 0.1.17-22 [2013-09-23]
 ======================
-
 * Use GRADLE_USER_HOME only when creating binaries.
 * Use maven-publish for publishing rosmobile packages
 * Catkin-gradle environment variable bugfixes.
@@ -131,79 +132,62 @@ Changelog
 
 0.1.15 [2013-09-13]
 ===================
-
 * Fix dependency on rosinstall-generator
 
 0.1.14 [2013-09-13]
 ===================
-
 * Swtich to rosmobile_build_tools.
 
 0.1.13 [2013-09-10]
 ===================
-
 * Ros maven repo environment preparation (bash + cmake).
 
 0.1.12 [2013-09-01]
 ===================
-
 * Add catkin dependency.
 
 0.1.11 [2013-09-01]
 ===================
-
 * Redirect maven repos from robotbrain->rosmobile for template scripts.
 
 0.1.10 [2013-08-14]
 ===================
-
 * Fix spanish encoding problems on android_create_repo.
 
 0.1.9 [2013-08-08]
 ==================
-
 * Fix install permissions for gradlew script
 
 
 0.1.8 [2013-07-15]
 ==================
-
 * Upgrade android gradle plugin to 0.5.0 (android studio 0.2.0).
 
 0.1.7 [2013-07-04]
 ==================
-
 * Bugfix to add missing gradle wrapper jar.
 
 0.1.6 [2013-06-26]
 ==================
-
 * Revert maven-publish plugin
 
 0.1.5 [2013-06-10]
 ==================
-
 * Bugfix rosmobile install targets
 
 0.1.4 [2013-06-10]
 ==================
-
 * Publish to maven local with the maven-publish plugin.
 
 0.1.3 [2013-06-04]
 ==================
-
 * Bugfix android create scripts for 1-1 repo-package style.
 
 0.1.2 [2013-06-03]
 ==================
-
 * Bugfix missing template files for the creation scripts.
 
 0.1.1 [2013-05-30]
 ==================
-
 * Cmake java and android helpers
 * Android catkin_create_repo/pkg/library creation scripts.
-
-

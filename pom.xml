@@ -5,7 +5,7 @@
 
   <groupId>com.github.Application-UI-UX</groupId>
   <artifactId>rosmobile_build_tools</artifactId>
-  <version>0.4.1</version>
+  <version>0.4.2</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -46,7 +46,7 @@
     <connection>scm:git:https://github.com/Application-UI-UX/rosmobile_build_tools.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/Application-UI-UX/rosmobile_build_tools.git</developerConnection>
     <url>https://github.com/Application-UI-UX/rosmobile_build_tools</url>
-    <tag>rosmobile_build_tools-0.4.1</tag>
+    <tag>rosmobile_build_tools-0.4.2</tag>
   </scm>
 
   <build>

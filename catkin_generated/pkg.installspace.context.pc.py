@@ -5,4 +5,4 @@ PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "rosmobile_build_tools"
 PROJECT_SPACE_DIR = "/usr/local"
-PROJECT_VERSION = "0.4.1"
+PROJECT_VERSION = "0.4.2"
