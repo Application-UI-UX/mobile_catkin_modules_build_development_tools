@@ -1,0 +1,20 @@
+# ROS Crystal Distribution File
+# This file defines the ROS Crystal distribution.
+
+# Main distribution data
+release_name: "crystal"
+status: supported
+release_platforms:
+  - ubuntu: "bionic"
+
+# ROS 2 repositories
+repositories:
+  - name: "rosmobile_build_tools"
+    version: "main"
+    release_platforms:
+      - ubuntu: "bionic"
+    source:
+      type: git
+      url: https://github.com/Application-UI-UX/rosmobile_build_tools
+      version: main
+    status: maintained

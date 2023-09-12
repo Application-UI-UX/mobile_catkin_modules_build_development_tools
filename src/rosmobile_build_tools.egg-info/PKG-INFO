@@ -1,9 +1,20 @@
 Metadata-Version: 2.1
 Name: rosmobile-build-tools
-Version: 0.4.1
-Summary: Simple tools and catkin modules for rosmobile development.
+Version: 0.4.2
+Summary: ROS Mobile Build Tools
 Author: Ronaldson Bellande
-Maintainer: Ronaldson Bellande
-Maintainer-email: ronaldsonbellande@gmail.com
-License: BSD
+Author-email: ronaldsonbellande@gmail.com
+Project-URL: Home, https://github.com/Application-UI-UX/rosmobile_build_tools
+Project-URL: Homepage, https://github.com/Application-UI-UX/rosmobile_build_tools
+Project-URL: documentation, https://github.com/Application-UI-UX/rosmobile_build_tools
+Project-URL: repository, https://github.com/Application-UI-UX/rosmobile_build_tools
+Keywords: package,setuptools
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Requires-Python: >=3.0
 License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov[all]; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: black; extra == "dev"
