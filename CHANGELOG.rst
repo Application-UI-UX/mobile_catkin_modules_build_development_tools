@@ -65,19 +65,19 @@ Changelog
 * android build tools 18.1.1
 
 0.1.34 (2014-26-12)
--------------------
+--------------------
 * assist rospack to speedup by ignoring the installed maven directories.
 
 0.1.33 [2014-23-19]
--------------------
+--------------------
 * gradle 1.9->1.11
 
 0.1.32 [2014.12-20]
--------------------
+--------------------
 * bugfix catkin_make on empty catkin_created gradle projects.
 
 0.1.31 [2014.12-03]
--------------------
+--------------------
 * separate app and library catkin_create_rosmobile_xxx_project scripts.
 * app rosmobile project integration with catkin_make (i.e. cmake-gradle targets).
 
