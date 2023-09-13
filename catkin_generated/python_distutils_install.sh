@@ -26,7 +26,7 @@ echo_and_run /usr/bin/env \
     CATKIN_BINARY_DIR="/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools" \
     "/usr/bin/python3" \
     "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools/setup.py" \
-     \
+    egg_info --egg-base /home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools \
     build --build-base "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools" \
     install \
     --root="${DESTDIR-/}" \
