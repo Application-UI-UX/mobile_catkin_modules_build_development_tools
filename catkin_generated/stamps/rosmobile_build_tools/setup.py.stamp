@@ -1,26 +1,48 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
-from catkin_pkg.python_setup import generate_distutils_setup
+from setuptools import setup, find_packages
 
-d = generate_distutils_setup(
-    packages=['rosmobile_build_tools'],
-    package_dir={'': 'src'},
-    scripts=['scripts/catkin_create_android_pkg',
-             'scripts/catkin_create_android_project',
-             'scripts/catkin_create_android_library_project',
-             'scripts/catkin_create_rosmobile_pkg',
-             'scripts/catkin_create_rosmobile_project',
-             'scripts/catkin_create_rosmobile_library_project',
-            ],
+setup(
+    name="rosmobile_build_tools",
+    version="0.4.2",  # Updated version
+    description="ROS Mobile Build Tools",
+    author="Ronaldson Bellande",
+    author_email="ronaldsonbellande@gmail.com",
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
+    scripts=[
+        'scripts/catkin_create_android_pkg',
+        'scripts/catkin_create_android_project',
+        'scripts/catkin_create_android_library_project',
+        'scripts/catkin_create_rosmobile_pkg',
+        'scripts/catkin_create_rosmobile_project',
+        'scripts/catkin_create_rosmobile_library_project',
+    ],
     package_data = {'rosmobile_build_tools': [
-           'templates/android_package/*',
-           'templates/android_project/*',
-           'templates/rosmobile_library_project/*',
-           'templates/rosmobile_package/*',
-           'templates/rosmobile_project/*',
-           'templates/init_repo/*',
-        ]},
+        'templates/android_package/*',
+        'templates/android_project/*',
+        'templates/rosmobile_library_project/*',
+        'templates/rosmobile_package/*',
+        'templates/rosmobile_project/*',
+        'templates/init_repo/*',
+    ]},
+    include_package_data=True,
+    install_requires=[
+        # List your dependencies here
+    ],
+    classifiers=[
+        "License :: OSI Approved :: Apache Software License",  # Update the classifier here
+        "Programming Language :: Python",
+    ],
+    keywords=["package", "setuptools"],
+    python_requires=">=3.0",
+    extras_require={
+        "dev": ["pytest", "pytest-cov[all]", "mypy", "black"],
+    },
+    project_urls={
+        "Home": "https://github.com/Application-UI-UX/rosmobile_build_tools",
+        "Homepage": "https://github.com/Application-UI-UX/rosmobile_build_tools",
+        "documentation": "https://github.com/Application-UI-UX/rosmobile_build_tools",
+        "repository": "https://github.com/Application-UI-UX/rosmobile_build_tools",
+    },
 )
-
-setup(**d)

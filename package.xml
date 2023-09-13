@@ -13,5 +13,4 @@
 
   <run_depend>java</run_depend>
   <run_depend>ant</run_depend>
-  <run_depend>catkin</run_depend>
 </package>
