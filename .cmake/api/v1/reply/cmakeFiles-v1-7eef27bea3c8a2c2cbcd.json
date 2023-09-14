@@ -638,8 +638,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools",
-		"source" : "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/rosmobile_build_tools"
+		"build" : "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/mobile_catkin_modules_build_development_tools",
+		"source" : "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/mobile_catkin_modules_build_development_tools"
 	},
 	"version" : 
 	{

@@ -1,0 +1,6 @@
+
+[dev]
+pytest
+pytest-cov[all]
+mypy
+black
