@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "mobile_catkin_modules_build_development_tools")
-set(mobile_catkin_modules_build_development_tools_VERSION "0.4.3")
+set(mobile_catkin_modules_build_development_tools_VERSION "0.4.4")
 set(mobile_catkin_modules_build_development_tools_MAINTAINER "Ronaldson Bellande <ronaldsonbellande@gmail.com>")
 set(mobile_catkin_modules_build_development_tools_PACKAGE_FORMAT "1")
 set(mobile_catkin_modules_build_development_tools_BUILD_DEPENDS "java" "ant")
