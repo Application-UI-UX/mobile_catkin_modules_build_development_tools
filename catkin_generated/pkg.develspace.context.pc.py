@@ -5,4 +5,4 @@ PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "mobile_catkin_modules_build_development_tools"
 PROJECT_SPACE_DIR = "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/mobile_catkin_modules_build_development_tools/devel"
-PROJECT_VERSION = "0.4.3"
+PROJECT_VERSION = "0.4.4"

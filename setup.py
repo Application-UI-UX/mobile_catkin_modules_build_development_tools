@@ -8,7 +8,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 
 setup(
     name="mobile_catkin_modules_build_development_tools",
-    version="0.4.3",  # Updated version
+    version="0.4.4",  # Updated version
     description="ROS Mobile Catkin Modules Build Development Tools",
     author="Ronaldson Bellande",
     author_email="ronaldsonbellande@gmail.com",
