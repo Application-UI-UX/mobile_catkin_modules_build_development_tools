@@ -11,8 +11,8 @@ import argparse
 import os
 import sys
 
-from rosmobile_build_tools import create_android_project
-import rosmobile_build_tools.console as console
+from mobile_catkin_modules_build_development_tools import create_android_project
+import mobile_catkin_modules_build_development_tools.console as console
 
 ##############################################################################
 # Main

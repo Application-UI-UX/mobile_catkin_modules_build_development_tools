@@ -1,0 +1,17 @@
+<package>
+  <name>mobile_catkin_modules_build_development_tools</name>
+  <version>0.4.4</version>
+  <description>Simple tools and catkin modules for rosmobile development.</description>
+  <author>Ronaldson Bellande</author>
+  <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
+
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>java</build_depend>
+  <build_depend>ant</build_depend>
+
+  <run_depend>java</run_depend>
+  <run_depend>ant</run_depend>
+  <run_depend>catkin</run_depend>
+</package>
