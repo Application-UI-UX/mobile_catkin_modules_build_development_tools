@@ -1,36 +1,33 @@
-## RosMobile BuildTools
+## ROS Mobile Catkin Modules Build Development Tools
 
 Website
---------------------------------------------------------------------------------
-https://application-ui-ux.github.io/rosmobile_build_tools/target/site/index.html
---------------------------------------------------------------------------------
-
-Updated Version [rosmobile_build_tools](https://github.com/Application-UI-UX/rosmobile_build_tools) readme.
+--------------------------------------------------------------------------------------------------------
+https://application-ui-ux.github.io/mobile_catkin_modules_build_development_tools/target/site/index.html
+--------------------------------------------------------------------------------------------------------
+Updated Version [mobile_catkin_modules_build_development_tools](https://github.com/Application-UI-UX/mobile_catkin_modules_build_development_tools) readme.
 
 Old Version [rosjava_build_tools](https://github.com/rosjava/rosjava_build_tools) readme.
 
 
-------------------------------------------------------------------------------------------
-### Instalation
-- `pip install rosmobile-build-tools `
+--------------------------------------------------------------------------------------------------------
+### Installation
+- `pip install mobile-catkin-modules-build-development-tools `
 
 ## Website
-- https://pypi.org/project/rosmobile-build-tools/
--------------------------------------------------------------------------------------------
+- https://pypi.org/project/mobile-catkin-modules-build-development-tools/
 
-
+--------------------------------------------------------------------------------------------------------
 This package is a generator of rosmobile message artifacts for core ros messages for mobile
 
 ## Important
 The repository has diverged, as the old commits and codes are under the previous License and
 the new commits and codes are under New License
 
-----
-
+--------------------------------------------------------------------------------------------------------
 Latest versions and Maintainer is on Application-UI-UX
 
 ### Building and Packaging
-The package is published in https://github.com/Application-UI-UX
+The packages is published in https://github.com/Application-UI-UX
 
 ### Adding Packages
 
@@ -64,4 +61,4 @@ require a rebuild of this package:
 * Ronaldson Bellande
 
 ## License
-This SDK is distributed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0), see [LICENSE](https://github.com/Application-UI-UX/rosmobile_build_tools/blob/master/LICENSE) and [NOTICE](https://github.com/Application-UI-UX/rosmobile_build_tools/blob/master/LICENSE) for more information.
+This SDK is distributed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0), see [LICENSE](https://github.com/Application-UI-UX/mobile_catkin_modules_build_development_tools/blob/master/LICENSE) and [NOTICE](https://github.com/Application-UI-UX/mobile_catkin_modules_build_development_tools/blob/master/LICENSE) for more information.

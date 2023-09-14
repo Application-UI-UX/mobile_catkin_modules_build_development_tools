@@ -1,0 +1,231 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.2"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						8,
+						9
+					]
+				},
+				{
+					"build" : "gtest",
+					"childIndexes" : 
+					[
+						2
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "/usr/src/googletest"
+				},
+				{
+					"build" : "gtest/googlemock",
+					"childIndexes" : 
+					[
+						3
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.6.4"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "/usr/src/googletest/googlemock",
+					"targetIndexes" : 
+					[
+						4,
+						5
+					]
+				},
+				{
+					"build" : "gtest/googletest",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.6.4"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 3,
+					"source" : "/usr/src/googletest/googletest",
+					"targetIndexes" : 
+					[
+						6,
+						7
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "mobile_catkin_modules_build_development_tools",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						8,
+						9
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "googletest-distribution",
+					"parentIndex" : 0
+				},
+				{
+					"childIndexes" : 
+					[
+						3
+					],
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "gmock",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						4,
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "gtest",
+					"parentIndex" : 2,
+					"targetIndexes" : 
+					[
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "_catkin_empty_exported_target::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-_catkin_empty_exported_target-bf0c9b596abf3dd2e37c.json",
+					"name" : "_catkin_empty_exported_target",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "clean_test_results::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-clean_test_results-772e884081167c5878b5.json",
+					"name" : "clean_test_results",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "download_extra_data::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-download_extra_data-92db061c2e838113c835.json",
+					"name" : "download_extra_data",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "doxygen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-doxygen-1e38d0b7e176f10806f5.json",
+					"name" : "doxygen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gmock::@e3f94eedc5dc07131386",
+					"jsonFile" : "target-gmock-ba9340d5e6d918511707.json",
+					"name" : "gmock",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gmock_main::@e3f94eedc5dc07131386",
+					"jsonFile" : "target-gmock_main-e7620acee45c27b3ec49.json",
+					"name" : "gmock_main",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "gtest::@b738d542747fbb7ea6e3",
+					"jsonFile" : "target-gtest-696291097a20bac48bdf.json",
+					"name" : "gtest",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "gtest_main::@b738d542747fbb7ea6e3",
+					"jsonFile" : "target-gtest_main-021eb30b0cdc914635b0.json",
+					"name" : "gtest_main",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "run_tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-run_tests-920036dd82a842c6f8ca.json",
+					"name" : "run_tests",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tests-c3df8f0c1344bd773196.json",
+					"name" : "tests",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/mobile_catkin_modules_build_development_tools",
+		"source" : "/home/ronaldsonbellande-hplaptop/Desktop/User_Interface_Experience/mobile_catkin_modules_build_development_tools"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

@@ -1,8 +1,0 @@
-prefix=/usr/local
-
-Name: rosmobile_build_tools
-Description: Description of rosmobile_build_tools
-Version: 0.4.2
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
