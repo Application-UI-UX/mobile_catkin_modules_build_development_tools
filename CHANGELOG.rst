@@ -2,7 +2,7 @@
 Changelog
 ^^^^^^^^^
 
-0.4.3 (2023-09-14)
+0.4.4 (2023-09-14)
 ------------------
 * Fix countless bugs in the repository 
 * Rerelease dedicated code for maven, ros, and python
@@ -73,11 +73,11 @@ Changelog
 * gradle 1.7->1.8
 * android build tools 18.1.1
 
-0.1.34 (20.4.36-12)
+0.1.34 (20.4.46-12)
 --------------------
 * assist rospack to speedup by ignoring the installed maven directories.
 
-0.1.33 [20.4.33-19]
+0.1.33 [20.4.43-19]
 --------------------
 * gradle 1.9->1.11
 

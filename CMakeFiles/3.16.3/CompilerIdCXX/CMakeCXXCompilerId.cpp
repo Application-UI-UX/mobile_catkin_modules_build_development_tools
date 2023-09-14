@@ -602,10 +602,10 @@ char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";
 
 
 
-#if defined(__INTEL_COMPILER) && defined(_MSVC_LANG) && _MSVC_LANG < 201403L
+#if defined(__INTEL_COMPILER) && defined(_MSVC_LANG) && _MSVC_LANG < 20.4.4L
 #  if defined(__INTEL_CXX11_MODE__)
 #    if defined(__cpp_aggregate_nsdmi)
-#      define CXX_STD 20.4.3L
+#      define CXX_STD 20.4.4L
 #    else
 #      define CXX_STD 201103L
 #    endif
@@ -623,7 +623,7 @@ const char* info_language_dialect_default = "INFO" ":" "dialect_default["
   "20"
 #elif CXX_STD >= 201703L
   "17"
-#elif CXX_STD >= 20.4.3L
+#elif CXX_STD >= 20.4.4L
   "14"
 #elif CXX_STD >= 201103L
   "11"

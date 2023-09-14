@@ -5,7 +5,7 @@
 
   <groupId>com.github.Application-UI-UX</groupId>
   <artifactId>mobile_catkin_modules_build_development_tools</artifactId>
-  <version>0.4.3</version>
+  <version>0.4.4</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -46,7 +46,7 @@
     <connection>scm:git:https://github.com/Application-UI-UX/mobile_catkin_modules_build_development_tools.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/Application-UI-UX/mobile_catkin_modules_build_development_tools.git</developerConnection>
     <url>https://github.com/Application-UI-UX/mobile_catkin_modules_build_development_tools</url>
-    <tag>mobile_catkin_modules_build_development_tools-0.4.3</tag>
+    <tag>mobile_catkin_modules_build_development_tools-0.4.4</tag>
   </scm>
 
   <build>
