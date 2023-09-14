@@ -4,7 +4,6 @@ Website
 --------------------------------------------------------------------------------------------------------
 https://application-ui-ux.github.io/mobile_catkin_modules_build_development_tools/target/site/index.html
 --------------------------------------------------------------------------------------------------------
-
 Updated Version [mobile_catkin_modules_build_development_tools](https://github.com/Application-UI-UX/mobile_catkin_modules_build_development_tools) readme.
 
 Old Version [rosjava_build_tools](https://github.com/rosjava/rosjava_build_tools) readme.
@@ -16,9 +15,8 @@ Old Version [rosjava_build_tools](https://github.com/rosjava/rosjava_build_tools
 
 ## Website
 - https://pypi.org/project/mobile-catkin-modules-build-development-tools/
+
 --------------------------------------------------------------------------------------------------------
-
-
 This package is a generator of rosmobile message artifacts for core ros messages for mobile
 
 ## Important
