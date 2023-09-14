@@ -9,7 +9,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 setup(
     name="mobile_catkin_modules_build_development_tools",
     version="0.4.3",  # Updated version
-    description="ROS Mobile Build Tools",
+    description="ROS Mobile Catkin Modules Build Development Tools",
     author="Ronaldson Bellande",
     author_email="ronaldsonbellande@gmail.com",
     long_description=long_description,  # Use the README.md contents as long description
