@@ -1,10 +1,16 @@
 *.class
 *.pyc
 
+# Folders
+build
+devel
+
 # Package Files #
 *.jar
 *.war
 *.ear
+
+# Scripts
 init_setup.sh
 repository_recal.sh
 push.sh
