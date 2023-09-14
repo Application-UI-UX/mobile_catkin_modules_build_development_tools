@@ -2,11 +2,20 @@
 Changelog
 ^^^^^^^^^
 
+0.4.3 (2023-09-14)
+------------------
+* Fix countless bugs in the repository 
+* Rerelease dedicated code for maven, ros, and python
+* Change name for more discriptions a take down old publish namees
+* Make repository compatible with ROS2 and will now be compatible for ROS1 and ROS2
+* Upgrade version of all builds and make it more compatible
+* Maintainer & Contributors & Aurthor: Ronaldson Bellande
+
 0.4.2 (2023-09-11)
 ------------------
 * Fix countless bugs in the repository and recalibrate
 * Release dedicated code for maven, ros, and python 
-* Maintainer & Contributors: Ronaldson Bellande
+* Maintainer & Contributors & Aurthor: Ronaldson Bellande
 
 0.4.1 (2022-05-19)
 ------------------
@@ -14,7 +23,7 @@ Changelog
 * Update gradle and wapper to be up-to-date
 * Fix Bugs that has to do with the gradle building
 * Release version in github for easy access when building project
-* Contributors: Ronaldson Bellande
+* Maintainer & Contributors & Aurthor: Ronaldson Bellande
 
 0.3.3 (2019-01-17)
 ------------------
@@ -64,11 +73,11 @@ Changelog
 * gradle 1.7->1.8
 * android build tools 18.1.1
 
-0.1.34 (2014-26-12)
+0.1.34 (20.4.36-12)
 --------------------
 * assist rospack to speedup by ignoring the installed maven directories.
 
-0.1.33 [2014-23-19]
+0.1.33 [20.4.33-19]
 --------------------
 * gradle 1.9->1.11
 
