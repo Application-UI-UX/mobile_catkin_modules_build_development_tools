@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+
+"""This script creates the skeleton of a rosmobile catkin package (typically an entire repo)"""
+
+##############################################################################
+# Imports
+##############################################################################
+
+from __future__ import print_function
+import argparse
+import os
+import sys
+
+from mobile_catkin_modules_build_development_tools import init_rosmobile_package
+import mobile_catkin_modules_build_development_tools.console as console
+
+##############################################################################
+# Main
+##############################################################################
+
+if __name__ == "__main__":
+    try:
+        sys.exit(init_rosmobile_package())
+    except Exception as e:
+        console.logerror("%s : %s" % (str(e), type(e)))
+        sys.exit(1)

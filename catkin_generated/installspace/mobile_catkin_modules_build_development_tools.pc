@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: mobile_catkin_modules_build_development_tools
+Description: Description of mobile_catkin_modules_build_development_tools
+Version: 0.4.4
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

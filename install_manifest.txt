@@ -1,0 +1,17 @@
+/usr/local/_setup_util.py
+/usr/local/env.sh
+/usr/local/setup.bash
+/usr/local/local_setup.bash
+/usr/local/setup.sh
+/usr/local/local_setup.sh
+/usr/local/setup.zsh
+/usr/local/local_setup.zsh
+/usr/local/.rosinstall
+/usr/local/etc/catkin/profile.d/15.rosmobile.bash
+/usr/local/share/mobile_catkin_modules_build_development_tools/catkin_env_hook/15.rosmobile.bash
+/usr/local/etc/catkin/profile.d/15.rosmobile.sh
+/usr/local/share/mobile_catkin_modules_build_development_tools/catkin_env_hook/15.rosmobile.sh
+/gradle/gradlew
+/gradle/gradle/wrapper/gradle-wrapper.properties
+/python/generate_environment_variables.py
+/python/LICENSE
