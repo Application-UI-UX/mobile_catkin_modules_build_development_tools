@@ -2,12 +2,19 @@
 # CMake
 ##############################################################################
 
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.5)
 project(mobile_catkin_modules_build_development_tools)
 
 ##############################################################################
 # Catkin
 ##############################################################################
+
+# Find ROS
+if($ENV{ROS_VERSION} EQUAL 1)
+  find_package(catkin REQUIRED)
+else()
+  find_package(ament_cmake REQUIRED)
+endif()
 
 find_package(catkin REQUIRED)
 # catkin_package(CFG_EXTRAS rosmobile.cmake)
