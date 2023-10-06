@@ -19,7 +19,7 @@ task wrapper(type: Wrapper) {
 }
 
 buildscript {
-    apply from: "https://github.com/rosmobile/android_core/raw/kinetic/buildscript.gradle"
+    apply from: "https://github.com/mobile_catkin_modules_build_development_tools/android_core/raw/kinetic/buildscript.gradle"
 }
 
 apply plugin: 'catkin'
@@ -27,7 +27,7 @@ apply plugin: 'catkin'
 
 allprojects {
     /* A github url provides a good standard unique name for your project */
-    group 'com.github.rosmobile.%(repo_name)s'
+    group 'com.github.mobile_catkin_modules_build_development_tools.%(repo_name)s'
     version = project.catkin.pkg.version
 }
 
@@ -42,11 +42,11 @@ subprojects {
      *
      * To modify, or add repos to the default external maven repositories list, pull request against this code:
      *
-     *   https://github.com/rosmobile/rosmobile_bootstrap/blob/kinetic/gradle_plugins/src/main/groovy/org/ros/gradle_plugins/RosPlugin.groovy#L31
+     *   https://github.com/mobile_catkin_modules_build_development_tools/mobile_catkin_modules_build_development_tools_bootstrap/blob/kinetic/gradle_plugins/src/main/groovy/org/ros/gradle_plugins/RosPlugin.groovy#L31
      *
      * To modify the build tools version, pull request against this code:
      *
-     *   https://github.com/rosmobile/rosmobile_bootstrap/blob/kinetic/gradle_plugins/src/main/groovy/org/ros/gradle_plugins/RosAndroid.groovy#L14
+     *   https://github.com/mobile_catkin_modules_build_development_tools/mobile_catkin_modules_build_development_tools_bootstrap/blob/kinetic/gradle_plugins/src/main/groovy/org/ros/gradle_plugins/RosAndroid.groovy#L14
      */
     apply plugin: 'ros-android'
 

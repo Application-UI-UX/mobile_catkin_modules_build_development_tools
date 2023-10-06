@@ -1,7 +1,7 @@
 <package>
   <name>mobile_catkin_modules_build_development_tools</name>
   <version>0.4.4</version>
-  <description>Simple tools and catkin modules for rosmobile development.</description>
+  <description>Simple tools and catkin modules for mobile_catkin_modules_build_development_tools development.</description>
   <author>Ronaldson Bellande</author>
   <maintainer email="ronaldsonbellande@gmail.com">Ronaldson Bellande</maintainer>
 

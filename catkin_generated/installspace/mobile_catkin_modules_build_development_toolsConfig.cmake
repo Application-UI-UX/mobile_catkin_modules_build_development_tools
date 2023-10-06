@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(mobile_catkin_modules_build_development_tools_EXPORTED_TARGETS ${${mobile_catkin_modules_build_development_tools_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "rosmobile.cmake")
+set(pkg_cfg_extras "mobile_catkin_modules_build_development_tools.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${mobile_catkin_modules_build_development_tools_DIR}/${extra})

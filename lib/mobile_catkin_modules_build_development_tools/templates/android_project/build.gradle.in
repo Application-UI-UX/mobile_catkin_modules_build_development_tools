@@ -31,8 +31,8 @@ dependencies {
   compile project(':local_android_library_dependency')
   compile 'org.ros.android_core:android_10:[0.3,0.4)'
   compile 'org.ros.android_core:android_15:[0.3,0.4)'
-  compile 'com.github.rosmobile.android_extras:gingerbread:[0.3,0.4)'
-  compile 'org.ros.rosmobile_messages:tf2_msgs:[0.5,0.6)'
+  compile 'com.github.mobile_catkin_modules_build_development_tools.android_extras:gingerbread:[0.3,0.4)'
+  compile 'org.ros.mobile_catkin_modules_build_development_tools_messages:tf2_msgs:[0.5,0.6)'
 }
 */
 

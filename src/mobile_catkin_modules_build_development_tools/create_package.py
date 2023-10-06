@@ -23,7 +23,7 @@ import console
 def parse_arguments():
     argv = sys.argv[1:]
     parser = argparse.ArgumentParser(
-        description='Creates a new rosmobile/android repository based on catkin and gradle. \n\nNote that the path you provide will become the maven group for your repo.\n')
+        description='Creates a new mobile_catkin_modules_build_development_tools/android repository based on catkin and gradle. \n\nNote that the path you provide will become the maven group for your repo.\n')
     parser.add_argument('path', nargs='?', default=os.getcwd(), help='path to the repository you wish to create (must not exist beforehand).')
     parser.add_argument('dependencies',
                         nargs='*',
@@ -162,8 +162,8 @@ def init_package(package_type):
         raise
 
 
-def init_rosmobile_package():
-    init_package('rosmobile_package')
+def init_mobile_catkin_modules_build_development_tools_package():
+    init_package('mobile_catkin_modules_build_development_tools_package')
 
 
 def init_android_package():
