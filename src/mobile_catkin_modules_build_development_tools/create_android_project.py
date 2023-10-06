@@ -35,15 +35,15 @@ def parse_arguments():
                         help='Android sdk version [15]')
     parser.add_argument('-p', '--android-package-name',
                         action='store',
-                        default='com.github.rosmobile.android.pkg_name',
-                        help='Android package name (e.g. com.github.rosmobile.android.pkg_name)')
+                        default='com.github.mobile_catkin_modules_build_development_tools.android.pkg_name',
+                        help='Android package name (e.g. com.github.mobile_catkin_modules_build_development_tools.android.pkg_name)')
     parser.add_argument('-a', '--author',
                         action='store',
                         default=utils.author_name(),
                         help='A single author, may be used multiple times')
     args = parser.parse_args(argv)
-    if args.android_package_name == "com.github.rosmobile.android.pkg_name":
-        args.android_package_name = "com.github.rosmobile.android.%s" % args.name[0].lower()
+    if args.android_package_name == "com.github.mobile_catkin_modules_build_development_tools.android.pkg_name":
+        args.android_package_name = "com.github.mobile_catkin_modules_build_development_tools.android.%s" % args.name[0].lower()
     return args
 
 

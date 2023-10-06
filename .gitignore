@@ -4,6 +4,8 @@
 # Folders
 build
 devel
+install
+log
 dist
 
 # Package Files #

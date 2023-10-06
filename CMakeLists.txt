@@ -1,13 +1,5 @@
-##############################################################################
-# CMake
-##############################################################################
-
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.8)
 project(mobile_catkin_modules_build_development_tools)
-
-##############################################################################
-# Catkin
-##############################################################################
 
 # Find ROS
 if($ENV{ROS_VERSION} EQUAL 1)
@@ -16,16 +8,16 @@ else()
   find_package(ament_cmake REQUIRED)
 endif()
 
-find_package(catkin REQUIRED)
-# catkin_package(CFG_EXTRAS rosmobile.cmake)
+# catkin_package(CFG_EXTRAS mobile_catkin_modules_build_development_tools.cmake)
+
+if($ENV{ROS_VERSION} EQUAL 1)
+  catkin_package()
+endif()
 
 catkin_python_setup()
-catkin_add_env_hooks(15.rosmobile SHELLS bash DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
-catkin_add_env_hooks(15.rosmobile SHELLS sh DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
+catkin_add_env_hooks(15.mobile_catkin_modules_build_development_tools SHELLS bash DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
+catkin_add_env_hooks(15.mobile_catkin_modules_build_development_tools SHELLS sh DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
 
-##############################################################################
-# Project Settings
-##############################################################################
 
 # Have to install gradle here so we can retain executable permissions
 # If we do via setup.py with the data subsection, it loses permissions
