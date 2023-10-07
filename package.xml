@@ -17,8 +17,8 @@
   <build_export_depend condition="$ROS_VERSION == 1">java</build_export_depend>
   <build_export_depend condition="$ROS_VERSION == 1">ant</build_export_depend>
 
-  <build_export_depend condition="$ROS_VERSION == 1">java</build_export_depend>
-  <build_export_depend condition="$ROS_VERSION == 1">ant</build_export_depend>
+  <exec_depend condition="$ROS_VERSION == 1">java</exec_depend>
+  <exec_depend condition="$ROS_VERSION == 1">ant</exec_depend>
 
 
   <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
@@ -29,8 +29,8 @@
   <build_export_depend condition="$ROS_VERSION == 2">java</build_export_depend>
   <build_export_depend condition="$ROS_VERSION == 2">ant</build_export_depend>
 
-  <build_export_depend condition="$ROS_VERSION == 2">java</build_export_depend>
-  <build_export_depend condition="$ROS_VERSION == 2">ant</build_export_depend>
+  <exec_depend condition="$ROS_VERSION == 2">java</exec_depend>
+  <exec_depend condition="$ROS_VERSION == 2">ant</exec_depend>
 
 
 </package>
