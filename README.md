@@ -1,6 +1,10 @@
 ## ROS/ROS2 Mobile Catkin Modules Build Development Tools
 
-# Website
+[![Website](https://img.shields.io/badge/Visit%20our-Website-0099cc?style=for-the-badge)](https://https://application-ui-ux.github.io)
+[![Discord](https://img.shields.io/badge/Join%20our-Discord-7289DA?logo=discord&style=for-the-badge)](https://discord.gg/Yc72nd4w)
+[![Sponsor](https://img.shields.io/badge/Sponsor-Application%20UI%20UX%20Research-red?style=for-the-badge&logo=github)](https://github.com/sponsors/Application-UI-UX)
+
+# Repository Website
 --------------------------------------------------------------------------------------------------------
 https://application-ui-ux.github.io/mobile_catkin_modules_build_development_tools
 
