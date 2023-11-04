@@ -12,6 +12,11 @@ https://application-ui-ux.github.io/mobile_catkin_modules_build_development_tool
 Updated Version [mobile_catkin_modules_build_development_tools](https://github.com/Application-UI-UX/mobile_catkin_modules_build_development_tools) readme.
 Old Version [rosjava_build_tools](https://github.com/rosjava/rosjava_build_tools) readme.
 
+# Release
+
+[![Latest Release](https://img.shields.io/github/v/release/Application-UI-UX/mobile_catkin_modules_build_development_tools?style=for-the-badge&color=yellow)](https://github.com/Application-UI-UX/mobile_catkin_modules_build_development_tools/releases/)
+
+
 # Contact
 Depeding on the repository, If you are interested in accessing the complete version or other repository related to this repository, we kindly request that you reach out to the organization's director or the company behind this project. We invite you to explore the USE CASE to understand the specific terms and conditions for usage. To utilize this repository, it is imperative that you adhere to the guidelines outlined in the USE CASE. For those interested in showing their support, becoming a sponsor of the organization is an option, and detailed information can be found within the USE CASE and License documents. Furthermore, we encourage you to join our official Discord community, where you can engage with like-minded individuals, contribute to the project, and stay up-to-date with the latest developments. It's worth noting that while a fraction of research is publicly accessible, the majority remains private. To gain insights into the wealth of knowledge held by the Company or the organization's director, we recommend direct contact for more information.
 
@@ -68,7 +73,8 @@ require a rebuild of this package:
 
 # USE CASE
 --------------------------------------------------------------------------------------------------------
-* Every repository within our organization is a valuable resource that can be utilized for educational purposes by individuals who actively contribute to the repository or choose to become sponsors of the organization. For those who wish to use our services conversationally, the acquisition of a license and subscription from our company website is mandatory. This ensures that the services are appropriately compensated for their use. Additionally, for the 90% of services designated as private, acquiring a license and subscription can be facilitated through our company website. We encourage interested parties to visit our website to explore and procure the necessary licenses and subscriptions for the diverse range of services and products we offer. Your support and commitment enable us to maintain and enhance the quality of our offerings, contributing to a thriving collaborative environment.
+Every repository within our organization is a valuable resource that can be utilized for educational purposes by individuals who actively contribute to the repository or choose to become sponsors of the organization. For those who wish to use our services conversationally, the acquisition of a license and subscription from our company website is mandatory. This ensures that the services are appropriately compensated for their use. Additionally, for the 90% of services designated as private, acquiring a license and subscription can be facilitated through our company website. We encourage interested parties to visit our website to explore and procure the necessary licenses and subscriptions for the diverse range of services and products we offer. Your support and commitment enable us to maintain and enhance the quality of our offerings, contributing to a thriving collaborative environment.
+
 --------------------------------------------------------------------------------------------------------
 
 
