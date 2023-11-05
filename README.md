@@ -15,6 +15,8 @@
 [![GitHub license](https://img.shields.io/github/license/Application-UI-UX/mobile_catkin_modules_build_development_tools.svg)](https://github.com/Application-UI-UX/mobile_catkin_modules_build_development_tools/blob/main/LICENSE)
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/Application-UI-UX/mobile_catkin_modules_build_development_tools.svg)](https://github.com/Application-UI-UX/mobile_catkin_modules_build_development_tools/commits)
+[![Visitor & Github cLones](https://shields.io/badge/dynamic/json?color=2e8b57&label=Visitor%20Github%20Clones&query=$.total&url=https://api.github.com/repos/Application-UI-UX/mobile_catkin_modules_build_development_tools)](https://github.com/Application-UI-UX/mobile_catkin_modules_build_development_tools)
+
 
 # Repository Website
 --------------------------------------------------------------------------------------------------------
