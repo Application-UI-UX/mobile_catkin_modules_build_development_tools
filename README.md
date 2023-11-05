@@ -29,7 +29,6 @@ Updated Version [mobile_catkin_modules_build_development_tools](https://github.c
 Old Version [rosjava_build_tools](https://github.com/rosjava/rosjava_build_tools) readme.
 
 # Release
-
 [![Latest Release](https://img.shields.io/github/v/release/Application-UI-UX/mobile_catkin_modules_build_development_tools?style=for-the-badge&color=yellow)](https://github.com/Application-UI-UX/mobile_catkin_modules_build_development_tools/releases/)
 
 
