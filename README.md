@@ -46,7 +46,7 @@ Latest versions and Maintainer is on Application-UI-UX
 - ROS -----> [![ROS](https://img.shields.io/badge/ROS-temp-blue?style=for-the-badge)](https://temp)
 - ROS2 ----> [![ROS2](https://img.shields.io/badge/ROS2-temp-blue?style=for-the-badge)](https://temp)
 - Maven ----> [![Maven](https://img.shields.io/badge/Maven-Application--UI--UX-blue?style=for-the-badge)](https://github.com/Application-UI-UX)
-- Python ----> [![Python Package](https://img.shields.io/badge/dynamic/json?color=blue&label=Python%20Package&query=name&url=https%3A%2F%2Fpypi.org%2Fpypi%2Fmobile-catkin-modules-build-development-tools%2Fjson&style=for-the-badge)](https://pypi.org/project/mobile-catkin-modules-build-development-tools)
+- Python ----> [![Python Package](https://img.shields.io/badge/Python%20Package-mobile--catkin--modules--build--development--tools-blue?style=for-the-badge)](https://pypi.org/project/mobile-catkin-modules-build-development-tools/)
 
 ### Adding Packages
 
